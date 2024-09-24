@@ -68,7 +68,7 @@ class PrimaryButtonComponent extends StatelessWidget {
           color: borderColor ?? Colors.transparent,
           width: 1.5,
         ),
-        borderRadius: borderRadius ?? BorderRadius.circular(1000.r),
+        borderRadius: borderRadius ?? BorderRadius.circular(10.r),
         boxShadow: disableShadow != true
             ? [
                 BoxShadow(
@@ -83,8 +83,8 @@ class PrimaryButtonComponent extends StatelessWidget {
       child: TextButton(
         style: TextButton.styleFrom(
           foregroundColor: MainColors.primaryColor,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(1000.r)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
           backgroundColor: MainColors.transparentColor,
           padding: EdgeInsets.symmetric(vertical: 10.h),
         ),

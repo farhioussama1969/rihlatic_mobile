@@ -29,9 +29,7 @@ class SplashView extends GetView<SplashController> {
       body: Container(
         height: 1.sh,
         width: 1.sw,
-        decoration: BoxDecoration(
-          color: MainColors.backgroundColor(context),
-        ),
+        decoration: BoxDecoration(gradient: MainColors.primaryGradientColor),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -43,9 +41,7 @@ class SplashView extends GetView<SplashController> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      ThemeUtil.isDarkMode
-                          ? LogosAssetsConstants.appLogoLight
-                          : LogosAssetsConstants.appLogo,
+                      LogosAssetsConstants.appVectorLogo,
                       width: 300.r,
                     ),
                   ],
@@ -56,7 +52,9 @@ class SplashView extends GetView<SplashController> {
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const LoadingComponent(),
+                const LoadingComponent(
+                  color: MainColors.whiteColor,
+                ),
                 SizedBox(height: 15.h),
                 GetBuilder<ConfigController>(
                     id: GetBuildersIdsConstants.splashVersionText,
@@ -64,16 +62,11 @@ class SplashView extends GetView<SplashController> {
                         ? Text(
                             '${StringsAssetsConstants.appName} (v${logic.appVersion})',
                             style: TextStyles.mediumLabelTextStyle(context)
-                                .copyWith(),
+                                .copyWith(
+                              color: MainColors.whiteColor,
+                            ),
                           )
                         : const SizedBox.shrink()),
-                SizedBox(height: 5.h),
-                Text(
-                  StringsAssetsConstants.developedBy,
-                  style: TextStyles.smallBodyTextStyle(context).copyWith(
-                    fontFamily: FontsFamilyAssetsConstants.bold,
-                  ),
-                ),
                 SizedBox(height: 30.h),
               ],
             ),

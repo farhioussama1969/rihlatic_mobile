@@ -6,6 +6,7 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const NEW_UPDATE = _Paths.NEW_UPDATE;
   static const BANNED = _Paths.BANNED;
+  static const GET_STARTED = _Paths.GET_STARTED;
 }
 
 abstract class _Paths {
@@ -13,4 +14,5 @@ abstract class _Paths {
   static const SPLASH = '/splash';
   static const NEW_UPDATE = '/new-update';
   static const BANNED = '/banned';
+  static const GET_STARTED = '/get-started';
 }

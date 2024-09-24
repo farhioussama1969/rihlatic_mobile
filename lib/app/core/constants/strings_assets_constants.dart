@@ -52,4 +52,7 @@ static String get changeLanguage{return "change language".tr;}
 static String get deleteAccount{return "delete account".tr;}
 static String get darkMode{return "dark mode".tr;}
 static String get pleaseWait{return "please wait".tr;}
+static String get getStartedTitle{return "get started title".tr;}
+static String get getStartedDescription{return "get started description".tr;}
+static String get start{return "start".tr;}
 }

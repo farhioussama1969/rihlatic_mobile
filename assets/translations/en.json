@@ -50,6 +50,10 @@
   "change language": "Change language",
   "delete account": "delete account",
   "dark mode": "Dark mode",
-  "please wait": "Please wait"
+  "please wait": "Please wait",
+
+  "get started title": "Your Trip Starts Here",
+  "get started description": "We find you the best flight deals and travel hacks so that you can choose how to book.",
+  "start": "Start"
 
 }
