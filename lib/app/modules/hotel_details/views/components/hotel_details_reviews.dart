@@ -18,7 +18,6 @@ class HotelDetailsReviews extends StatelessWidget {
             'Reviews',
             style: TextStyles.mediumLabelTextStyle(context).copyWith(
               color: MainColors.textColor(context)!,
-              fontSize: 18.r,
             ),
             maxLines: 2,
             textAlign: TextAlign.left,
@@ -29,16 +28,14 @@ class HotelDetailsReviews extends StatelessWidget {
                 '4.5',
                 style: TextStyles.mediumLabelTextStyle(context).copyWith(
                   color: MainColors.secondColor,
-                  fontSize: 18.r,
                 ),
                 maxLines: 2,
                 textAlign: TextAlign.left,
               ),
               Text(
                 '/5',
-                style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                style: TextStyles.smallLabelTextStyle(context).copyWith(
                   color: MainColors.blackColor.withOpacity(0.6),
-                  fontSize: 12.r,
                 ),
                 textAlign: TextAlign.left,
               ),
@@ -50,18 +47,16 @@ class HotelDetailsReviews extends StatelessWidget {
                 children: [
                   Text(
                     'Very Good',
-                    style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                    style: TextStyles.smallLabelTextStyle(context).copyWith(
                       color: MainColors.secondColor,
-                      fontSize: 13.r,
                     ),
                     maxLines: 2,
                     textAlign: TextAlign.left,
                   ),
                   Text(
                     '1,005 verified reviews',
-                    style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                    style: TextStyles.smallLabelTextStyle(context).copyWith(
                       color: MainColors.blackColor.withOpacity(0.6),
-                      fontSize: 12.r,
                     ),
                     maxLines: 2,
                     textAlign: TextAlign.left,
@@ -85,17 +80,15 @@ class HotelDetailsReviews extends StatelessWidget {
                         Row(
                           children: [
                             Text('Location',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.blackColor.withOpacity(0.6),
-                                  fontSize: 12.r,
                                 )),
                             Spacer(),
                             Text('4.5',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.blackColor.withOpacity(0.6),
-                                  fontSize: 12.r,
                                 )),
                           ],
                         ),
@@ -127,17 +120,15 @@ class HotelDetailsReviews extends StatelessWidget {
                         Row(
                           children: [
                             Text('Location',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.blackColor.withOpacity(0.6),
-                                  fontSize: 12.r,
                                 )),
                             Spacer(),
                             Text('4.5',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.blackColor.withOpacity(0.6),
-                                  fontSize: 12.r,
                                 )),
                           ],
                         ),
@@ -173,17 +164,15 @@ class HotelDetailsReviews extends StatelessWidget {
                         Row(
                           children: [
                             Text('Location',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.blackColor.withOpacity(0.6),
-                                  fontSize: 12.r,
                                 )),
                             Spacer(),
                             Text('4.5',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.blackColor.withOpacity(0.6),
-                                  fontSize: 12.r,
                                 )),
                           ],
                         ),
@@ -215,17 +204,15 @@ class HotelDetailsReviews extends StatelessWidget {
                         Row(
                           children: [
                             Text('Location',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.blackColor.withOpacity(0.6),
-                                  fontSize: 12.r,
                                 )),
                             Spacer(),
                             Text('4.5',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.blackColor.withOpacity(0.6),
-                                  fontSize: 12.r,
                                 )),
                           ],
                         ),

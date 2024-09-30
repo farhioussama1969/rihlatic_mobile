@@ -21,7 +21,6 @@ class HotelDetailsSelectRoom extends StatelessWidget {
                   'Select your room',
                   style: TextStyles.mediumLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
-                    fontSize: 18.r,
                   ),
                   maxLines: 2,
                   textAlign: TextAlign.left,
@@ -40,9 +39,8 @@ class HotelDetailsSelectRoom extends StatelessWidget {
               Expanded(
                 child: Text(
                   'Rooms Presented are based on : ',
-                  style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                  style: TextStyles.mediumBodyTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!.withOpacity(0.6),
-                    fontSize: 15.r,
                   ),
                   maxLines: 2,
                   textAlign: TextAlign.left,
@@ -63,9 +61,9 @@ class HotelDetailsSelectRoom extends StatelessWidget {
                   children: [
                     Text(
                       '1 Rooms',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
-                          color: MainColors.blackColor.withOpacity(0.4),
-                          fontSize: 14.r),
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
+                        color: MainColors.blackColor.withOpacity(0.4),
+                      ),
                     ),
                     SizedBox(
                       width: 8.w,
@@ -102,9 +100,9 @@ class HotelDetailsSelectRoom extends StatelessWidget {
                   children: [
                     Text(
                       '4 Adult',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
-                          color: MainColors.blackColor.withOpacity(0.4),
-                          fontSize: 14.r),
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
+                        color: MainColors.blackColor.withOpacity(0.4),
+                      ),
                     ),
                     SizedBox(
                       width: 8.w,
@@ -141,9 +139,9 @@ class HotelDetailsSelectRoom extends StatelessWidget {
                   children: [
                     Text(
                       '5 kids',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
-                          color: MainColors.blackColor.withOpacity(0.4),
-                          fontSize: 14.r),
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
+                        color: MainColors.blackColor.withOpacity(0.4),
+                      ),
                     ),
                     SizedBox(
                       width: 8.w,

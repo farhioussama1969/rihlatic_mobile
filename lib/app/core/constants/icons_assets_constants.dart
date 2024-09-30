@@ -69,4 +69,5 @@ class IconsAssetsConstants {
   static const String readlessIcon = "assets/icons/readless.svg";
   static const String selectedIcon = "assets/icons/selected.svg";
   static const String informationIcon = "assets/icons/information.svg";
+  static const String RightarrowIcon = "assets/icons/arrow_right.svg";
 }

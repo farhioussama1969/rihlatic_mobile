@@ -20,7 +20,6 @@ class HotelDetailsDescription extends StatelessWidget {
                   'Description & Details',
                   style: TextStyles.mediumLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
-                    fontSize: 18.r,
                   ),
                   maxLines: 2,
                   textAlign: TextAlign.left,
@@ -39,9 +38,8 @@ class HotelDetailsDescription extends StatelessWidget {
               Expanded(
                 child: Text(
                   'A stay at Dream Downtown places you in the heart of New York, within a 5-minute walk of Read more...',
-                  style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                  style: TextStyles.mediumBodyTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!.withOpacity(0.6),
-                    fontSize: 12.r,
                   ),
                   maxLines: 2,
                   textAlign: TextAlign.left,

@@ -20,8 +20,9 @@ class PopulairAmenitiesComponent extends StatelessWidget {
               children: [
                 Text(
                   'Populair amenities',
-                  style: TextStyle(
-                      color: MainColors.textColor(context)!, fontSize: 15.r),
+                  style: TextStyles.smallLabelTextStyle(context).copyWith(
+                    color: MainColors.textColor(context)!,
+                  ),
                 ),
                 Spacer(),
                 Text(
@@ -45,9 +46,8 @@ class PopulairAmenitiesComponent extends StatelessWidget {
                     ),
                     Text(
                       'Restaurent',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
-                        fontSize: 14.r,
                       ),
                     ),
                   ],
@@ -64,9 +64,8 @@ class PopulairAmenitiesComponent extends StatelessWidget {
                     ),
                     Text(
                       'Coffee',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
-                        fontSize: 14.r,
                       ),
                     ),
                   ],
@@ -83,9 +82,8 @@ class PopulairAmenitiesComponent extends StatelessWidget {
                     ),
                     Text(
                       'Free Wifi',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
-                        fontSize: 14.r,
                       ),
                     ),
                   ],

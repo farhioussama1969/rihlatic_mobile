@@ -1,26 +1,22 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:rihlatic/app/core/components/images/network_image_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_comments.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_exploring.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_policy.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_services.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_description.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_gallery_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_reviews.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_select_room.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_title.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_room_properties.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_simular.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/location_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/populair_amenities_component.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../core/constants/icons_assets_constants.dart';
-import '../../../core/constants/strings_assets_constants.dart';
 import '../../../core/styles/main_colors.dart';
-import '../../../core/styles/text_styles.dart';
 import '../controllers/hotel_details_controller.dart';
 
 class HotelDetailsView extends GetView<HotelDetailsController> {
@@ -85,9 +81,30 @@ class HotelDetailsView extends GetView<HotelDetailsController> {
               SizedBox(
                 height: 20.h,
               ),
-              Container(
-                child: Column(),
+              // comments
+              const HotelDetailsComments(),
+              SizedBox(
+                height: 20.h,
               ),
+              const HotelDetailsServices(),
+              SizedBox(
+                height: 20.h,
+              ),
+              // exploring
+              const HotelDetailsExploring(),
+              SizedBox(
+                height: 20.h,
+              ),
+              // policy
+              const HotelDetailsPolicy(),
+              SizedBox(
+                height: 20.h,
+              ),
+              const HotelSimular(),
+              SizedBox(
+                height: 10,
+              ),
+              const HotelSimular(),
               SizedBox(
                 height: 30.h,
               ),

@@ -20,7 +20,6 @@ class HotelDetailsTitle extends StatelessWidget {
                   'Leonardo Hotel Barcelona Gran Via',
                   style: TextStyles.mediumLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
-                    fontSize: 18.r,
                   ),
                   maxLines: 2,
                   textAlign: TextAlign.left,
@@ -39,7 +38,7 @@ class HotelDetailsTitle extends StatelessWidget {
               Container(
                 child: Text(
                   '4.5',
-                  style: TextStyles.mediumLabelTextStyle(context)
+                  style: TextStyles.smallLabelTextStyle(context)
                       .copyWith(color: MainColors.whiteColor, fontSize: 14.r),
                 ),
                 decoration: BoxDecoration(
@@ -52,15 +51,14 @@ class HotelDetailsTitle extends StatelessWidget {
               SizedBox(width: 8.w),
               Text(
                 'Fabulous',
-                style: TextStyles.mediumLabelTextStyle(context)
+                style: TextStyles.smallLabelTextStyle(context)
                     .copyWith(color: MainColors.secondColor, fontSize: 14.r),
               ),
               SizedBox(width: 8.w),
               Text(
                 '320 reviews',
-                style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                style: TextStyles.smallLabelTextStyle(context).copyWith(
                   color: MainColors.textColor(context)!.withOpacity(0.6),
-                  fontSize: 14.r,
                 ),
               ),
             ],

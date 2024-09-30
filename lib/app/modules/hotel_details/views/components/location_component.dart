@@ -20,8 +20,9 @@ class LocationComponent extends StatelessWidget {
               children: [
                 Text(
                   'Location',
-                  style: TextStyle(
-                      color: MainColors.textColor(context)!, fontSize: 15.r),
+                  style: TextStyles.smallLabelTextStyle(context).copyWith(
+                    color: MainColors.textColor(context)!,
+                  ),
                 ),
                 Spacer(),
                 Text(
@@ -43,9 +44,8 @@ class LocationComponent extends StatelessWidget {
                 ),
                 Text(
                   'Appart City Collection Paris Gare de Lyon',
-                  style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                  style: TextStyles.smallLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!.withOpacity(0.6),
-                    fontSize: 14.r,
                   ),
                 ),
               ],
@@ -62,9 +62,8 @@ class LocationComponent extends StatelessWidget {
                 ),
                 Text(
                   'Metro: Paris-Le Bourget Airport, 10 m',
-                  style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                  style: TextStyles.smallLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!.withOpacity(0.6),
-                    fontSize: 14.r,
                   ),
                 ),
               ],

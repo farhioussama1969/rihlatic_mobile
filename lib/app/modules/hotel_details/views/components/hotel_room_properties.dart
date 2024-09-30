@@ -71,10 +71,9 @@ class _PricingContainerState extends State<PricingContainer> {
                             Expanded(
                               child: Text(
                                 'Single ocean view king bed',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallLabelTextStyle(context)
                                     .copyWith(
                                   color: MainColors.textColor(context)!,
-                                  fontSize: 15.r,
                                 ),
                                 maxLines: 2,
                                 textAlign: TextAlign.left,
@@ -106,11 +105,10 @@ class _PricingContainerState extends State<PricingContainer> {
                               ),
                               Text(
                                 '1 Queen bed',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.textColor(context)!
                                       .withOpacity(0.6),
-                                  fontSize: 14.r,
                                 ),
                               ),
                             ],
@@ -129,11 +127,10 @@ class _PricingContainerState extends State<PricingContainer> {
                               ),
                               Text(
                                 '45m² | Floor: 14-29',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.textColor(context)!
                                       .withOpacity(0.6),
-                                  fontSize: 14.r,
                                 ),
                               ),
                             ],
@@ -152,11 +149,10 @@ class _PricingContainerState extends State<PricingContainer> {
                               ),
                               Text(
                                 'Free WiFi',
-                                style: TextStyles.mediumLabelTextStyle(context)
+                                style: TextStyles.smallBodyTextStyle(context)
                                     .copyWith(
                                   color: MainColors.textColor(context)!
                                       .withOpacity(0.6),
-                                  fontSize: 14.r,
                                 ),
                               ),
                             ],
@@ -185,12 +181,10 @@ class _PricingContainerState extends State<PricingContainer> {
                               children: [
                                 Text(
                                   'US\$141',
-                                  style:
-                                      TextStyles.mediumLabelTextStyle(context)
-                                          .copyWith(
+                                  style: TextStyles.smallLabelTextStyle(context)
+                                      .copyWith(
                                     color: MainColors.textColor(context)!
                                         .withOpacity(0.35),
-                                    fontSize: 14.r,
                                     decoration: TextDecoration.lineThrough,
                                   ),
                                 ),
@@ -198,23 +192,21 @@ class _PricingContainerState extends State<PricingContainer> {
                                   children: [
                                     Text(
                                       'Per night',
-                                      style: TextStyles.mediumLabelTextStyle(
+                                      style: TextStyles.smallLabelTextStyle(
                                               context)
                                           .copyWith(
                                         color: MainColors.textColor(context)!
                                             .withOpacity(0.6),
-                                        fontSize: 14.r,
                                       ),
                                     ),
                                     SizedBox(width: 5.w),
                                     Text(
                                       'US\$141',
-                                      style: TextStyles.mediumLabelTextStyle(
+                                      style: TextStyles.smallLabelTextStyle(
                                               context)
                                           .copyWith(
                                         color: MainColors.textColor(context)!
                                             .withOpacity(1),
-                                        fontSize: 14.r,
                                       ),
                                     ),
                                   ],
@@ -232,7 +224,7 @@ class _PricingContainerState extends State<PricingContainer> {
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
               color: MainColors.textColor(context)!.withOpacity(0.15))),
-      height: 181.5.h,
+      height: 190.5.h,
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 20.w),
     );
@@ -274,11 +266,9 @@ class _PricingContainerState extends State<PricingContainer> {
                               Expanded(
                                 child: Text(
                                   'Single ocean view king bed',
-                                  style:
-                                      TextStyles.mediumLabelTextStyle(context)
-                                          .copyWith(
+                                  style: TextStyles.smallLabelTextStyle(context)
+                                      .copyWith(
                                     color: MainColors.textColor(context)!,
-                                    fontSize: 15.r,
                                   ),
                                   maxLines: 2,
                                   textAlign: TextAlign.left,
@@ -310,12 +300,10 @@ class _PricingContainerState extends State<PricingContainer> {
                                 ),
                                 Text(
                                   '1 Queen bed',
-                                  style:
-                                      TextStyles.mediumLabelTextStyle(context)
-                                          .copyWith(
+                                  style: TextStyles.smallBodyTextStyle(context)
+                                      .copyWith(
                                     color: MainColors.textColor(context)!
                                         .withOpacity(0.6),
-                                    fontSize: 14.r,
                                   ),
                                 ),
                               ],
@@ -334,12 +322,10 @@ class _PricingContainerState extends State<PricingContainer> {
                                 ),
                                 Text(
                                   '45m² | Floor: 14-29',
-                                  style:
-                                      TextStyles.mediumLabelTextStyle(context)
-                                          .copyWith(
+                                  style: TextStyles.smallBodyTextStyle(context)
+                                      .copyWith(
                                     color: MainColors.textColor(context)!
                                         .withOpacity(0.6),
-                                    fontSize: 14.r,
                                   ),
                                 ),
                               ],
@@ -358,12 +344,10 @@ class _PricingContainerState extends State<PricingContainer> {
                                 ),
                                 Text(
                                   'Free WiFi',
-                                  style:
-                                      TextStyles.mediumLabelTextStyle(context)
-                                          .copyWith(
+                                  style: TextStyles.smallBodyTextStyle(context)
+                                      .copyWith(
                                     color: MainColors.textColor(context)!
                                         .withOpacity(0.6),
-                                    fontSize: 14.r,
                                   ),
                                 ),
                               ],
@@ -376,17 +360,7 @@ class _PricingContainerState extends State<PricingContainer> {
                           child: Row(
                             children: [
                               Expanded(
-                                child: Text(
-                                  '',
-                                  style:
-                                      TextStyles.mediumLabelTextStyle(context)
-                                          .copyWith(
-                                    color: MainColors.textColor(context)!,
-                                    fontSize: 15.r,
-                                  ),
-                                  maxLines: 2,
-                                  textAlign: TextAlign.left,
-                                ),
+                                child: SizedBox(),
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -394,11 +368,10 @@ class _PricingContainerState extends State<PricingContainer> {
                                   Text(
                                     'US\$141',
                                     style:
-                                        TextStyles.mediumLabelTextStyle(context)
+                                        TextStyles.smallLabelTextStyle(context)
                                             .copyWith(
                                       color: MainColors.textColor(context)!
                                           .withOpacity(0.35),
-                                      fontSize: 14.r,
                                       decoration: TextDecoration.lineThrough,
                                     ),
                                   ),
@@ -406,23 +379,21 @@ class _PricingContainerState extends State<PricingContainer> {
                                     children: [
                                       Text(
                                         'Per night',
-                                        style: TextStyles.mediumLabelTextStyle(
+                                        style: TextStyles.smallLabelTextStyle(
                                                 context)
                                             .copyWith(
                                           color: MainColors.textColor(context)!
                                               .withOpacity(0.6),
-                                          fontSize: 14.r,
                                         ),
                                       ),
                                       SizedBox(width: 5.w),
                                       Text(
                                         'US\$141',
-                                        style: TextStyles.mediumLabelTextStyle(
+                                        style: TextStyles.smallLabelTextStyle(
                                                 context)
                                             .copyWith(
                                           color: MainColors.textColor(context)!
                                               .withOpacity(1),
-                                          fontSize: 14.r,
                                         ),
                                       ),
                                     ],
@@ -437,9 +408,6 @@ class _PricingContainerState extends State<PricingContainer> {
               ],
             ),
           ),
-          SizedBox(
-            height: 8.h,
-          ),
           Divider(
             color: MainColors.blackColor.withOpacity(0.15),
           ),
@@ -450,8 +418,9 @@ class _PricingContainerState extends State<PricingContainer> {
               children: [
                 Text(
                   '1 queen bed',
-                  style: TextStyle(
-                      color: MainColors.textColor(context)!, fontSize: 15.r),
+                  style: TextStyles.smallLabelTextStyle(context).copyWith(
+                    color: MainColors.textColor(context)!.withOpacity(1),
+                  ),
                 ),
                 SizedBox(
                   height: 10.h,
@@ -466,9 +435,8 @@ class _PricingContainerState extends State<PricingContainer> {
                     ),
                     Text(
                       'Service 1',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
-                        fontSize: 14.r,
                       ),
                     ),
                   ],
@@ -486,9 +454,8 @@ class _PricingContainerState extends State<PricingContainer> {
                     ),
                     Text(
                       'Service 2',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
-                        fontSize: 14.r,
                       ),
                     ),
                   ],
@@ -506,9 +473,8 @@ class _PricingContainerState extends State<PricingContainer> {
                     ),
                     Text(
                       'Service 3',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
-                        fontSize: 14.r,
                       ),
                     ),
                   ],
@@ -530,7 +496,7 @@ class _PricingContainerState extends State<PricingContainer> {
                   children: [
                     Text(
                       'incl. taxes',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.35),
                         fontSize: 14.r,
                       ),
@@ -545,7 +511,7 @@ class _PricingContainerState extends State<PricingContainer> {
                         Text(
                           '50100 DZD',
                           style:
-                              TextStyles.mediumLabelTextStyle(context).copyWith(
+                              TextStyles.smallLabelTextStyle(context).copyWith(
                             color:
                                 MainColors.textColor(context)!.withOpacity(1),
                             fontSize: 14.r,
@@ -581,8 +547,9 @@ class _PricingContainerState extends State<PricingContainer> {
               children: [
                 Text(
                   '1 queen bed',
-                  style: TextStyle(
-                      color: MainColors.textColor(context)!, fontSize: 15.r),
+                  style: TextStyles.smallLabelTextStyle(context).copyWith(
+                    color: MainColors.textColor(context)!.withOpacity(1),
+                  ),
                 ),
                 SizedBox(
                   height: 10.h,
@@ -597,7 +564,7 @@ class _PricingContainerState extends State<PricingContainer> {
                     ),
                     Text(
                       'Service 1',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
                         fontSize: 14.r,
                       ),
@@ -617,7 +584,7 @@ class _PricingContainerState extends State<PricingContainer> {
                     ),
                     Text(
                       'Service 2',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
                         fontSize: 14.r,
                       ),
@@ -637,7 +604,7 @@ class _PricingContainerState extends State<PricingContainer> {
                     ),
                     Text(
                       'Service 3',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.6),
                         fontSize: 14.r,
                       ),
@@ -661,7 +628,7 @@ class _PricingContainerState extends State<PricingContainer> {
                   children: [
                     Text(
                       'incl. taxes',
-                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                      style: TextStyles.smallLabelTextStyle(context).copyWith(
                         color: MainColors.textColor(context)!.withOpacity(0.35),
                         fontSize: 14.r,
                       ),
@@ -676,7 +643,7 @@ class _PricingContainerState extends State<PricingContainer> {
                         Text(
                           '50100 DZD',
                           style:
-                              TextStyles.mediumLabelTextStyle(context).copyWith(
+                              TextStyles.smallLabelTextStyle(context).copyWith(
                             color:
                                 MainColors.textColor(context)!.withOpacity(1),
                             fontSize: 14.r,
@@ -707,7 +674,7 @@ class _PricingContainerState extends State<PricingContainer> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
           border: Border.all(color: MainColors.primaryColor)),
-      height: 600.5.h,
+      height: 652.5.h,
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 20.w),
     );

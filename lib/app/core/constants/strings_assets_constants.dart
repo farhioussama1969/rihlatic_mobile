@@ -232,4 +232,12 @@ class StringsAssetsConstants {
   static String get selectPropertieHotel {
     return "Select".tr;
   }
+
+  static String get seeOnMaps {
+    return "See on map".tr;
+  }
+
+  static String get readAllPolicies {
+    return "Read all policies".tr;
+  }
 }
