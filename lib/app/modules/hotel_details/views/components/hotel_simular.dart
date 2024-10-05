@@ -118,66 +118,7 @@ class HotelSimular extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 3.h,
-                  ),
-                  Row(
-                    children: [
-                      Container(
-                        child: Row(
-                          children: [
-                            Text(
-                              'Close to metro',
-                              style: TextStyles.smallBodyTextStyle(context)
-                                  .copyWith(
-                                color: MainColors.blackColor.withOpacity(0.4),
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        ),
-                        decoration: BoxDecoration(
-                            color: MainColors.blackColor.withOpacity(0.08),
-                            borderRadius: BorderRadiusDirectional.all(
-                                Radius.circular(3.r))),
-                        padding: EdgeInsetsDirectional.symmetric(
-                            horizontal: 4, vertical: 2),
-                      ),
-                      SizedBox(
-                        width: 8.w,
-                      ),
-                      Container(
-                        child: Row(
-                          children: [
-                            Text(
-                              'Fitness',
-                              style: TextStyles.smallBodyTextStyle(context)
-                                  .copyWith(
-                                color: MainColors.blackColor.withOpacity(0.4),
-                              ),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                          mainAxisAlignment: MainAxisAlignment.center,
-                        ),
-                        decoration: BoxDecoration(
-                            color: MainColors.blackColor.withOpacity(0.08),
-                            borderRadius: BorderRadiusDirectional.all(
-                                Radius.circular(3.r))),
-                        padding: EdgeInsetsDirectional.symmetric(
-                            horizontal: 4, vertical: 2),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 3.h,
-                  ),
-                  Text(
-                    '14k+ people booked',
-                    style: TextStyles.smallBodyTextStyle(context)!.copyWith(
-                        color: MainColors.textColor(context)!.withOpacity(0.6)),
-                  ),
+
                   SizedBox(
                     height: 3.h,
                   ),

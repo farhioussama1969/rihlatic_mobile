@@ -70,4 +70,9 @@ class IconsAssetsConstants {
   static const String selectedIcon = "assets/icons/selected.svg";
   static const String informationIcon = "assets/icons/information.svg";
   static const String RightarrowIcon = "assets/icons/arrow_right.svg";
+  static const String sizeIcon = "assets/icons/size.svg";
+  static const String childIcon = "assets/icons/child_kid_icon.svg";
+  static const String floorIcon = "assets/icons/floor.svg";
+  static const String maleUserIconIcon = "assets/icons/male_user_icon.svg";
+  static const String kidsIcon = "assets/icons/kids.svg";
 }

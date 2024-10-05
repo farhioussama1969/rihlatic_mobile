@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 
 import '../../../../core/styles/main_colors.dart';
 import '../../../../core/styles/text_styles.dart';
@@ -17,7 +18,7 @@ class HotelDetailsDescription extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'Description & Details',
+                  StringsAssetsConstants.descriptionHotelDetails,
                   style: TextStyles.mediumLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
                   ),

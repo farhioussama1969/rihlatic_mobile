@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 
@@ -18,7 +19,7 @@ class HotelDetailsSelectRoom extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  'Select your room',
+                  StringsAssetsConstants.selectRoomHotelDetails,
                   style: TextStyles.mediumLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
                   ),

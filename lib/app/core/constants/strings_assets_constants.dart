@@ -240,4 +240,28 @@ class StringsAssetsConstants {
   static String get readAllPolicies {
     return "Read all policies".tr;
   }
+
+  static String get descriptionHotelDetails {
+    return "Description & Details".tr;
+  }
+
+  static String get populairHotelDetails {
+    return "Populair amenities".tr;
+  }
+
+  static String get locationHotelDetails {
+    return "Location".tr;
+  }
+
+  static String get selectRoomHotelDetails {
+    return "Select your room".tr;
+  }
+
+  static String get reviewsHotelDetails {
+    return "Reviews".tr;
+  }
+
+  static String get bedType {
+    return "bed type".tr;
+  }
 }

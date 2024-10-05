@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 
 import '../../../../core/constants/icons_assets_constants.dart';
 import '../../../../core/styles/main_colors.dart';
@@ -19,7 +20,7 @@ class LocationComponent extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  'Location',
+                  StringsAssetsConstants.locationHotelDetails,
                   style: TextStyles.smallLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
                   ),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 
@@ -15,7 +16,7 @@ class HotelDetailsReviews extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Reviews',
+            StringsAssetsConstants.reviewsHotelDetails,
             style: TextStyles.mediumLabelTextStyle(context).copyWith(
               color: MainColors.textColor(context)!,
             ),
