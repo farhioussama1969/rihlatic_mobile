@@ -7,12 +7,12 @@ import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_description.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_description_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_gallery_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/populair_amenities_component.dart';
-import 'package:rihlatic/app/modules/room_details/views/components/room_details_small_card.dart';
+import 'package:rihlatic/app/modules/room_details/views/components/room_details_small_card_component.dart';
 
-import '../../hotel_details/views/components/hotel_details_title.dart';
+import '../../hotel_details/views/components/hotel_details_title_component.dart';
 import '../controllers/room_details_controller.dart';
 
 class RoomDetailsView extends GetView<RoomDetailsController> {
@@ -39,12 +39,12 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                 height: 10.h,
               ),
               // hotel details title
-              const HotelDetailsTitle(),
+              const HotelDetailsTitleComponent(),
               SizedBox(
                 height: 20.h,
               ),
               // description
-              const HotelDetailsDescription(),
+              const HotelDetailsDescriptionComponent(),
               SizedBox(
                 height: 10.h,
               ),
@@ -60,7 +60,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                   children: [
                     Column(
                       children: [
-                        const RoomDetailsSmallCard(
+                        const RoomDetailsSmallCardComponent(
                           titleName: 'bed type',
                           itemCount: 'X2',
                           unit: 'Bronze Queen',
@@ -69,7 +69,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                         SizedBox(
                           height: 10.h,
                         ),
-                        const RoomDetailsSmallCard(
+                        const RoomDetailsSmallCardComponent(
                           titleName: 'Size (m*)',
                           itemCount: '120.00',
                           unit: '',
@@ -78,7 +78,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                         SizedBox(
                           height: 10.h,
                         ),
-                        const RoomDetailsSmallCard(
+                        const RoomDetailsSmallCardComponent(
                           titleName: 'Max(children)',
                           itemCount: '1',
                           unit: '',
@@ -92,7 +92,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                     Spacer(),
                     Column(
                       children: [
-                        const RoomDetailsSmallCard(
+                        const RoomDetailsSmallCardComponent(
                           titleName: 'Floor',
                           itemCount: '13',
                           unit: '',
@@ -101,7 +101,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                         SizedBox(
                           height: 10.h,
                         ),
-                        const RoomDetailsSmallCard(
+                        const RoomDetailsSmallCardComponent(
                           titleName: 'Max(adult)',
                           itemCount: '4',
                           unit: '',
@@ -110,7 +110,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                         SizedBox(
                           height: 10.h,
                         ),
-                        const RoomDetailsSmallCard(
+                        const RoomDetailsSmallCardComponent(
                           titleName: 'Max(kids)',
                           itemCount: '0',
                           unit: '',

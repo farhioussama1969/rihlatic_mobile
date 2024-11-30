@@ -7,8 +7,8 @@ import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 
-class HotelDetailsExploring extends StatelessWidget {
-  const HotelDetailsExploring({super.key});
+class HotelDetailsExploringComponent extends StatelessWidget {
+  const HotelDetailsExploringComponent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +19,8 @@ class HotelDetailsExploring extends StatelessWidget {
         children: [
           Text(
             'Exploring the area',
-            style: TextStyles.mediumLabelTextStyle(context).copyWith(
-              color: MainColors.textColor(context)!,
-            ),
+            style: TextStyles.mediumLabelTextStyle(context),
             maxLines: 2,
-            textAlign: TextAlign.left,
           ),
           SizedBox(
             height: 10.h,

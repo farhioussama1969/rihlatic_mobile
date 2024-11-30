@@ -4,8 +4,10 @@ import 'package:rihlatic/app/core/components/images/network_image_component.dart
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 
-class HotelDetailsComments extends StatelessWidget {
-  const HotelDetailsComments({super.key});
+class HotelDetailsCommentsComponent extends StatelessWidget {
+  final List<String> images;
+
+  const HotelDetailsCommentsComponent({super.key, required this.images});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class HotelDetailsComments extends StatelessWidget {
             ),
             Text(
               'Very convenient location just across the road from Paris Nord station...',
-              style: TextStyles.smallBodyTextStyle(context).copyWith(
+              style: TextStyles.mediumBodyTextStyle(context).copyWith(
                   color: MainColors.textColor(context)!, fontSize: 15.r),
             ),
             SizedBox(
@@ -65,51 +67,47 @@ class HotelDetailsComments extends StatelessWidget {
             ),
             Row(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.r),
-                  child: SizedBox(
-                    width: 78.5.r,
-                    height: 78.5.r,
-                    child: NetworkImageComponent(
-                        imageLink:
-                            "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg"),
+                for (var i = 0; i < images.length && i < 4; i++)
+                  Padding(
+                    padding: EdgeInsets.only(right: 8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: SizedBox(
+                        width: 78.5,
+                        height: 78.5,
+                        child: i == 3 && images.length > 4
+                            ? Stack(
+                                fit: StackFit.expand,
+                                children: [
+                                  Image.network(
+                                    images[i],
+                                    fit: BoxFit.cover,
+                                  ),
+                                  Container(
+                                    color:
+                                        MainColors.blackColor.withOpacity(0.5),
+                                    child: Center(
+                                      child: Text(
+                                        '+${images.length - 4}',
+                                        style: TextStyle(
+                                          color: MainColors.whiteColor,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              )
+                            : Image.network(
+                                images[i],
+                                fit: BoxFit.cover,
+                              ),
+                      ),
+                    ),
                   ),
-                ),
-                Spacer(),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.r),
-                  child: SizedBox(
-                    width: 78.5.r,
-                    height: 78.5.r,
-                    child: NetworkImageComponent(
-                        imageLink:
-                            "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg"),
-                  ),
-                ),
-                Spacer(),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.r),
-                  child: SizedBox(
-                    width: 78.5.r,
-                    height: 78.5.r,
-                    child: NetworkImageComponent(
-                        imageLink:
-                            "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg"),
-                  ),
-                ),
-                Spacer(),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.r),
-                  child: SizedBox(
-                    width: 78.5.r,
-                    height: 78.5.r,
-                    child: NetworkImageComponent(
-                        imageLink:
-                            "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg"),
-                  ),
-                ),
               ],
-            )
+            ),
           ],
         ),
       ),
@@ -117,7 +115,6 @@ class HotelDetailsComments extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
               color: MainColors.textColor(context)!.withOpacity(0.15))),
-      height: 214.5.h,
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 20.w),
     );

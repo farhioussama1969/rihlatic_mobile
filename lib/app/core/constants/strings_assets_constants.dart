@@ -261,6 +261,10 @@ class StringsAssetsConstants {
     return "Reviews".tr;
   }
 
+  static String get checkInPolicy {
+    return "Check-in policy".tr;
+  }
+
   static String get bedType {
     return "bed type".tr;
   }

@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/styles/main_colors.dart';
 import '../../../../core/styles/text_styles.dart';
 
-class HotelDetailsTitle extends StatelessWidget {
-  const HotelDetailsTitle({super.key});
+class HotelDetailsTitleComponent extends StatelessWidget {
+  const HotelDetailsTitleComponent({super.key});
 
   @override
   Widget build(BuildContext context) {

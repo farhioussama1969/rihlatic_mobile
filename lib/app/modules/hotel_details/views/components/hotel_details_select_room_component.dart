@@ -6,8 +6,8 @@ import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 
-class HotelDetailsSelectRoom extends StatelessWidget {
-  const HotelDetailsSelectRoom({super.key});
+class HotelDetailsSelectRoomComponent extends StatelessWidget {
+  const HotelDetailsSelectRoomComponent({super.key});
 
   @override
   Widget build(BuildContext context) {

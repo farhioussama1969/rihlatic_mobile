@@ -6,13 +6,13 @@ import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 
-class RoomDetailsSmallCard extends StatelessWidget {
+class RoomDetailsSmallCardComponent extends StatelessWidget {
   final String icon;
   final String titleName;
   final String itemCount;
   final String unit;
 
-  const RoomDetailsSmallCard(
+  const RoomDetailsSmallCardComponent(
       {super.key,
       required this.icon,
       required this.titleName,

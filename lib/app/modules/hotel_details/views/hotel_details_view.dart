@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_comments.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_exploring.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_policy.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_services.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_description.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_comments_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_exploring_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_policy_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_services_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_description_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_gallery_component.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_reviews.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_select_room.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_title.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_room_properties.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_simular.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_reviews_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_select_room_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_title_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_room_properties_component.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_simular_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/location_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/populair_amenities_component.dart';
 
@@ -43,12 +43,12 @@ class HotelDetailsView extends GetView<HotelDetailsController> {
                 height: 10.h,
               ),
               // hotel details title
-              const HotelDetailsTitle(),
+              const HotelDetailsTitleComponent(),
               SizedBox(
                 height: 20.h,
               ),
               // description
-              const HotelDetailsDescription(),
+              const HotelDetailsDescriptionComponent(),
               SizedBox(
                 height: 10.h,
               ),
@@ -63,48 +63,58 @@ class HotelDetailsView extends GetView<HotelDetailsController> {
                 height: 20.h,
               ),
               // Select your room
-              const HotelDetailsSelectRoom(),
+              const HotelDetailsSelectRoomComponent(),
               SizedBox(
                 height: 20.h,
               ),
               // properties
-              const HotelRoomProperties(),
+              const HotelRoomPropertiesComponent(),
               SizedBox(
                 height: 10.w,
               ),
-              const HotelRoomProperties(),
+              const HotelRoomPropertiesComponent(),
               SizedBox(
                 height: 20.h,
               ),
               // reviews
-              const HotelDetailsReviews(),
+              const HotelDetailsReviewsComponent(),
               SizedBox(
                 height: 20.h,
               ),
               // comments
-              const HotelDetailsComments(),
+              const HotelDetailsCommentsComponent(
+                images: [
+                  'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                  'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                  'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                  'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                  'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                  'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                  'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                ],
+              ),
               SizedBox(
                 height: 20.h,
               ),
-              const HotelDetailsServices(),
+              const HotelDetailsServicesComponent(),
               SizedBox(
                 height: 20.h,
               ),
               // exploring
-              const HotelDetailsExploring(),
+              const HotelDetailsPolicyComponent(),
               SizedBox(
                 height: 20.h,
               ),
               // policy
-              const HotelDetailsPolicy(),
+              const HotelDetailsPolicyComponent(),
               SizedBox(
                 height: 20.h,
               ),
-              const HotelSimular(),
+              const HotelSimularComponent(),
               SizedBox(
                 height: 10,
               ),
-              const HotelSimular(),
+              const HotelSimularComponent(),
               SizedBox(
                 height: 30.h,
               ),
