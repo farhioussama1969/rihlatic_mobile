@@ -5,8 +5,11 @@ import 'package:get/get.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/liste_filtre_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/populair_flights.dart';
+import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_gallery_component.dart';
 
 import '../controllers/home_page_controller.dart';
 
@@ -23,13 +26,13 @@ class HomePageView extends GetView<HomePageController> {
       body: SizedBox(
         width: 1.sw,
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // title
-                Column(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // title
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -45,40 +48,49 @@ class HomePageView extends GetView<HomePageController> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
 
-                // banner
-
-                // filtre
-                const ListFiltreViewComponent(),
-                SizedBox(
-                  height: 20.h,
-                ),
-                // populair flights
-                const PopularFlights(
+              // banner
+              const GalleryHomeComponent(),
+              SizedBox(
+                height: 20.h,
+              ),
+              // filtre
+              const ListeFiltreComponent(),
+              SizedBox(
+                height: 20.h,
+              ),
+              // populair flights
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: const PopularFlights(
                   title: 'Popular Flights',
                   name: 'The Nantucket Hotel & Resort',
                   rate: 4.5,
                   reviews: 320,
                   price: 141,
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                const PopularFlights(
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: const PopularFlights(
                   title: 'Popular Hotels',
                   name: 'The Nantucket Hotel & Resort',
                   rate: 4.6,
                   reviews: 200,
                   price: 2100,
                 ),
-                SizedBox(
-                  height: 20.h,
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+            ],
           ),
         ),
       ),
