@@ -73,4 +73,37 @@ class AuthProvider {
     }
     return null;
   }
+
+  Future<UserModel?> me({
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.me,
+      requestType: HttpRequestTypes.get,
+      showErrorToast: true,
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+    if (response?.body != null) {
+      return UserModel.fromJson(response?.body['user']);
+    }
+    return null;
+  }
+
+  Future<bool?> logout({
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.logout,
+      requestType: HttpRequestTypes.post,
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+    if (response?.body != null) {
+      return response?.body['logout'];
+    }
+    return null;
+  }
 }
