@@ -106,4 +106,112 @@ class AuthProvider {
     }
     return null;
   }
+
+  Future<UserModel?> changePassword({
+    required String password,
+    required String password_confirmation,
+    required String old_password,
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.changePassword,
+      requestType: HttpRequestTypes.patch,
+      showErrorToast: true,
+      data: {
+        "password": password,
+        "password_confirmation": password_confirmation,
+        "old_password": old_password
+      },
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+
+    if (response?.body['user'] != null) {
+      return UserModel.fromJson(response?.body['user']);
+    }
+    return null;
+  }
+
+  // TODO: postman error
+  Future<UserModel?> ramindPassword({
+    required String email,
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.remindPassword,
+      requestType: HttpRequestTypes.post,
+      showErrorToast: true,
+      data: {
+        "email": email,
+      },
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+
+    if (response?.body['user'] != null) {
+      return UserModel.fromJson(response?.body['user']);
+    }
+    return null;
+  }
+
+  Future<UserModel?> restPassword({
+    required String email,
+    required String code,
+    required String password,
+    required String password_confirmation,
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.restPassword,
+      requestType: HttpRequestTypes.post,
+      showErrorToast: true,
+      data: {
+        "email": email,
+        "code": code,
+        "password": password,
+        "password_confirmation": password_confirmation
+      },
+      onSuccess: (response) async {
+        await LocalStorageService.saveData(
+          key: StorageKeysConstants.serverApiToken,
+          value: response.body['token'],
+          type: DataTypes.string,
+        );
+      },
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+
+    if (response?.body != null) {
+      return UserModel.fromJson(response?.body['user']);
+    }
+    return null;
+  }
+
+  Future<UserModel?> verficationEmail({
+    required String email,
+    required String code,
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.verficationEmail,
+      requestType: HttpRequestTypes.post,
+      showErrorToast: true,
+      data: {
+        "email": email,
+        "code": code,
+      },
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+
+    if (response?.body != null) {
+      return UserModel.fromJson(response?.body['user']);
+    }
+    return null;
+  }
 }
