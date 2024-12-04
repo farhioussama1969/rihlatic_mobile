@@ -8,6 +8,7 @@ import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/liste_filtre_component.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/organized_trip_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/populair_flights.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_gallery_component.dart';
 
@@ -68,10 +69,6 @@ class HomePageView extends GetView<HomePageController> {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: const PopularFlights(
                   title: 'Popular Flights',
-                  name: 'The Nantucket Hotel & Resort',
-                  rate: 4.5,
-                  reviews: 320,
-                  price: 141,
                 ),
               ),
               SizedBox(
@@ -81,10 +78,15 @@ class HomePageView extends GetView<HomePageController> {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: const PopularFlights(
                   title: 'Popular Hotels',
-                  name: 'The Nantucket Hotel & Resort',
-                  rate: 4.6,
-                  reviews: 200,
-                  price: 2100,
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: const OrganizedTripComponent(
+                  title: 'Organized trip',
                 ),
               ),
               SizedBox(

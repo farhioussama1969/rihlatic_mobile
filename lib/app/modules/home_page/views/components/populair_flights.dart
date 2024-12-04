@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
@@ -8,18 +6,11 @@ import 'package:rihlatic/app/core/styles/text_styles.dart';
 
 class PopularFlights extends StatelessWidget {
   final String title;
-  final String name;
-  final double rate;
-  final int reviews;
-  final double price;
 
-  const PopularFlights(
-      {super.key,
-      required this.title,
-      required this.name,
-      required this.rate,
-      required this.reviews,
-      required this.price});
+  const PopularFlights({
+    super.key,
+    required this.title,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,121 +43,60 @@ class PopularFlights extends StatelessWidget {
             itemCount: 20,
             itemBuilder: (context, index) {
               return Container(
-                margin:
-                    EdgeInsets.only(right: 10.w), // Add margin between items
-                child: Column(
+                margin: EdgeInsets.only(right: 10.w),
+                width: 175.w,
+                child: Stack(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(7),
-                        topRight: Radius.circular(7),
-                      ),
+                      borderRadius: BorderRadius.circular(12),
                       child: SizedBox(
                         width: 175.w,
-                        height: 100.h,
                         child: NetworkImageComponent(
                           imageLink:
                               'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
                         ),
                       ),
                     ),
-                    Expanded(
+                    Container(
+                      decoration: BoxDecoration(
+                        color: MainColors.blackColor.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 10,
+                      left: 10,
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: Text(
-                                    name,
-                                    style: TextStyles.smallLabelTextStyle(
-                                            context)
-                                        .copyWith(
-                                            color:
-                                                MainColors.textColor(context)!,
-                                            height: 1),
-                                    maxLines: 2,
-                                    textAlign: TextAlign.left,
-                                  ),
-                                ),
-                              ],
+                          Text(
+                            'Algiers',
+                            style: TextStyles.mediumLabelTextStyle(context)
+                                .copyWith(
+                              color: MainColors.whiteColor,
+                              height: 1,
                             ),
+                            maxLines: 2,
+                            textAlign: TextAlign.left,
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Row(
-                              children: [
-                                Container(
-                                  child: Text(
-                                    '${rate.toString()}',
-                                    style:
-                                        TextStyles.smallBodyTextStyle(context)
-                                            .copyWith(
-                                                color: MainColors.whiteColor,
-                                                fontSize: 14.r),
-                                  ),
-                                  decoration: BoxDecoration(
-                                      color: MainColors.primaryColor,
-                                      borderRadius:
-                                          BorderRadiusDirectional.only(
-                                              topEnd: Radius.circular(8.r),
-                                              bottomStart:
-                                                  Radius.circular(8.r))),
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
-                                ),
-                                SizedBox(width: 8.w),
-                                Text(
-                                  '( ${reviews.toString()} reviews)',
-                                  style: TextStyles.smallBodyTextStyle(context)
-                                      .copyWith(
-                                    color: MainColors.textColor(context)!
-                                        .withOpacity(0.6),
-                                  ),
-                                ),
-                              ],
-                            ),
+                          SizedBox(
+                            height: 4.h,
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Row(
-                              children: [
-                                Text(
-                                  'From',
-                                  style: TextStyles.smallBodyTextStyle(context)
-                                      .copyWith(
-                                    color: MainColors.textColor(context)!
-                                        .withOpacity(0.6),
-                                  ),
-                                ),
-                                SizedBox(width: 8.w),
-                                Text(
-                                  'US\$ ${price.toString()}',
-                                  style: TextStyles.smallLabelTextStyle(context)
-                                      .copyWith(
-                                    color: MainColors.textColor(context)!
-                                        .withOpacity(1),
-                                  ),
-                                ),
-                              ],
+                          Text(
+                            '23 establishments',
+                            style:
+                                TextStyles.smallBodyTextStyle(context).copyWith(
+                              color: MainColors.whiteColor,
+                              height: 1,
                             ),
+                            maxLines: 2,
+                            textAlign: TextAlign.left,
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  border: Border.all(
-                      color: MainColors.textColor(context)!.withOpacity(0.15)),
-                ),
-                width: 175.w,
               );
             },
           ),
