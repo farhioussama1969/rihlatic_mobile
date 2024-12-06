@@ -55,4 +55,11 @@ static String get pleaseWait{return "please wait".tr;}
 static String get getStartedTitle{return "get started title".tr;}
 static String get getStartedDescription{return "get started description".tr;}
 static String get start{return "start".tr;}
+static String get descriptionDetails{return "Description Details ".tr;}
+static String get reviews{return "Reviews".tr;}
+static String get selectYourRoom{return "Select your room".tr;}
+static String get checkInPolicy{return "Check in policy".tr;}
+static String get readAllPolicies{return "Read all policies".tr;}
+static String get location{return "Location".tr;}
+static String get populairAmenities{return "Populair amenities".tr;}
 }

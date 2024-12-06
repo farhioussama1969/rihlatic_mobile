@@ -525,7 +525,7 @@ class _PricingContainerState extends State<PricingContainer> {
                   width: 8.w,
                 ),
                 TagComponent(
-                  title: StringsAssetsConstants.selectPropertieHotel,
+                  title: StringsAssetsConstants.selectYourRoom,
                   textColor: MainColors.textColor(context)!.withOpacity(0.5),
                   disableShadow: true,
                   border: Border.all(
@@ -657,7 +657,7 @@ class _PricingContainerState extends State<PricingContainer> {
                   width: 8.w,
                 ),
                 TagComponent(
-                  title: StringsAssetsConstants.selectPropertieHotel,
+                  title: StringsAssetsConstants.selectYourRoom,
                   textColor: MainColors.textColor(context)!.withOpacity(0.5),
                   disableShadow: true,
                   border: Border.all(

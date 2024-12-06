@@ -54,6 +54,12 @@
 
   "get started title": "Your Trip Starts Here",
   "get started description": "We find you the best flight deals and travel hacks so that you can choose how to book.",
-  "start": "Start"
-
+  "start": "Start",
+  "Description Details ": "Description & Details ",
+  "Reviews": "Reviews ",
+  "Select your room": "Select your room ",
+  "Check in policy": "Check-in policy ",
+  "Read all policies": "Read all policies ",
+  "Location": "Location ",
+  "Populair amenities": "Populair amenities "
 }

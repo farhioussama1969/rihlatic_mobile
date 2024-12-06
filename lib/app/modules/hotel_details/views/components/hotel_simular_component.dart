@@ -191,7 +191,7 @@ class HotelSimularComponent extends StatelessWidget {
           BoxShadow(
             color: MainColors.textColor(context)!.withOpacity(0.2),
             blurRadius: 5,
-            offset: Offset(2, 4), // Shadow position
+            offset: Offset(2, 4),
           ),
         ],
       ),

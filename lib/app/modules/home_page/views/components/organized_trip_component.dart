@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -344,10 +342,9 @@ class OrganizedTripComponent extends StatelessWidget {
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: MainColors.blackColor.withOpacity(0.1),
-                      spreadRadius: 2,
-                      blurRadius: 10,
-                      offset: Offset(0, 6),
+                      color: MainColors.textColor(context)!.withOpacity(0.2),
+                      blurRadius: 5,
+                      offset: Offset(2, 4), // Shadow position
                     ),
                   ],
                 ),

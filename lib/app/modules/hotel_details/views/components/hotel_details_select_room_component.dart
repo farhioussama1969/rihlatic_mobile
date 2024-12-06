@@ -19,7 +19,7 @@ class HotelDetailsSelectRoomComponent extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  StringsAssetsConstants.selectRoomHotelDetails,
+                  StringsAssetsConstants.select,
                   style: TextStyles.mediumLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
                   ),
