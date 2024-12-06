@@ -60,7 +60,7 @@ class HomePageView extends GetView<HomePageController> {
                 height: 20.h,
               ),
               // filtre
-              const ListeFiltreComponent(),
+              const ListFiltreViewComponent(),
               SizedBox(
                 height: 20.h,
               ),

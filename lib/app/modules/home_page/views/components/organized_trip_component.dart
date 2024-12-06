@@ -44,8 +44,7 @@ class OrganizedTripComponent extends StatelessWidget {
             itemCount: 20,
             itemBuilder: (context, index) {
               return Container(
-                margin:
-                    EdgeInsets.only(right: 10.w), // Add margin between items
+                margin: EdgeInsets.only(right: 15),
                 child: Column(
                   children: [
                     ClipRRect(
@@ -343,14 +342,14 @@ class OrganizedTripComponent extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: MainColors.whiteColor,
                   borderRadius: BorderRadius.circular(16),
-                  // boxShadow: [
-                  //   BoxShadow(
-                  //     color: MainColors.blackColor.withOpacity(0.4),
-                  //     spreadRadius: 1,
-                  //     blurRadius: 1,
-                  //     offset: Offset(0, 4), // changes position of shadow
-                  //   ),
-                  // ],
+                  boxShadow: [
+                    BoxShadow(
+                      color: MainColors.blackColor.withOpacity(0.1),
+                      spreadRadius: 2,
+                      blurRadius: 10,
+                      offset: Offset(0, 6),
+                    ),
+                  ],
                 ),
                 width: 242.w,
               );

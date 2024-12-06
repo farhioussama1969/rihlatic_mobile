@@ -21,20 +21,29 @@ class ListFiltreViewComponent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Column(
               children: [
-                Container(
-                  child: SvgPicture.asset(
-                    IconsAssetsConstants.kidsIcon,
-                    color: MainColors.whiteColor,
-                  ),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(1000),
-                      gradient: MainColors.primaryGradientColor,
-                      border: Border.all(
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(1000),
+                        gradient: MainColors.primaryGradientColor,
+                        border: Border.all(
                           color:
-                              MainColors.textColor(context)!.withOpacity(0.0))),
-                  width: 60.r,
-                  height: 60.r,
-                  padding: EdgeInsets.all(15),
+                              MainColors.textColor(context)!.withOpacity(0.0),
+                        ),
+                      ),
+                      width: 60.r,
+                      height: 60.r,
+                      padding: const EdgeInsets.all(15),
+                    ),
+                    SvgPicture.asset(
+                      IconsAssetsConstants.kidsIcon,
+                      color: MainColors.whiteColor,
+                      width: 30.r,
+                      height: 30.r,
+                    ),
+                  ],
                 ),
                 Text(
                   'Flight',
