@@ -17,7 +17,7 @@ class HomeProvider {
       onFinal: () => onFinal(),
     );
     if (response?.body != null) {
-      return HomeModel.fromJson(response?.body['user']);
+      return HomeModel.fromJson(response?.body);
     }
     return null;
   }
