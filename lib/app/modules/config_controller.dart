@@ -3,7 +3,7 @@ import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/services/app_version_info_service.dart';
 import 'package:rihlatic/app/core/utils/translation_util.dart';
 import 'package:rihlatic/app/data/models/general_settings_model.dart';
-import 'package:rihlatic/app/data/providers/taxili_api/config_provider.dart';
+import 'package:rihlatic/app/data/providers/rihlatech_api/config_provider.dart';
 
 class ConfigController extends GetxController {
   String? appVersion;

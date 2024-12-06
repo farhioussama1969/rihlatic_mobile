@@ -28,6 +28,7 @@ class HttpClientService {
     Function? onFinal,
     Function(int sent, int total)? onProgress,
     bool? showErrorToast = true,
+    bool? showSuccessMessage = false,
   }) async {
     ApiResponse? response;
     if (onLoading != null) onLoading();
@@ -53,6 +54,10 @@ class HttpClientService {
       log('endpoint::::${endPoint} status code::::${response?.statusCode} sent data::: ${data} query::::${queryParameters} response::: ${response?.message}  body:::: ${response?.body}');
       if ((response?.statusCode == 200)) {
         if (onSuccess != null) onSuccess(response!);
+        if (showSuccessMessage == true) {
+          ToastComponent.showSuccessToast(Get.context!,
+              text: response?.message);
+        }
         return response;
       } else {
         if (response?.requestStatus == RequestStatus.serverError) {
