@@ -59,7 +59,7 @@ class PopularFlights extends StatelessWidget {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        color: MainColors.blackColor.withOpacity(0.2),
+                        color: MainColors.blackColor.withOpacity(0.4),
                         borderRadius: BorderRadius.circular(12),
                       ),
                     ),

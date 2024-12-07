@@ -19,7 +19,7 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  StringsAssetsConstants.reviewsHotelDetails,
+                  StringsAssetsConstants.reviews,
                   style: TextStyles.mediumLabelTextStyle(context),
                   maxLines: 2,
                 ),

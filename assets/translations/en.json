@@ -59,7 +59,15 @@
     "password": "Password",
   "enter to your account": "Enter to your account",
   "enter to your account description": "Enter your email to access your account",
-  "description hotel details": "Hotel details"
+  "description hotel details": "Hotel details",
 
 
+  "start": "Start",
+  "Description Details ": "Description & Details ",
+  "Reviews": "Reviews ",
+  "Select your room": "Select your room ",
+  "Check in policy": "Check-in policy ",
+  "Read all policies": "Read all policies ",
+  "Location": "Location ",
+  "Populair amenities": "Populair amenities "
 }

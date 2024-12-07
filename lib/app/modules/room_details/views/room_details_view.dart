@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
-import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
-import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_description_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_gallery_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/populair_amenities_component.dart';
@@ -82,7 +79,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                           titleName: 'Max(children)',
                           itemCount: '1',
                           unit: '',
-                          icon: IconsAssetsConstants.childIcon,
+                          icon: IconsAssetsConstants.childKidIcon,
                         ),
                         SizedBox(
                           height: 10.h,
@@ -105,7 +102,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                           titleName: 'Max(adult)',
                           itemCount: '4',
                           unit: '',
-                          icon: IconsAssetsConstants.maleUserIconIcon,
+                          icon: IconsAssetsConstants.maleUserIcon,
                         ),
                         SizedBox(
                           height: 10.h,

@@ -60,4 +60,11 @@ static String get password{return "password".tr;}
 static String get enterToYourAccount{return "enter to your account".tr;}
 static String get enterToYourAccountDescription{return "enter to your account description".tr;}
 static String get descriptionHotelDetails{return "description hotel details".tr;}
+static String get descriptionDetails{return "Description Details ".tr;}
+static String get reviews{return "Reviews".tr;}
+static String get selectYourRoom{return "Select your room".tr;}
+static String get checkInPolicy{return "Check in policy".tr;}
+static String get readAllPolicies{return "Read all policies".tr;}
+static String get location{return "Location".tr;}
+static String get populairAmenities{return "Populair amenities".tr;}
 }

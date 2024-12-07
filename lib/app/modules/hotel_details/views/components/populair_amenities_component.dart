@@ -20,7 +20,7 @@ class PopulairAmenitiesComponent extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  StringsAssetsConstants.populairHotelDetails,
+                  StringsAssetsConstants.populairAmenities,
                   style: TextStyles.smallLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
                   ),

@@ -20,7 +20,7 @@ class LocationComponent extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  StringsAssetsConstants.locationHotelDetails,
+                  StringsAssetsConstants.location,
                   style: TextStyles.smallLabelTextStyle(context).copyWith(
                     color: MainColors.textColor(context)!,
                   ),

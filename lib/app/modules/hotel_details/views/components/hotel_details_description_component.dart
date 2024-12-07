@@ -19,7 +19,7 @@ class HotelDetailsDescriptionComponent extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  StringsAssetsConstants.descriptionHotelDetails,
+                  StringsAssetsConstants.descriptionDetails,
                   style: TextStyles.mediumLabelTextStyle(context),
                   maxLines: 2,
                   textAlign: TextAlign.left,
