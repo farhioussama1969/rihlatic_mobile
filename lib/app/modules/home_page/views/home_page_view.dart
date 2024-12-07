@@ -9,7 +9,7 @@ import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/organized_trip_component.dart';
-import 'package:rihlatic/app/modules/home_page/views/components/populair_flights.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/discover_places.dart';
 
 import '../controllers/home_page_controller.dart';
 
@@ -68,24 +68,31 @@ class HomePageView extends GetView<HomePageController> {
                           SizedBox(
                             height: 20.h,
                           ),
-                          // populair flights
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: const PopularFlights(
-                              title: 'Popular Flights',
+                          if (logic.homeData?.discoverAlgeria != null &&
+                              logic.homeData!.discoverAlgeria!.isNotEmpty)
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20.0),
+                              child: DiscoverPlaces(
+                                title: 'Discover Algeria',
+                                itemsList:
+                                    logic.homeData?.discoverAlgeria ?? [],
+                              ),
                             ),
-                          ),
+
                           SizedBox(
                             height: 20.h,
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: const PopularFlights(
-                              title: 'Popular Hotels',
+
+                          if (logic.homeData?.favoriteDestinations != null &&
+                              logic.homeData!.favoriteDestinations!.isNotEmpty)
+                            Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 20.0),
+                              child: DiscoverPlaces(
+                                title: 'Favorites destinations',
+                                itemsList:
+                                    logic.homeData?.favoriteDestinations ?? [],
+                              ),
                             ),
-                          ),
                           SizedBox(
                             height: 20.h,
                           ),
