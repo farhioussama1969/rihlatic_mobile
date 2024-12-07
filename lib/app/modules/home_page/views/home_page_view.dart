@@ -3,8 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
+import 'package:rihlatic/app/core/components/pop_ups/bottom_sheet_component.dart';
+import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/check_user_status_window_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/liste_filtre_component.dart';
@@ -16,6 +19,7 @@ import '../controllers/home_page_controller.dart';
 
 class HomePageView extends GetView<HomePageController> {
   const HomePageView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,10 +40,13 @@ class HomePageView extends GetView<HomePageController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Hey Aymen',
-                      style: TextStyles.largeLabelTextStyle(context)
-                          .copyWith(color: MainColors.textColor(context)!),
+                    GestureDetector(
+                      onTap: () => showCheckUserStatusWindow(),
+                      child: Text(
+                        'Hey Aymen',
+                        style: TextStyles.largeLabelTextStyle(context)
+                            .copyWith(color: MainColors.textColor(context)!),
+                      ),
                     ),
                     Text(
                       'Welcome to Rihlatic',
@@ -95,6 +102,23 @@ class HomePageView extends GetView<HomePageController> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void showCheckUserStatusWindow() {
+    BottomSheetComponent.show(
+      Get.context!,
+      body: GetBuilder<HomePageController>(
+        autoRemove: false,
+        id: GetBuildersIdsConstants.homeCheckUserStatusWindow,
+        builder: (logic) {
+          return CheckUserStatusWindowComponent(
+            emailController: logic.emailController,
+            loading: logic.checkUserStatusLoading,
+            onContinue: logic.checkUserStatus,
+          );
+        },
       ),
     );
   }

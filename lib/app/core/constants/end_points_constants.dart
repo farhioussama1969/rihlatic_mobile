@@ -10,6 +10,7 @@ class EndPointsConstants {
   static const String remindPassword = '/front/password/remind';
   static const String restPassword = '/front/password/reset';
   static const String verficationEmail = '/front/email/verify';
+  static const String checkUserStatus = '/front/user/check_user_status';
   static const String home = '/home';
 
   //config provider

@@ -54,6 +54,12 @@
 
   "get started title": "Your Trip Starts Here",
   "get started description": "We find you the best flight deals and travel hacks so that you can choose how to book.",
-  "start": "Start"
+  "start": "Start",
+  "email": "Email",
+    "password": "Password",
+  "enter to your account": "Enter to your account",
+  "enter to your account description": "Enter your email to access your account",
+  "description hotel details": "Hotel details"
+
 
 }

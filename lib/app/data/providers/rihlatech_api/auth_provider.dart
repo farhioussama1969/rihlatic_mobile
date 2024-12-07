@@ -214,4 +214,26 @@ class AuthProvider {
     }
     return null;
   }
+
+  Future<String?> checkUserStatus({
+    required String email,
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.checkUserStatus,
+      requestType: HttpRequestTypes.post,
+      showErrorToast: true,
+      data: {
+        "email": email,
+      },
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+
+    if (response?.body != null) {
+      return response?.body['status'];
+    }
+    return null;
+  }
 }

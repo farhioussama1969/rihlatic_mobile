@@ -1,9 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
+import 'package:rihlatic/app/data/providers/rihlatech_api/auth_provider.dart';
 
 class HomePageController extends GetxController {
-  //TODO: Implement HomePageController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -19,5 +19,28 @@ class HomePageController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordConfirmationController =
+      TextEditingController();
+
+  bool checkUserStatusLoading = false;
+  void changeCheckUserStatusLoading(bool value) {
+    checkUserStatusLoading = value;
+    update([GetBuildersIdsConstants.homeCheckUserStatusWindow]);
+  }
+
+  Future<void> checkUserStatus() async {
+    if (checkUserStatusLoading) return;
+    await AuthProvider()
+        .checkUserStatus(
+      email: emailController.text,
+      onLoading: () => changeCheckUserStatusLoading(true),
+      onFinal: () => changeCheckUserStatusLoading(false),
+    )
+        .then((value) {
+      if (value != null) {
+      } else {}
+    });
+  }
 }
