@@ -6,10 +6,11 @@ import 'package:rihlatic/app/core/components/animations/loading_component.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/discover_algeria.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/organized_trip_component.dart';
-import 'package:rihlatic/app/modules/home_page/views/components/discover_places.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/favorites_distinations.dart';
 
 import '../controllers/home_page_controller.dart';
 
@@ -72,7 +73,7 @@ class HomePageView extends GetView<HomePageController> {
                               logic.homeData!.discoverAlgeria!.isNotEmpty)
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              child: DiscoverPlaces(
+                              child: DiscoverAlgeria(
                                 title: 'Discover Algeria',
                                 itemsList:
                                     logic.homeData?.discoverAlgeria ?? [],
@@ -87,7 +88,7 @@ class HomePageView extends GetView<HomePageController> {
                               logic.homeData!.favoriteDestinations!.isNotEmpty)
                             Padding(
                               padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              child: DiscoverPlaces(
+                              child: FavoritesDestinations(
                                 title: 'Favorites destinations',
                                 itemsList:
                                     logic.homeData?.favoriteDestinations ?? [],
@@ -96,13 +97,16 @@ class HomePageView extends GetView<HomePageController> {
                           SizedBox(
                             height: 20.h,
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: const OrganizedTripComponent(
-                              title: 'Organized trip',
+                          if (logic.homeData?.organzidTrip != null &&
+                              logic.homeData!.organzidTrip!.isNotEmpty)
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 20.0),
+                              child: OrganizedTripComponent(
+                                title: 'Organized trip',
+                                itemsList: logic.homeData?.organzidTrip ?? [],
+                              ),
                             ),
-                          ),
                           SizedBox(
                             height: 20.h,
                           ),

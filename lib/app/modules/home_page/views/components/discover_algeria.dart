@@ -5,10 +5,10 @@ import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/data/models/destination_model.dart';
 
-class DiscoverPlaces extends StatelessWidget {
+class DiscoverAlgeria extends StatelessWidget {
   final String title;
   final List<DestinationModel> itemsList;
-  const DiscoverPlaces({
+  const DiscoverAlgeria({
     super.key,
     required this.title,
     required this.itemsList,
