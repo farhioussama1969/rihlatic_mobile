@@ -69,5 +69,15 @@
   "Check in policy": "Check-in policy ",
   "Read all policies": "Read all policies ",
   "Location": "Location ",
-  "Populair amenities": "Populair amenities "
+  "Populair amenities": "Populair amenities ",
+
+
+  "password confirmation": "Password Confirmation",
+
+  "create new account": "Create new account",
+  "create new account description": "Create a new account to access the application",
+
+  "otp validation": "Please check the confirmation code",
+  "email confirmation": "Email Confirmation",
+  "email confirmation description": "Please enter the 6-character code sent to your email"
 }

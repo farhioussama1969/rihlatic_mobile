@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:rihlatic/app/core/components/pop_ups/toast_component.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/data/providers/rihlatech_api/auth_provider.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/data/models/home_model.dart';
 import 'package:rihlatic/app/data/providers/rihlatech_api/home_provider.dart';
 import 'package:rihlatic/app/modules/home_page/views/home_page_view.dart';
+import 'package:rihlatic/app/modules/user_controller.dart';
 
 class HomePageController extends GetxController {
   //TODO: Implement HomePageController
@@ -54,11 +57,37 @@ class HomePageController extends GetxController {
 
   final GlobalKey<FormState> checkUserFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> registerFormKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmationController =
       TextEditingController();
+  final TextEditingController loginPasswordController = TextEditingController();
+  final TextEditingController otpController = TextEditingController();
+
+  final FocusNode emailFocusNode = FocusNode();
+  final FocusNode passwordFocusNode = FocusNode();
+  final FocusNode passwordConfirmationFocusNode = FocusNode();
+  final FocusNode loginPasswordFocusNode = FocusNode();
+
+  bool isPasswordVisible = false;
+  void changePasswordVisibility() {
+    isPasswordVisible = !isPasswordVisible;
+    update([GetBuildersIdsConstants.homeRegisterWindow]);
+  }
+
+  bool isPasswordConfirmationVisible = false;
+  void changePasswordConfirmationVisibility() {
+    isPasswordConfirmationVisible = !isPasswordConfirmationVisible;
+    update([GetBuildersIdsConstants.homeRegisterWindow]);
+  }
+
+  bool loginPasswordVisible = false;
+  void changeLoginPasswordVisibility() {
+    loginPasswordVisible = !loginPasswordVisible;
+    update([GetBuildersIdsConstants.homeLoginWindow]);
+  }
 
   bool checkUserStatusLoading = false;
   void changeCheckUserStatusLoading(bool value) {
@@ -78,7 +107,8 @@ class HomePageController extends GetxController {
         .then((value) {
       if (value != null) {
       } else {
-        HomePageView().showRegisterWindow();
+        Get.back();
+        const HomePageView().showRegisterWindow();
       }
     });
   }
@@ -101,7 +131,65 @@ class HomePageController extends GetxController {
       onFinal: () => changeRegisterLoading(false),
     )
         .then((value) {
-      if (value != null) {}
+      if (value != null) {
+        if (value == true) {
+          Get.back();
+          const HomePageView().showEmailConfirmationWindow();
+        }
+      }
+    });
+  }
+
+  bool emailConfirmationLoading = false;
+  void changeEmailConfirmationLoading(bool value) {
+    emailConfirmationLoading = value;
+    update([GetBuildersIdsConstants.homeEmailConfirmationWindow]);
+  }
+
+  Future<void> emailConfirmation() async {
+    if (emailConfirmationLoading) return;
+    if (otpController.text.length != 6) {
+      ToastComponent.showErrorToast(Get.context!,
+          text: StringsAssetsConstants.otpValidation);
+      return;
+    }
+    await AuthProvider()
+        .verficationEmail(
+      email: emailController.text,
+      code: otpController.text,
+      onLoading: () => changeEmailConfirmationLoading(true),
+      onFinal: () => changeEmailConfirmationLoading(false),
+    )
+        .then((value) async {
+      if (value != null) {
+        await Get.find<UserController>().setUser(value);
+        await Get.find<UserController>().initialize(skipUpdateChecker: true);
+      }
+    });
+  }
+
+  bool loginLoading = false;
+  void changeLoginLoading(bool value) {
+    loginLoading = value;
+    update([GetBuildersIdsConstants.homeLoginWindow]);
+  }
+
+  Future<void> login() async {
+    if (loginLoading) return;
+    if (!loginFormKey.currentState!.validate()) return;
+
+    await AuthProvider()
+        .login(
+      username: emailController.text,
+      password: loginPasswordController.text,
+      onLoading: () => changeLoginLoading(true),
+      onFinal: () => changeLoginLoading(false),
+    )
+        .then((value) async {
+      if (value != null) {
+        await Get.find<UserController>().setUser(value);
+        await Get.find<UserController>().initialize(skipUpdateChecker: true);
+      }
     });
   }
 }

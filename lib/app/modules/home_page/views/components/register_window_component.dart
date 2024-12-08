@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:rihlatic/app/core/components/buttons/icon_button_component.dart';
 import 'package:rihlatic/app/core/components/buttons/primary_button_component.dart';
@@ -8,6 +9,7 @@ import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
+import 'package:rihlatic/app/core/utils/validator_util.dart';
 
 class RegisterWindowComponent extends StatelessWidget {
   const RegisterWindowComponent(
@@ -17,14 +19,28 @@ class RegisterWindowComponent extends StatelessWidget {
       required this.passwordController,
       required this.passwordConfirmationController,
       required this.formKey,
-      required this.onContinue});
+      required this.onContinue,
+      required this.passwordFocusNode,
+      required this.passwordConfirmationFocusNode,
+      required this.emailFocusNode,
+      required this.isPasswordVisible,
+      required this.onPasswordVisibility,
+      required this.isPasswordConfirmationVisible,
+      required this.onPasswordConfirmationVisibility});
 
   final bool loading;
   final TextEditingController emailController;
   final TextEditingController passwordController;
   final TextEditingController passwordConfirmationController;
+  final FocusNode passwordFocusNode;
+  final FocusNode passwordConfirmationFocusNode;
+  final FocusNode emailFocusNode;
   final GlobalKey<FormState> formKey;
   final Function onContinue;
+  final bool isPasswordVisible;
+  final Function onPasswordVisibility;
+  final bool isPasswordConfirmationVisible;
+  final Function onPasswordConfirmationVisibility;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +62,7 @@ class RegisterWindowComponent extends StatelessWidget {
                 SizedBox(height: 15.h),
                 Center(
                   child: Text(
-                    StringsAssetsConstants.enterToYourAccount,
+                    StringsAssetsConstants.createNewAccount,
                     style: TextStyles.mediumLabelTextStyle(context),
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade,
@@ -55,7 +71,7 @@ class RegisterWindowComponent extends StatelessWidget {
                 SizedBox(height: 5.h),
                 Center(
                   child: Text(
-                    StringsAssetsConstants.enterToYourAccountDescription,
+                    StringsAssetsConstants.createNewAccountDescription,
                     style: TextStyles.largeBodyTextStyle(context),
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade,
@@ -64,16 +80,90 @@ class RegisterWindowComponent extends StatelessWidget {
                 SizedBox(height: 25.h),
                 Form(
                   key: formKey,
-                  child: TextInputComponent(
-                    controller: emailController,
-                    label: StringsAssetsConstants.email,
-                    isLabelOutside: true,
-                    hint:
-                        '${StringsAssetsConstants.enter} ${StringsAssetsConstants.email}...',
-                    textInputType: TextInputType.emailAddress,
-                    validate: (value) => ValidatorUtil.emailValidation(value,
-                        customMessage:
-                            '${StringsAssetsConstants.check} ${StringsAssetsConstants.email}...'),
+                  child: Column(
+                    children: [
+                      TextInputComponent(
+                        focusNode: emailFocusNode,
+                        nextNode: passwordFocusNode,
+                        controller: emailController,
+                        label: StringsAssetsConstants.email,
+                        isLabelOutside: true,
+                        hint:
+                            '${StringsAssetsConstants.enter} ${StringsAssetsConstants.email}...',
+                        textInputType: TextInputType.emailAddress,
+                        validate: (value) => ValidatorUtil.emailValidation(
+                            value,
+                            customMessage:
+                                '${StringsAssetsConstants.check} ${StringsAssetsConstants.email}...'),
+                      ),
+                      SizedBox(height: 15.h),
+                      TextInputComponent(
+                        focusNode: passwordFocusNode,
+                        nextNode: passwordConfirmationFocusNode,
+                        controller: passwordController,
+                        label: StringsAssetsConstants.password,
+                        isLabelOutside: true,
+                        hint:
+                            '${StringsAssetsConstants.enter} ${StringsAssetsConstants.password}...',
+                        textInputType: TextInputType.text,
+                        validate: (value) => ValidatorUtil.passwordValidation(
+                            value,
+                            customMessage:
+                                StringsAssetsConstants.passwordValidation),
+                        obscureText: !isPasswordVisible,
+                        suffix: Padding(
+                          padding: EdgeInsetsDirectional.only(
+                            start: 10.w,
+                            end: 20.w,
+                          ),
+                          child: GestureDetector(
+                            onTap: () => onPasswordVisibility(),
+                            child: SvgPicture.asset(
+                              isPasswordVisible
+                                  ? IconsAssetsConstants.hideIcon
+                                  : IconsAssetsConstants.showIcon,
+                              width: 24.r,
+                              height: 24.r,
+                              color: MainColors.disableColor(context),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 15.h),
+                      TextInputComponent(
+                        focusNode: passwordConfirmationFocusNode,
+                        controller: passwordConfirmationController,
+                        label: StringsAssetsConstants.passwordConfirmation,
+                        isLabelOutside: true,
+                        hint:
+                            '${StringsAssetsConstants.enter} ${StringsAssetsConstants.passwordConfirmation}...',
+                        textInputType: TextInputType.text,
+                        validate: (value) => value.isNotEmpty
+                            ? ValidatorUtil.passwordConfirmationValidation(
+                                value, passwordController.text,
+                                customMessage: StringsAssetsConstants
+                                    .passwordConfirmationValidation)
+                            : '${StringsAssetsConstants.check} ${StringsAssetsConstants.passwordConfirmation}...',
+                        obscureText: !isPasswordConfirmationVisible,
+                        suffix: Padding(
+                          padding: EdgeInsetsDirectional.only(
+                            start: 10.w,
+                            end: 20.w,
+                          ),
+                          child: GestureDetector(
+                            onTap: () => onPasswordConfirmationVisibility(),
+                            child: SvgPicture.asset(
+                              isPasswordConfirmationVisible
+                                  ? IconsAssetsConstants.hideIcon
+                                  : IconsAssetsConstants.showIcon,
+                              width: 24.r,
+                              height: 24.r,
+                              color: MainColors.disableColor(context),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 SizedBox(height: 25.h),

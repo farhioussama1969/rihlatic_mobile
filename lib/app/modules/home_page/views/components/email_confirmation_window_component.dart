@@ -3,27 +3,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:rihlatic/app/core/components/buttons/icon_button_component.dart';
 import 'package:rihlatic/app/core/components/buttons/primary_button_component.dart';
-import 'package:rihlatic/app/core/components/inputs/text_input_component.dart';
+import 'package:rihlatic/app/core/components/inputs/otp_input_component.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
-import 'package:rihlatic/app/core/utils/validator_util.dart';
 
-class CheckUserStatusWindowComponent extends StatelessWidget {
-  const CheckUserStatusWindowComponent(
+class EmailConfirmationWindowComponent extends StatelessWidget {
+  const EmailConfirmationWindowComponent(
       {super.key,
       required this.onContinue,
       required this.loading,
-      required this.emailController,
-      required this.formKey,
-      required this.emailFocusNode});
+      required this.otpController});
 
   final Function onContinue;
   final bool loading;
-  final FocusNode emailFocusNode;
-  final TextEditingController emailController;
-  final GlobalKey<FormState> formKey;
+  final TextEditingController otpController;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +40,7 @@ class CheckUserStatusWindowComponent extends StatelessWidget {
                 SizedBox(height: 15.h),
                 Center(
                   child: Text(
-                    StringsAssetsConstants.enterToYourAccount,
+                    StringsAssetsConstants.emailConfirmation,
                     style: TextStyles.mediumLabelTextStyle(context),
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade,
@@ -54,27 +49,16 @@ class CheckUserStatusWindowComponent extends StatelessWidget {
                 SizedBox(height: 5.h),
                 Center(
                   child: Text(
-                    StringsAssetsConstants.enterToYourAccountDescription,
+                    StringsAssetsConstants.emailConfirmationDescription,
                     style: TextStyles.largeBodyTextStyle(context),
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade,
                   ),
                 ),
                 SizedBox(height: 25.h),
-                Form(
-                  key: formKey,
-                  child: TextInputComponent(
-                    focusNode: emailFocusNode,
-                    controller: emailController,
-                    label: StringsAssetsConstants.email,
-                    isLabelOutside: true,
-                    hint:
-                        '${StringsAssetsConstants.enter} ${StringsAssetsConstants.email}...',
-                    textInputType: TextInputType.emailAddress,
-                    validate: (value) => ValidatorUtil.emailValidation(value,
-                        customMessage:
-                            '${StringsAssetsConstants.check} ${StringsAssetsConstants.email}...'),
-                  ),
+                OtpInputComponent(
+                  length: 6,
+                  controller: otpController,
                 ),
                 SizedBox(height: 25.h),
                 PrimaryButtonComponent(

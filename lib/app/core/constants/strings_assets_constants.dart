@@ -67,4 +67,10 @@ static String get checkInPolicy{return "Check in policy".tr;}
 static String get readAllPolicies{return "Read all policies".tr;}
 static String get location{return "Location".tr;}
 static String get populairAmenities{return "Populair amenities".tr;}
+static String get passwordConfirmation{return "password confirmation".tr;}
+static String get createNewAccount{return "create new account".tr;}
+static String get createNewAccountDescription{return "create new account description".tr;}
+static String get otpValidation{return "otp validation".tr;}
+static String get emailConfirmation{return "email confirmation".tr;}
+static String get emailConfirmationDescription{return "email confirmation description".tr;}
 }
