@@ -9,5 +9,6 @@ class GetBuildersIdsConstants {
   static const String profileGanderWindow = "profile_gander_window";
   static const String homeCheckUserStatusWindow =
       "home_check_user_status_window";
+  static const String homeRegisterWindow = "home_register_window";
   static const String homeBody = 'home_body';
 }

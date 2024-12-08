@@ -8,20 +8,23 @@ import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
-import 'package:rihlatic/app/core/utils/validator_util.dart';
 
-class CheckUserStatusWindowComponent extends StatelessWidget {
-  const CheckUserStatusWindowComponent(
+class RegisterWindowComponent extends StatelessWidget {
+  const RegisterWindowComponent(
       {super.key,
-      required this.onContinue,
       required this.loading,
       required this.emailController,
-      required this.formKey});
+      required this.passwordController,
+      required this.passwordConfirmationController,
+      required this.formKey,
+      required this.onContinue});
 
-  final Function onContinue;
   final bool loading;
   final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final TextEditingController passwordConfirmationController;
   final GlobalKey<FormState> formKey;
+  final Function onContinue;
 
   @override
   Widget build(BuildContext context) {

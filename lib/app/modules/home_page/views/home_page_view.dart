@@ -14,6 +14,7 @@ import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_com
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/organized_trip_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/populair_flights.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/register_window_component.dart';
 
 import '../controllers/home_page_controller.dart';
 
@@ -49,14 +50,19 @@ class HomePageView extends GetView<HomePageController> {
                                             color:
                                                 MainColors.textColor(context)!),
                                   ),
-                                  Text(
-                                    'Welcome to Rihlatic',
-                                    style: TextStyles.largeBodyTextStyle(
-                                            context)
-                                        .copyWith(
-                                            color:
-                                                MainColors.textColor(context)!
-                                                    .withOpacity(0.6)),
+                                  GestureDetector(
+                                    onTap: () {
+                                      showCheckUserStatusWindow();
+                                    },
+                                    child: Text(
+                                      'Welcome to Rihlatic',
+                                      style: TextStyles.largeBodyTextStyle(
+                                              context)
+                                          .copyWith(
+                                              color:
+                                                  MainColors.textColor(context)!
+                                                      .withOpacity(0.6)),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -85,11 +91,16 @@ class HomePageView extends GetView<HomePageController> {
                             SizedBox(
                               height: 20.h,
                             ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 20.0),
-                              child: const PopularFlights(
-                                title: 'Popular Hotels',
+                            GestureDetector(
+                              onTap: () {
+                                showCheckUserStatusWindow();
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20.0),
+                                child: const PopularFlights(
+                                  title: 'Popular Hotels',
+                                ),
                               ),
                             ),
                             SizedBox(
@@ -118,7 +129,29 @@ class HomePageView extends GetView<HomePageController> {
         id: GetBuildersIdsConstants.homeCheckUserStatusWindow,
         builder: (logic) {
           return CheckUserStatusWindowComponent(
+            formKey: logic.checkUserFormKey,
             emailController: logic.emailController,
+            loading: logic.checkUserStatusLoading,
+            onContinue: logic.checkUserStatus,
+          );
+        },
+      ),
+    );
+  }
+
+  void showRegisterWindow() {
+    BottomSheetComponent.show(
+      Get.context!,
+      body: GetBuilder<HomePageController>(
+        autoRemove: false,
+        id: GetBuildersIdsConstants.homeRegisterWindow,
+        builder: (logic) {
+          return RegisterWindowComponent(
+            formKey: logic.registerFormKey,
+            emailController: logic.emailController,
+            passwordController: logic.passwordController,
+            passwordConfirmationController:
+                logic.passwordConfirmationController,
             loading: logic.checkUserStatusLoading,
             onContinue: logic.checkUserStatus,
           );
