@@ -104,8 +104,15 @@ class HomePageController extends GetxController {
       onLoading: () => changeCheckUserStatusLoading(true),
       onFinal: () => changeCheckUserStatusLoading(false),
     )
-        .then((value) {
+        .then((value) async {
       if (value != null) {
+        if (value == 'Unconfirmed') {
+          Get.back();
+          const HomePageView().showEmailConfirmationWindow();
+        } else {
+          Get.back();
+          const HomePageView().showLoginWindow();
+        }
       } else {
         Get.back();
         const HomePageView().showRegisterWindow();
@@ -189,6 +196,28 @@ class HomePageController extends GetxController {
       if (value != null) {
         await Get.find<UserController>().setUser(value);
         await Get.find<UserController>().initialize(skipUpdateChecker: true);
+      }
+    });
+  }
+
+  bool resendCodeLoading = false;
+  void changeResendCodeLoading(bool value) {
+    resendCodeLoading = value;
+    update([GetBuildersIdsConstants.homeEmailConfirmationWindow]);
+  }
+
+  void resendCode() async {
+    if (resendCodeLoading) return;
+    await AuthProvider()
+        .resendOtp(
+      email: emailController.text,
+      onLoading: () => changeResendCodeLoading(true),
+      onFinal: () => changeResendCodeLoading(false),
+    )
+        .then((value) {
+      if (value == true) {
+        ToastComponent.showSuccessToast(Get.context!,
+            text: StringsAssetsConstants.codeHasBeenSentSuccessfully);
       }
     });
   }

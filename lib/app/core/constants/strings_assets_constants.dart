@@ -73,4 +73,9 @@ static String get createNewAccountDescription{return "create new account descrip
 static String get otpValidation{return "otp validation".tr;}
 static String get emailConfirmation{return "email confirmation".tr;}
 static String get emailConfirmationDescription{return "email confirmation description".tr;}
+static String get signIn{return "sign in".tr;}
+static String get signInDescription{return "sign in description".tr;}
+static String get youDidntReceiveTheCode{return "you didnt receive the code".tr;}
+static String get resend{return "resend".tr;}
+static String get codeHasBeenSentSuccessfully{return "code has been sent successfully".tr;}
 }

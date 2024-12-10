@@ -43,7 +43,6 @@ class OtpInputComponent extends StatelessWidget {
         cursorColor: MainColors.primaryColor,
         enableActiveFill: true,
         textStyle: TextStyles.mediumLabelTextStyle(context),
-        keyboardType: TextInputType.number,
         enablePinAutofill: true,
         controller: controller,
         onCompleted: (v) {},

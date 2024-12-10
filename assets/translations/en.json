@@ -79,5 +79,13 @@
 
   "otp validation": "Please check the confirmation code",
   "email confirmation": "Email Confirmation",
-  "email confirmation description": "Please enter the 6-character code sent to your email"
+  "email confirmation description": "Please enter the 6-character code sent to your email",
+
+  "sign in": "Sign in",
+    "sign in description": "Enter your password to access your account",
+
+  "you didnt receive the code": "You didn't receive the code?",
+    "resend": "Resend",
+
+  "code has been sent successfully": "Code has been sent successfully"
 }

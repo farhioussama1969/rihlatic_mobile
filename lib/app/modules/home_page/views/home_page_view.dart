@@ -13,6 +13,7 @@ import 'package:rihlatic/app/modules/home_page/views/components/check_user_statu
 import 'package:rihlatic/app/modules/home_page/views/components/email_confirmation_window_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/login_window_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/organized_trip_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/populair_flights.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/register_window_component.dart';
@@ -144,6 +145,7 @@ class HomePageView extends GetView<HomePageController> {
   void showRegisterWindow() {
     BottomSheetComponent.show(
       Get.context!,
+      dismissible: false,
       body: GetBuilder<HomePageController>(
         autoRemove: false,
         id: GetBuildersIdsConstants.homeRegisterWindow,
@@ -179,7 +181,30 @@ class HomePageView extends GetView<HomePageController> {
         builder: (logic) {
           return EmailConfirmationWindowComponent(
             otpController: logic.otpController,
+            loading: logic.emailConfirmationLoading,
+            onContinue: logic.emailConfirmation,
+            resendCodeLoading: logic.resendCodeLoading,
+            onResendCode: logic.resendCode,
+          );
+        },
+      ),
+    );
+  }
+
+  void showLoginWindow() {
+    BottomSheetComponent.show(
+      Get.context!,
+      body: GetBuilder<HomePageController>(
+        autoRemove: false,
+        id: GetBuildersIdsConstants.homeLoginWindow,
+        builder: (logic) {
+          return LoginWindowComponent(
+            passwordController: logic.loginPasswordController,
+            passwordFocusNode: logic.loginPasswordFocusNode,
             loading: logic.checkUserStatusLoading,
+            onPasswordVisibility: logic.changeLoginPasswordVisibility,
+            isPasswordVisible: logic.loginPasswordVisible,
+            formKey: logic.loginFormKey,
             onContinue: logic.checkUserStatus,
           );
         },

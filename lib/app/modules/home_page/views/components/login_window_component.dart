@@ -1,31 +1,34 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:rihlatic/app/core/components/animations/loading_component.dart';
 import 'package:rihlatic/app/core/components/buttons/icon_button_component.dart';
 import 'package:rihlatic/app/core/components/buttons/primary_button_component.dart';
-import 'package:rihlatic/app/core/components/inputs/otp_input_component.dart';
-import 'package:rihlatic/app/core/constants/fonts_family_assets_constants.dart';
+import 'package:rihlatic/app/core/components/inputs/text_input_component.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
+import 'package:rihlatic/app/core/utils/validator_util.dart';
 
-class EmailConfirmationWindowComponent extends StatelessWidget {
-  const EmailConfirmationWindowComponent(
+class LoginWindowComponent extends StatelessWidget {
+  const LoginWindowComponent(
       {super.key,
-      required this.onContinue,
       required this.loading,
-      required this.otpController,
-      required this.resendCodeLoading,
-      required this.onResendCode});
+      required this.passwordController,
+      required this.passwordFocusNode,
+      required this.formKey,
+      required this.onContinue,
+      required this.isPasswordVisible,
+      required this.onPasswordVisibility});
 
-  final Function onContinue;
   final bool loading;
-  final TextEditingController otpController;
-  final bool resendCodeLoading;
-  final Function onResendCode;
+  final TextEditingController passwordController;
+  final FocusNode passwordFocusNode;
+  final GlobalKey<FormState> formKey;
+  final Function onContinue;
+  final bool isPasswordVisible;
+  final Function onPasswordVisibility;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,7 @@ class EmailConfirmationWindowComponent extends StatelessWidget {
                 SizedBox(height: 15.h),
                 Center(
                   child: Text(
-                    StringsAssetsConstants.emailConfirmation,
+                    StringsAssetsConstants.signIn,
                     style: TextStyles.mediumLabelTextStyle(context),
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade,
@@ -56,53 +59,51 @@ class EmailConfirmationWindowComponent extends StatelessWidget {
                 SizedBox(height: 5.h),
                 Center(
                   child: Text(
-                    StringsAssetsConstants.emailConfirmationDescription,
+                    StringsAssetsConstants.signInDescription,
                     style: TextStyles.largeBodyTextStyle(context),
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.fade,
                   ),
                 ),
                 SizedBox(height: 25.h),
-                OtpInputComponent(
-                  length: 6,
-                  controller: otpController,
-                ),
-                SizedBox(height: 25.h),
-                if (resendCodeLoading)
-                  const Center(
-                    child: LoadingComponent(),
-                  ),
-                if (!resendCodeLoading)
-                  Row(
+                Form(
+                  key: formKey,
+                  child: Column(
                     children: [
-                      Expanded(
-                        child: RichText(
-                          text: TextSpan(
-                            text:
-                                '${StringsAssetsConstants.youDidntReceiveTheCode} ',
-                            style: TextStyles.largeBodyTextStyle(context),
-                            children: <TextSpan>[
-                              TextSpan(
-                                recognizer: TapGestureRecognizer()
-                                  ..onTap = () {
-                                    if (!loading) {
-                                      onResendCode();
-                                    }
-                                  },
-                                text: StringsAssetsConstants.resend,
-                                style: TextStyles.largeBodyTextStyle(context)
-                                    .copyWith(
-                                  color: MainColors.primaryColor,
-                                  fontFamily: FontsFamilyAssetsConstants.bold,
-                                ),
-                              ),
-                            ],
+                      TextInputComponent(
+                        focusNode: passwordFocusNode,
+                        controller: passwordController,
+                        label: StringsAssetsConstants.password,
+                        isLabelOutside: true,
+                        hint:
+                            '${StringsAssetsConstants.enter} ${StringsAssetsConstants.password}...',
+                        textInputType: TextInputType.text,
+                        validate: (value) => ValidatorUtil.passwordValidation(
+                            value,
+                            customMessage:
+                                StringsAssetsConstants.passwordValidation),
+                        obscureText: !isPasswordVisible,
+                        suffix: Padding(
+                          padding: EdgeInsetsDirectional.only(
+                            start: 10.w,
+                            end: 20.w,
                           ),
-                          textAlign: TextAlign.center,
+                          child: GestureDetector(
+                            onTap: () => onPasswordVisibility(),
+                            child: SvgPicture.asset(
+                              isPasswordVisible
+                                  ? IconsAssetsConstants.hideIcon
+                                  : IconsAssetsConstants.showIcon,
+                              width: 24.r,
+                              height: 24.r,
+                              color: MainColors.disableColor(context),
+                            ),
+                          ),
                         ),
                       ),
                     ],
                   ),
+                ),
                 SizedBox(height: 25.h),
                 PrimaryButtonComponent(
                   onTap: () => onContinue(),

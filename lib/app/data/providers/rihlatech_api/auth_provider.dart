@@ -36,6 +36,28 @@ class AuthProvider {
     return null;
   }
 
+  Future<bool?> resendOtp({
+    required String email,
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.resendOtp,
+      requestType: HttpRequestTypes.post,
+      showErrorToast: true,
+      data: {
+        "email": email,
+      },
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+
+    if (response?.body != null) {
+      return response?.body['resend'];
+    }
+    return null;
+  }
+
   Future<UserModel?> login({
     required String username,
     required String password,
