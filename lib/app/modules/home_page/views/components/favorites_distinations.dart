@@ -18,20 +18,23 @@ class FavoritesDestinations extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text(
-              title,
-              style: TextStyles.mediumLabelTextStyle(context)
-                  .copyWith(color: MainColors.textColor(context)),
-            ),
-            Spacer(),
-            Text(
-              'See More',
-              style: TextStyles.smallLabelTextStyle(context)
-                  .copyWith(color: MainColors.primaryColor),
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Row(
+            children: [
+              Text(
+                title,
+                style: TextStyles.mediumLabelTextStyle(context)
+                    .copyWith(color: MainColors.textColor(context)),
+              ),
+              Spacer(),
+              Text(
+                'See More',
+                style: TextStyles.smallLabelTextStyle(context)
+                    .copyWith(color: MainColors.primaryColor),
+              ),
+            ],
+          ),
         ),
         SizedBox(
           height: 10.h,
@@ -39,6 +42,7 @@ class FavoritesDestinations extends StatelessWidget {
         SizedBox(
           height: 217.h, // Height of each list item container
           child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             scrollDirection: Axis.horizontal,
             physics:
                 BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),

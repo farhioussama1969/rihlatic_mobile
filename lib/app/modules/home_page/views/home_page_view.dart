@@ -11,6 +11,7 @@ import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_com
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/organized_trip_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/favorites_distinations.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/popular_flights.dart';
 
 import '../controllers/home_page_controller.dart';
 
@@ -71,13 +72,9 @@ class HomePageView extends GetView<HomePageController> {
                           ),
                           if (logic.homeData?.discoverAlgeria != null &&
                               logic.homeData!.discoverAlgeria!.isNotEmpty)
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              child: DiscoverAlgeria(
-                                title: 'Discover Algeria',
-                                itemsList:
-                                    logic.homeData?.discoverAlgeria ?? [],
-                              ),
+                            DiscoverAlgeria(
+                              title: 'Discover Algeria',
+                              itemsList: logic.homeData?.discoverAlgeria ?? [],
                             ),
 
                           SizedBox(
@@ -86,29 +83,31 @@ class HomePageView extends GetView<HomePageController> {
 
                           if (logic.homeData?.favoriteDestinations != null &&
                               logic.homeData!.favoriteDestinations!.isNotEmpty)
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 20.0),
-                              child: FavoritesDestinations(
-                                title: 'Favorites destinations',
-                                itemsList:
-                                    logic.homeData?.favoriteDestinations ?? [],
-                              ),
+                            FavoritesDestinations(
+                              title: 'Favorites destinations',
+                              itemsList:
+                                  logic.homeData?.favoriteDestinations ?? [],
                             ),
                           SizedBox(
                             height: 20.h,
                           ),
                           if (logic.homeData?.organzidTrip != null &&
                               logic.homeData!.organzidTrip!.isNotEmpty)
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 20.0),
-                              child: OrganizedTripComponent(
-                                title: 'Organized trip',
-                                itemsList: logic.homeData?.organzidTrip ?? [],
-                              ),
+                            OrganizedTripComponent(
+                              title: 'Organized trip',
+                              itemsList: logic.homeData?.organzidTrip ?? [],
                             ),
                           SizedBox(
                             height: 20.h,
+                          ),
+                          if (logic.homeData?.popularFlights != null &&
+                              logic.homeData!.popularFlights!.isNotEmpty)
+                            PopularFlights(
+                              title: 'Popular Flights',
+                              itemsList: logic.homeData?.popularFlights ?? [],
+                            ),
+                          SizedBox(
+                            height: 50.h,
                           ),
                         ],
                       ),

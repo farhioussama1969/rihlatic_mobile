@@ -1,27 +1,27 @@
 import 'package:rihlatic/app/data/models/airoport_model.dart';
 
 class FlightModel {
-  AirportModel? departure;
-  AirportModel? arrival;
+  AirportModel? departure_airport;
+  AirportModel? arrival_airport;
 
-  FlightModel({this.departure, this.arrival});
+  FlightModel({this.departure_airport, this.arrival_airport});
 
   FlightModel.fromJson(Map<String, dynamic> json) {
-    departure = json['departure'] != null
-        ? new AirportModel.fromJson(json['departure'])
+    departure_airport = json['departure_airport'] != null
+        ? new AirportModel.fromJson(json['departure_airport'])
         : null;
-    arrival = json['arrival'] != null
-        ? new AirportModel.fromJson(json['arrival'])
+    arrival_airport = json['arrival_airport'] != null
+        ? new AirportModel.fromJson(json['arrival_airport'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.departure != null) {
-      data['departure'] = this.departure!.toJson();
+    if (this.departure_airport != null) {
+      data['departure_airport'] = this.departure_airport!.toJson();
     }
-    if (this.arrival != null) {
-      data['arrival'] = this.arrival!.toJson();
+    if (this.arrival_airport != null) {
+      data['arrival_airport'] = this.arrival_airport!.toJson();
     }
     return data;
   }

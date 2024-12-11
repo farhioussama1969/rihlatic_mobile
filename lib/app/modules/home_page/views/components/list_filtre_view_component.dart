@@ -13,6 +13,7 @@ class ListFiltreViewComponent extends StatelessWidget {
     return SizedBox(
       height: 100,
       child: ListView.builder(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
         scrollDirection: Axis.horizontal,
         physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
         itemCount: 20,
