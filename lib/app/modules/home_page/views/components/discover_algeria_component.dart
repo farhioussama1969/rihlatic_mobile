@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/data/models/destination_model.dart';
 
-class FavoritesDestinations extends StatelessWidget {
+class DiscoverAlgeriaComponent extends StatelessWidget {
   final String title;
   final List<DestinationModel> itemsList;
-  const FavoritesDestinations({
+  const DiscoverAlgeriaComponent({
     super.key,
     required this.title,
     required this.itemsList,
@@ -29,7 +30,7 @@ class FavoritesDestinations extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                'See More',
+                StringsAssetsConstants.seeMore,
                 style: TextStyles.smallLabelTextStyle(context)
                     .copyWith(color: MainColors.primaryColor),
               ),
@@ -89,7 +90,8 @@ class FavoritesDestinations extends StatelessWidget {
                           ),
                           Text(
                             (itemsList[index].departuresCount ?? 0).toString() +
-                                ' establishment',
+                                ' ' +
+                                StringsAssetsConstants.establishment,
                             style:
                                 TextStyles.smallBodyTextStyle(context).copyWith(
                               color: MainColors.whiteColor,

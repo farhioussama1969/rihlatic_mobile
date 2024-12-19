@@ -7,11 +7,11 @@ import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/data/models/flight_model.dart';
 
-class PopularFlights extends StatelessWidget {
+class PopularFlightsComponent extends StatelessWidget {
   final String title;
   final List<FlightModel> itemsList;
 
-  const PopularFlights(
+  const PopularFlightsComponent(
       {super.key, required this.title, required this.itemsList});
 
   @override

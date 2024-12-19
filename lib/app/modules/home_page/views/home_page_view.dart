@@ -6,12 +6,12 @@ import 'package:rihlatic/app/core/components/animations/loading_component.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
-import 'package:rihlatic/app/modules/home_page/views/components/discover_algeria.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/discover_algeria_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/gallery_home_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/list_filtre_view_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/organized_trip_component.dart';
-import 'package:rihlatic/app/modules/home_page/views/components/favorites_distinations.dart';
-import 'package:rihlatic/app/modules/home_page/views/components/popular_flights.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/favorites_distinations_component.dart';
+import 'package:rihlatic/app/modules/home_page/views/components/popular_flights_component.dart';
 
 import '../controllers/home_page_controller.dart';
 
@@ -72,7 +72,7 @@ class HomePageView extends GetView<HomePageController> {
                           ),
                           if (logic.homeData?.discoverAlgeria != null &&
                               logic.homeData!.discoverAlgeria!.isNotEmpty)
-                            DiscoverAlgeria(
+                            DiscoverAlgeriaComponent(
                               title: 'Discover Algeria',
                               itemsList: logic.homeData?.discoverAlgeria ?? [],
                             ),
@@ -83,7 +83,7 @@ class HomePageView extends GetView<HomePageController> {
 
                           if (logic.homeData?.favoriteDestinations != null &&
                               logic.homeData!.favoriteDestinations!.isNotEmpty)
-                            FavoritesDestinations(
+                            FavoritesDistinationsComponent(
                               title: 'Favorites destinations',
                               itemsList:
                                   logic.homeData?.favoriteDestinations ?? [],
@@ -102,7 +102,7 @@ class HomePageView extends GetView<HomePageController> {
                           ),
                           if (logic.homeData?.popularFlights != null &&
                               logic.homeData!.popularFlights!.isNotEmpty)
-                            PopularFlights(
+                            PopularFlightsComponent(
                               title: 'Popular Flights',
                               itemsList: logic.homeData?.popularFlights ?? [],
                             ),

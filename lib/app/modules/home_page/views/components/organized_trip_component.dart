@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/data/models/organized_trip_model.dart';
@@ -29,7 +30,7 @@ class OrganizedTripComponent extends StatelessWidget {
               ),
               Spacer(),
               Text(
-                'See More',
+                StringsAssetsConstants.seeMore,
                 style: TextStyles.smallLabelTextStyle(context)
                     .copyWith(color: MainColors.primaryColor),
               ),
@@ -345,7 +346,7 @@ class OrganizedTripComponent extends StatelessWidget {
                             child: Row(
                               children: [
                                 Text(
-                                  'From',
+                                  StringsAssetsConstants.from,
                                   style: TextStyles.smallBodyTextStyle(context)
                                       .copyWith(
                                     color: MainColors.textColor(context)!
@@ -358,8 +359,11 @@ class OrganizedTripComponent extends StatelessWidget {
                                           .departures!
                                           .map((e) => e.priceIni ?? '')
                                           .toList()
-                                          .join(' to ') +
-                                      ' DZD',
+                                          .join(' ' +
+                                              StringsAssetsConstants.to +
+                                              ' ') +
+                                      ' ' +
+                                      StringsAssetsConstants.dzd,
                                   style: TextStyles.smallLabelTextStyle(context)
                                       .copyWith(
                                     color: MainColors.textColor(context)!

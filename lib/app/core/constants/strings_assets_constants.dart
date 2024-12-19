@@ -62,4 +62,9 @@ static String get checkInPolicy{return "Check in policy".tr;}
 static String get readAllPolicies{return "Read all policies".tr;}
 static String get location{return "Location".tr;}
 static String get populairAmenities{return "Populair amenities".tr;}
+static String get seeMore{return "See More".tr;}
+static String get establishment{return "establishment".tr;}
+static String get from{return "from".tr;}
+static String get to{return "to".tr;}
+static String get dzd{return "DZD".tr;}
 }
