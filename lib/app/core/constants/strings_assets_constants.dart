@@ -55,6 +55,11 @@ static String get pleaseWait{return "please wait".tr;}
 static String get getStartedTitle{return "get started title".tr;}
 static String get getStartedDescription{return "get started description".tr;}
 static String get start{return "start".tr;}
+static String get email{return "email".tr;}
+static String get password{return "password".tr;}
+static String get enterToYourAccount{return "enter to your account".tr;}
+static String get enterToYourAccountDescription{return "enter to your account description".tr;}
+static String get descriptionHotelDetails{return "description hotel details".tr;}
 static String get descriptionDetails{return "Description Details ".tr;}
 static String get reviews{return "Reviews".tr;}
 static String get selectYourRoom{return "Select your room".tr;}
@@ -67,4 +72,15 @@ static String get establishment{return "establishment".tr;}
 static String get from{return "from".tr;}
 static String get to{return "to".tr;}
 static String get dzd{return "DZD".tr;}
+static String get passwordConfirmation{return "password confirmation".tr;}
+static String get createNewAccount{return "create new account".tr;}
+static String get createNewAccountDescription{return "create new account description".tr;}
+static String get otpValidation{return "otp validation".tr;}
+static String get emailConfirmation{return "email confirmation".tr;}
+static String get emailConfirmationDescription{return "email confirmation description".tr;}
+static String get signIn{return "sign in".tr;}
+static String get signInDescription{return "sign in description".tr;}
+static String get youDidntReceiveTheCode{return "you didnt receive the code".tr;}
+static String get resend{return "resend".tr;}
+static String get codeHasBeenSentSuccessfully{return "code has been sent successfully".tr;}
 }

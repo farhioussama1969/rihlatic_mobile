@@ -55,6 +55,14 @@
   "get started title": "Your Trip Starts Here",
   "get started description": "We find you the best flight deals and travel hacks so that you can choose how to book.",
   "start": "Start",
+  "email": "Email",
+    "password": "Password",
+  "enter to your account": "Enter to your account",
+  "enter to your account description": "Enter your email to access your account",
+  "description hotel details": "Hotel details",
+
+
+  "start": "Start",
   "Description Details ": "Description & Details ",
   "Reviews": "Reviews ",
   "Select your room": "Select your room ",
@@ -66,5 +74,24 @@
   "establishment": "establishment",
   "from": "from",
   "to": "to",
-  "DZD": "DZD"
+  "DZD": "DZD",
+  "Populair amenities": "Populair amenities ",
+
+
+  "password confirmation": "Password Confirmation",
+
+  "create new account": "Create new account",
+  "create new account description": "Create a new account to access the application",
+
+  "otp validation": "Please check the confirmation code",
+  "email confirmation": "Email Confirmation",
+  "email confirmation description": "Please enter the 6-character code sent to your email",
+
+  "sign in": "Sign in",
+    "sign in description": "Enter your password to access your account",
+
+  "you didnt receive the code": "You didn't receive the code?",
+    "resend": "Resend",
+
+  "code has been sent successfully": "Code has been sent successfully"
 }
