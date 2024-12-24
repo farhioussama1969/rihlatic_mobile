@@ -35,6 +35,9 @@ class HomePageController extends GetxController {
         .then((value) {
       if (value != null) {
         changeHomeData(value);
+        for (var ite in value!.discoverAlgeria!) {
+          print('itttttttem ><  ${ite.name}');
+        }
       }
     });
   }

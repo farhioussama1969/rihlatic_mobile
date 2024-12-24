@@ -3,33 +3,38 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
+import 'package:rihlatic/app/data/models/destination_model.dart';
 
-class PopularFlights extends StatelessWidget {
+class FavoritesDistinationsComponent extends StatelessWidget {
   final String title;
-
-  const PopularFlights({
+  final List<DestinationModel> itemsList;
+  const FavoritesDistinationsComponent({
     super.key,
     required this.title,
+    required this.itemsList,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text(
-              title,
-              style: TextStyles.mediumLabelTextStyle(context)
-                  .copyWith(color: MainColors.textColor(context)),
-            ),
-            Spacer(),
-            Text(
-              'See More',
-              style: TextStyles.smallLabelTextStyle(context)
-                  .copyWith(color: MainColors.primaryColor),
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Row(
+            children: [
+              Text(
+                title,
+                style: TextStyles.mediumLabelTextStyle(context)
+                    .copyWith(color: MainColors.textColor(context)),
+              ),
+              Spacer(),
+              Text(
+                'See More',
+                style: TextStyles.smallLabelTextStyle(context)
+                    .copyWith(color: MainColors.primaryColor),
+              ),
+            ],
+          ),
         ),
         SizedBox(
           height: 10.h,
@@ -37,10 +42,11 @@ class PopularFlights extends StatelessWidget {
         SizedBox(
           height: 217.h, // Height of each list item container
           child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             scrollDirection: Axis.horizontal,
             physics:
                 BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            itemCount: 20,
+            itemCount: itemsList.length,
             itemBuilder: (context, index) {
               return Container(
                 margin: EdgeInsets.only(right: 10.w),
@@ -52,8 +58,7 @@ class PopularFlights extends StatelessWidget {
                       child: SizedBox(
                         width: 175.w,
                         child: NetworkImageComponent(
-                          imageLink:
-                              'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                          imageLink: itemsList[index].image ?? '',
                         ),
                       ),
                     ),
@@ -70,7 +75,7 @@ class PopularFlights extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Algiers',
+                            itemsList[index].name ?? '',
                             style: TextStyles.mediumLabelTextStyle(context)
                                 .copyWith(
                               color: MainColors.whiteColor,
@@ -83,7 +88,8 @@ class PopularFlights extends StatelessWidget {
                             height: 4.h,
                           ),
                           Text(
-                            '23 establishments',
+                            (itemsList[index].departuresCount ?? 0).toString() +
+                                ' establishment',
                             style:
                                 TextStyles.smallBodyTextStyle(context).copyWith(
                               color: MainColors.whiteColor,

@@ -3,32 +3,39 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
+import 'package:rihlatic/app/data/models/organized_trip_model.dart';
 
 class OrganizedTripComponent extends StatelessWidget {
   final String title;
+  final List<OrganizedTripModel> itemsList;
 
-  const OrganizedTripComponent({super.key, required this.title});
+  const OrganizedTripComponent(
+      {super.key, required this.title, required this.itemsList});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            Text(
-              title,
-              style: TextStyles.mediumLabelTextStyle(context)
-                  .copyWith(color: MainColors.textColor(context)),
-            ),
-            Spacer(),
-            Text(
-              'See More',
-              style: TextStyles.smallLabelTextStyle(context)
-                  .copyWith(color: MainColors.primaryColor),
-            ),
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Row(
+            children: [
+              Text(
+                title,
+                style: TextStyles.mediumLabelTextStyle(context)
+                    .copyWith(color: MainColors.textColor(context)),
+              ),
+              Spacer(),
+              Text(
+                StringsAssetsConstants.seeMore,
+                style: TextStyles.smallLabelTextStyle(context)
+                    .copyWith(color: MainColors.primaryColor),
+              ),
+            ],
+          ),
         ),
         SizedBox(
           height: 10.h,
@@ -36,13 +43,26 @@ class OrganizedTripComponent extends StatelessWidget {
         SizedBox(
           height: 320.h,
           child: ListView.builder(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             scrollDirection: Axis.horizontal,
             physics:
                 BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-            itemCount: 20,
+            itemCount: itemsList.length,
             itemBuilder: (context, index) {
               return Container(
                 margin: EdgeInsets.only(right: 15),
+                decoration: BoxDecoration(
+                  color: MainColors.whiteColor,
+                  borderRadius: BorderRadius.circular(16),
+                  boxShadow: [
+                    BoxShadow(
+                      color: MainColors.textColor(context)!.withOpacity(0.2),
+                      blurRadius: 5,
+                      offset: Offset(2, 4), // Shadow position
+                    ),
+                  ],
+                ),
+                width: 242.w,
                 child: Column(
                   children: [
                     ClipRRect(
@@ -54,8 +74,7 @@ class OrganizedTripComponent extends StatelessWidget {
                         width: 242.w,
                         height: 190.h,
                         child: NetworkImageComponent(
-                          imageLink:
-                              'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
+                          imageLink: itemsList[index].featuredImage ?? '',
                         ),
                       ),
                     ),
@@ -79,17 +98,25 @@ class OrganizedTripComponent extends StatelessWidget {
                                     width: 13.r,
                                     height: 13.r,
                                   ),
-                                  Text(
-                                    'Baku, Azerbaijan',
-                                    style: TextStyles.smallBodyTextStyle(
-                                            context)
-                                        .copyWith(
-                                            color:
-                                                MainColors.textColor(context)!,
-                                            height: 1),
-                                    maxLines: 2,
-                                    textAlign: TextAlign.left,
-                                  ),
+                                  if (itemsList[index].destinations != null &&
+                                      itemsList[index]!
+                                          .destinations!
+                                          .isNotEmpty)
+                                    Text(
+                                      itemsList[index]
+                                          .destinations!
+                                          .map((e) => e.name ?? '')
+                                          .toList()
+                                          .join(', '),
+                                      style:
+                                          TextStyles.smallBodyTextStyle(context)
+                                              .copyWith(
+                                                  color: MainColors.textColor(
+                                                      context)!,
+                                                  height: 1),
+                                      maxLines: 2,
+                                      textAlign: TextAlign.left,
+                                    ),
                                 ],
                               ),
                             ),
@@ -260,7 +287,7 @@ class OrganizedTripComponent extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Text(
-                                    'Voyage Sharm el sheikh Août',
+                                    itemsList[index].name ?? '',
                                     style: TextStyles.smallLabelTextStyle(
                                             context)
                                         .copyWith(
@@ -294,7 +321,13 @@ class OrganizedTripComponent extends StatelessWidget {
                                 ),
                                 SizedBox(width: 2.w),
                                 Text(
-                                  '5 Hotel Amarina Sun Resort',
+                                  '5 ' +
+                                      itemsList[index]
+                                          .departures!
+                                          .map(
+                                              (e) => e.hotelStay?[0].name ?? '')
+                                          .toList()
+                                          .join(', '),
                                   style: TextStyles.smallBodyTextStyle(context)
                                       .copyWith(
                                     color: MainColors.textColor(context)!
@@ -313,7 +346,7 @@ class OrganizedTripComponent extends StatelessWidget {
                             child: Row(
                               children: [
                                 Text(
-                                  'From',
+                                  StringsAssetsConstants.from,
                                   style: TextStyles.smallBodyTextStyle(context)
                                       .copyWith(
                                     color: MainColors.textColor(context)!
@@ -322,7 +355,15 @@ class OrganizedTripComponent extends StatelessWidget {
                                 ),
                                 SizedBox(width: 8.w),
                                 Text(
-                                  '169000 DZD',
+                                  itemsList[index]
+                                          .departures!
+                                          .map((e) => e.priceIni ?? '')
+                                          .toList()
+                                          .join(' ' +
+                                              StringsAssetsConstants.to +
+                                              ' ') +
+                                      ' ' +
+                                      StringsAssetsConstants.dzd,
                                   style: TextStyles.smallLabelTextStyle(context)
                                       .copyWith(
                                     color: MainColors.textColor(context)!
@@ -337,18 +378,6 @@ class OrganizedTripComponent extends StatelessWidget {
                     )
                   ],
                 ),
-                decoration: BoxDecoration(
-                  color: MainColors.whiteColor,
-                  borderRadius: BorderRadius.circular(16),
-                  boxShadow: [
-                    BoxShadow(
-                      color: MainColors.textColor(context)!.withOpacity(0.2),
-                      blurRadius: 5,
-                      offset: Offset(2, 4), // Shadow position
-                    ),
-                  ],
-                ),
-                width: 242.w,
               );
             },
           ),
