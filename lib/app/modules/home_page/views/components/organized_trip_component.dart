@@ -324,8 +324,14 @@ class OrganizedTripComponent extends StatelessWidget {
                                   '5 ' +
                                       itemsList[index]
                                           .departures!
-                                          .map(
-                                              (e) => e.hotelStay?[0].name ?? '')
+                                          .map((e) {
+                                            if (e.hotelStay != null &&
+                                                e.hotelStay!.isNotEmpty) {
+                                              return e.hotelStay![0].name ?? '';
+                                            }
+                                            return '';
+                                          })
+                                          .where((name) => name.isNotEmpty)
                                           .toList()
                                           .join(', '),
                                   style: TextStyles.smallBodyTextStyle(context)
