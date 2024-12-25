@@ -320,20 +320,18 @@ class OrganizedTripComponent extends StatelessWidget {
                                       EdgeInsets.symmetric(horizontal: 4.0),
                                 ),
                                 SizedBox(width: 2.w),
-                                Text(
-                                  '5 ' +
-                                      itemsList[index]
-                                          .departures!
-                                          .map(
-                                              (e) => e.hotelStay?[0].name ?? '')
-                                          .toList()
-                                          .join(', '),
-                                  style: TextStyles.smallBodyTextStyle(context)
-                                      .copyWith(
-                                    color: MainColors.textColor(context)!
-                                        .withOpacity(0.6),
+                                if (itemsList[index]?.departures?.isNotEmpty ==
+                                    true)
+                                  Text(
+                                    '5 ' +
+                                        '${itemsList[index].departures?.map((e) => e.hotelStay?.isNotEmpty == true ? (e.hotelStay?.first.name ?? '') : '').toList().join(', ')}',
+                                    style:
+                                        TextStyles.smallBodyTextStyle(context)
+                                            .copyWith(
+                                      color: MainColors.textColor(context)!
+                                          .withOpacity(0.6),
+                                    ),
                                   ),
-                                ),
                               ],
                             ),
                           ),
