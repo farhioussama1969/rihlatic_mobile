@@ -16,4 +16,7 @@ class EndPointsConstants {
 
   //config provider
   static const String generalSettings = 'general_settings';
+
+  //flight provider
+  static const String flights = 'front/flights_search';
 }
