@@ -309,48 +309,6 @@ class OrganizedTripComponent extends StatelessWidget {
                                 const EdgeInsets.symmetric(horizontal: 5.0),
                             child: Row(
                               children: [
-                                Container(
-                                  child: SvgPicture.asset(
-                                    IconsAssetsConstants.starIcon,
-                                    color: MainColors.primaryColor,
-                                    width: 13.r,
-                                    height: 13.r,
-                                  ),
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
-                                ),
-                                SizedBox(width: 2.w),
-                                Text(
-                                  '5 ' +
-                                      itemsList[index]
-                                          .departures!
-                                          .map((e) {
-                                            if (e.hotelStay != null &&
-                                                e.hotelStay!.isNotEmpty) {
-                                              return e.hotelStay![0].name ?? '';
-                                            }
-                                            return '';
-                                          })
-                                          .where((name) => name.isNotEmpty)
-                                          .toList()
-                                          .join(', '),
-                                  style: TextStyles.smallBodyTextStyle(context)
-                                      .copyWith(
-                                    color: MainColors.textColor(context)!
-                                        .withOpacity(0.6),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 6.h,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Row(
-                              children: [
                                 Text(
                                   StringsAssetsConstants.from,
                                   style: TextStyles.smallBodyTextStyle(context)
