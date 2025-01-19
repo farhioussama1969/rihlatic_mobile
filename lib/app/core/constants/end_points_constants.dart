@@ -12,6 +12,7 @@ class EndPointsConstants {
   static const String verficationEmail = '/front/email/verify';
   static const String checkUserStatus = '/front/user/check_user_status';
   static const String home = '/home';
+  static const String packages = '/front/packages';
   static const String resendOtp = '/front/email/resend_code';
 
   //config provider

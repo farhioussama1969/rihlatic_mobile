@@ -10,8 +10,8 @@ import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/components/pop_ups/bottom_sheet_component.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
-import 'package:rihlatic/app/modules/hotel_page/controllers/hotel_page_controller.dart';
-import 'package:rihlatic/app/modules/hotel_page/views/components/add_quantity_component.dart';
+import 'package:rihlatic/app/modules/packages_page/controllers/packages_page_controller.dart';
+import 'package:rihlatic/app/modules/packages_page/views/components/add_quantity_component.dart';
 
 class PackageFiltreComponent extends StatelessWidget {
   final int roomCount = 3;
@@ -60,7 +60,7 @@ class PackageFiltreComponent extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: GetBuilder<HotelPageController>(
+                    child: GetBuilder<PackagesPageController>(
                       id: '50',
                       builder: (logic) {
                         return AddQuantityComponent(
@@ -88,7 +88,7 @@ class PackageFiltreComponent extends StatelessWidget {
                     ),
                   ),
                   Expanded(
-                    child: GetBuilder<HotelPageController>(
+                    child: GetBuilder<PackagesPageController>(
                       id: '50',
                       builder: (logic) {
                         return AddQuantityComponent(
@@ -121,6 +121,8 @@ class PackageFiltreComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.find<PackagesPageController>();
+
     return Container(
       padding: const EdgeInsets.all(8.0),
       margin: EdgeInsets.symmetric(horizontal: 20.w),
@@ -141,6 +143,9 @@ class PackageFiltreComponent extends StatelessWidget {
             borderRadius: 15,
             contentPadding:
                 EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+            onChange: (value) {
+              controller.updateDestination(value);
+            },
           ),
           const SizedBox(height: 16),
           Row(
@@ -166,19 +171,22 @@ class PackageFiltreComponent extends StatelessWidget {
               ),
             ],
           ),
-          TextInputComponent(
-            onTap: (context) => showMe(context),
-            hint: "Room $roomCount & guest $guestCount",
-            isLabelOutside: true,
-            filled: true,
-            borderRadius: 15,
-            readOnly: true,
-            contentPadding:
-                EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
-          ),
+          // TextInputComponent(
+          //   onTap: (context) => showMe(context),
+          //   hint: "Room $roomCount & guest $guestCount",
+          //   isLabelOutside: true,
+          //   filled: true,
+          //   borderRadius: 15,
+          //   readOnly: true,
+          //   contentPadding:
+          //       EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+          // ),
           SizedBox(height: 16.h),
           PrimaryButtonComponent(
-            onTap: () => showMe(context),
+            onTap: () {
+              controller
+                  .applyFilters(); // Apply filters when the button is pressed
+            },
             text: 'Flitre',
           ),
         ],

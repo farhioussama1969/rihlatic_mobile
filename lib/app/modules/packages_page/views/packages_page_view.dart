@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:rihlatic/app/core/components/animations/loading_component.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/modules/packages_page/views/components/package_card_component.dart';
+import 'package:rihlatic/app/modules/packages_page/views/components/package_filtre_component.dart';
 
 import '../controllers/packages_page_controller.dart';
 
@@ -24,13 +26,13 @@ class PackagesPageView extends GetView<PackagesPageController> {
       body: SizedBox(
         width: 1.sw,
         child: GetBuilder<PackagesPageController>(
-          id: GetBuildersIdsConstants.hotelPageBody,
+          id: GetBuildersIdsConstants.PackagePageBody,
           builder: (logic) {
-            return logic.isPackagesPageLoading
+            return logic.isPackagePageLoading
                 ? Center(child: LoadingComponent())
                 : Column(
                     children: [
-                      const PackgesFiltreComponent(),
+                      const PackageFiltreComponent(),
                       SizedBox(
                         height: 15.h,
                       ),
@@ -49,9 +51,10 @@ class PackagesPageView extends GetView<PackagesPageController> {
                           ],
                         ),
                       ),
-                      if (logic.packgeData != null &&
-                          logic.packgeData!.isNotEmpty)
-                        PackageCardComponent(itemsList: logic.packgeData!),
+                      if (logic.filteredPackageData != null &&
+                          logic.filteredPackageData!.isNotEmpty)
+                        PackageCardComponent(
+                            itemsList: logic.filteredPackageData!),
                     ],
                   );
           },

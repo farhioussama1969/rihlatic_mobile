@@ -19,15 +19,19 @@ class PackageCardComponent extends StatelessWidget {
       children: [
         SizedBox(
           height: 320.h,
-          child: ListView.builder(
+          child: GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            scrollDirection: Axis.horizontal,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 15,
+              childAspectRatio: 0.75,
+            ),
             physics:
                 BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             itemCount: itemsList.length,
             itemBuilder: (context, index) {
               return Container(
-                margin: EdgeInsets.only(right: 15),
                 decoration: BoxDecoration(
                   color: MainColors.whiteColor,
                   borderRadius: BorderRadius.circular(16),
@@ -35,11 +39,10 @@ class PackageCardComponent extends StatelessWidget {
                     BoxShadow(
                       color: MainColors.textColor(context)!.withOpacity(0.2),
                       blurRadius: 5,
-                      offset: Offset(2, 4), // Shadow position
+                      offset: Offset(2, 4),
                     ),
                   ],
                 ),
-                width: 242.w,
                 child: Column(
                   children: [
                     ClipRRect(
@@ -48,10 +51,10 @@ class PackageCardComponent extends StatelessWidget {
                         topRight: Radius.circular(16),
                       ),
                       child: SizedBox(
-                        width: 242.w,
-                        height: 190.h,
+                        width: double.infinity,
+                        height: 120.h,
                         child: NetworkImageComponent(
-                          imageLink: itemsList[index].featuredImage ?? '',
+                          imageLink: itemsList[index].urlFeaturedImage ?? '',
                         ),
                       ),
                     ),
@@ -59,213 +62,28 @@ class PackageCardComponent extends StatelessWidget {
                       height: 6.h,
                     ),
                     Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Expanded(
-                              child: Row(
-                                children: [
-                                  SvgPicture.asset(
-                                    IconsAssetsConstants.locationIcon,
-                                    color:
-                                        MainColors.blackColor.withOpacity(0.5),
-                                    width: 13.r,
-                                    height: 13.r,
-                                  ),
-                                  if (itemsList[index].destinations != null &&
-                                      itemsList[index]!
-                                          .destinations!
-                                          .isNotEmpty)
-                                    Text(
-                                      itemsList[index]
-                                          .destinations!
-                                          .map((e) => e.name ?? '')
-                                          .toList()
-                                          .join(', '),
-                                      style:
-                                          TextStyles.smallBodyTextStyle(context)
-                                              .copyWith(
-                                                  color: MainColors.textColor(
-                                                      context)!,
-                                                  height: 1),
-                                      maxLines: 2,
-                                      textAlign: TextAlign.left,
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 6.h,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Expanded(
-                              child: Row(
-                                children: [
-                                  Container(
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          '1 depart',
-                                          style: TextStyles.smallBodyTextStyle(
-                                                  context)
-                                              .copyWith(
-                                            color: MainColors.whiteColor,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 4.w,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(1000),
-                                              border: Border.all(
-                                                  color:
-                                                      MainColors.whiteColor)),
-                                          width: 13.r,
-                                          height: 13.r,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(4.0),
-                                            child: SvgPicture.asset(
-                                              IconsAssetsConstants.infoIcon,
-                                              color: MainColors.whiteColor,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: MainColors.primaryColor,
-                                        borderRadius:
-                                            BorderRadiusDirectional.all(
-                                                Radius.circular(19.r))),
-                                    padding: EdgeInsets.only(
-                                        left: 4.0,
-                                        right: 4.0,
-                                        top: 2,
-                                        bottom: 2),
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  Container(
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          '1 depart',
-                                          style: TextStyles.smallBodyTextStyle(
-                                                  context)
-                                              .copyWith(
-                                            color: MainColors.primaryColor,
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 4.w,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(1000),
-                                              border: Border.all(
-                                                  color:
-                                                      MainColors.primaryColor)),
-                                          width: 13.r,
-                                          height: 13.r,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(4.0),
-                                            child: SvgPicture.asset(
-                                              IconsAssetsConstants.infoIcon,
-                                              color: MainColors.primaryColor,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: MainColors.primaryColor
-                                            .withOpacity(0.1),
-                                        borderRadius:
-                                            BorderRadiusDirectional.all(
-                                                Radius.circular(19.r)),
-                                        border: Border.all(
-                                            color: MainColors.primaryColor)),
-                                    padding: EdgeInsets.only(
-                                        left: 4.0,
-                                        right: 4.0,
-                                        top: 2,
-                                        bottom: 2),
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  Container(
-                                    child: Row(
-                                      children: [
-                                        Text(
-                                          '1 depart',
-                                          style: TextStyles.smallBodyTextStyle(
-                                                  context)
-                                              .copyWith(
-                                            color: MainColors.blackColor
-                                                .withOpacity(0.6),
-                                          ),
-                                        ),
-                                        SizedBox(
-                                          width: 4.w,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(1000),
-                                              border: Border.all(
-                                                  color: MainColors.blackColor
-                                                      .withOpacity(0.6))),
-                                          width: 13.r,
-                                          height: 13.r,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(4.0),
-                                            child: SvgPicture.asset(
-                                              IconsAssetsConstants.infoIcon,
-                                              color: MainColors.blackColor
-                                                  .withOpacity(0.6),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    decoration: BoxDecoration(
-                                        color: MainColors.blackColor
-                                            .withOpacity(0),
-                                        borderRadius:
-                                            BorderRadiusDirectional.all(
-                                                Radius.circular(19.r)),
-                                        border: Border.all(
-                                            color: MainColors.blackColor
-                                                .withOpacity(0.6))),
-                                    padding: EdgeInsets.only(
-                                        left: 4.0,
-                                        right: 4.0,
-                                        top: 2,
-                                        bottom: 2),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 6.h,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Expanded(
-                              child: Row(
-                                children: [
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              children: [
+                                SvgPicture.asset(
+                                  IconsAssetsConstants.locationIcon,
+                                  color: MainColors.blackColor.withOpacity(0.5),
+                                  width: 13.r,
+                                  height: 13.r,
+                                ),
+                                if (itemsList[index].destinations != null &&
+                                    itemsList[index].destinations!.isNotEmpty)
                                   Text(
-                                    itemsList[index].name ?? '',
-                                    style: TextStyles.smallLabelTextStyle(
+                                    itemsList[index]
+                                        .destinations!
+                                        .map((e) => e.name ?? '')
+                                        .toList()
+                                        .join(', '),
+                                    style: TextStyles.smallBodyTextStyle(
                                             context)
                                         .copyWith(
                                             color:
@@ -274,51 +92,172 @@ class PackageCardComponent extends StatelessWidget {
                                     maxLines: 2,
                                     textAlign: TextAlign.left,
                                   ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 6.h,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Row(
-                              children: [
-                                Container(
-                                  child: SvgPicture.asset(
-                                    IconsAssetsConstants.starIcon,
-                                    color: MainColors.primaryColor,
-                                    width: 13.r,
-                                    height: 13.r,
-                                  ),
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
-                                ),
-                                SizedBox(width: 2.w),
-                                if (itemsList[index]?.departures?.isNotEmpty ==
-                                    true)
-                                  Text(
-                                    '5 ' +
-                                        '${itemsList[index].departures?.map((e) => e.hotelStay?.isNotEmpty == true ? (e.hotelStay?.first.name ?? '') : '').toList().join(', ')}',
-                                    style:
-                                        TextStyles.smallBodyTextStyle(context)
-                                            .copyWith(
-                                      color: MainColors.textColor(context)!
-                                          .withOpacity(0.6),
-                                    ),
-                                  ),
                               ],
                             ),
-                          ),
-                          SizedBox(
-                            height: 6.h,
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 5.0),
-                            child: Row(
+                            SizedBox(
+                              height: 6.h,
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        itemsList[index]
+                                                    .departuresCount
+                                                    .toString() +
+                                                ' depart' ??
+                                            '0 depart',
+                                        style: TextStyles.smallBodyTextStyle(
+                                                context)
+                                            .copyWith(
+                                          color: MainColors.whiteColor,
+                                          fontSize: 10,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 4.w,
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(1000),
+                                            border: Border.all(
+                                                color: MainColors.whiteColor)),
+                                        width: 13.r,
+                                        height: 13.r,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: SvgPicture.asset(
+                                            IconsAssetsConstants.infoIcon,
+                                            color: MainColors.whiteColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                      color: MainColors.primaryColor,
+                                      borderRadius: BorderRadiusDirectional.all(
+                                          Radius.circular(19.r))),
+                                  padding: EdgeInsets.only(
+                                      left: 4.0, right: 4.0, top: 2, bottom: 2),
+                                ),
+                                SizedBox(width: 4.w),
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        '7 days',
+                                        style: TextStyles.smallBodyTextStyle(
+                                                context)
+                                            .copyWith(
+                                          color: MainColors.primaryColor,
+                                          fontSize: 10,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 4.w,
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(1000),
+                                            border: Border.all(
+                                                color:
+                                                    MainColors.primaryColor)),
+                                        width: 13.r,
+                                        height: 13.r,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: SvgPicture.asset(
+                                            IconsAssetsConstants.infoIcon,
+                                            color: MainColors.primaryColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                      color: MainColors.primaryColor
+                                          .withOpacity(0.1),
+                                      borderRadius: BorderRadiusDirectional.all(
+                                          Radius.circular(19.r)),
+                                      border: Border.all(
+                                          color: MainColors.primaryColor)),
+                                  padding: EdgeInsets.only(
+                                      left: 4.0, right: 4.0, top: 2, bottom: 2),
+                                ),
+                                SizedBox(width: 4.w),
+                                Container(
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        '3',
+                                        style: TextStyles.smallBodyTextStyle(
+                                                context)
+                                            .copyWith(
+                                          color: MainColors.blackColor
+                                              .withOpacity(0.6),
+                                          fontSize: 10,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 4.w,
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(1000),
+                                            border: Border.all(
+                                                color: MainColors.blackColor
+                                                    .withOpacity(0.6))),
+                                        width: 13.r,
+                                        height: 13.r,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(4.0),
+                                          child: SvgPicture.asset(
+                                            IconsAssetsConstants.infoIcon,
+                                            color: MainColors.blackColor
+                                                .withOpacity(0.6),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  decoration: BoxDecoration(
+                                      color:
+                                          MainColors.blackColor.withOpacity(0),
+                                      borderRadius: BorderRadiusDirectional.all(
+                                          Radius.circular(19.r)),
+                                      border: Border.all(
+                                          color: MainColors.blackColor
+                                              .withOpacity(0.6))),
+                                  padding: EdgeInsets.only(
+                                      left: 4.0, right: 4.0, top: 2, bottom: 2),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 6.h,
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  itemsList[index].name ?? '',
+                                  style: TextStyles.smallLabelTextStyle(context)
+                                      .copyWith(
+                                          color: MainColors.textColor(context)!,
+                                          height: 1),
+                                  maxLines: 2,
+                                  textAlign: TextAlign.left,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 6.h,
+                            ),
+                            Row(
                               children: [
                                 Text(
                                   StringsAssetsConstants.from,
@@ -334,6 +273,7 @@ class PackageCardComponent extends StatelessWidget {
                                           .departures!
                                           .map((e) => e.priceIni ?? '')
                                           .toList()
+                                          .reversed
                                           .join(' ' +
                                               StringsAssetsConstants.to +
                                               ' ') +
@@ -347,8 +287,8 @@ class PackageCardComponent extends StatelessWidget {
                                 ),
                               ],
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     )
                   ],
