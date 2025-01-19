@@ -112,7 +112,7 @@ class HotelDetailsView extends GetView<HotelDetailsController> {
               ),
               const HotelSimularComponent(),
               SizedBox(
-                height: 10,
+                height: 10.h,
               ),
               const HotelSimularComponent(),
               SizedBox(

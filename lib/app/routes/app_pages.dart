@@ -8,6 +8,8 @@ import '../modules/home_page/bindings/home_page_binding.dart';
 import '../modules/home_page/views/home_page_view.dart';
 import '../modules/hotel_details/bindings/hotel_details_binding.dart';
 import '../modules/hotel_details/views/hotel_details_view.dart';
+import '../modules/hotel_page/bindings/hotel_page_binding.dart';
+import '../modules/hotel_page/views/hotel_page_view.dart';
 import '../modules/new_update/bindings/new_update_binding.dart';
 import '../modules/new_update/views/new_update_view.dart';
 import '../modules/room_details/bindings/room_details_binding.dart';
@@ -20,7 +22,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOTEL_DETAILS;
+  static const INITIAL = Routes.HOTEL_PAGE;
 
   static final routes = [
     GetPage(
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.HOME_PAGE,
       page: () => const HomePageView(),
       binding: HomePageBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOTEL_PAGE,
+      page: () => const HotelPageView(),
+      binding: HotelPageBinding(),
     ),
   ];
 }

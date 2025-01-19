@@ -4,7 +4,6 @@ import 'package:rihlatic/app/core/components/pop_ups/toast_component.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/data/providers/rihlatech_api/auth_provider.dart';
-import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/data/models/home_model.dart';
 import 'package:rihlatic/app/data/providers/rihlatech_api/home_provider.dart';
 import 'package:rihlatic/app/modules/home_page/views/home_page_view.dart';

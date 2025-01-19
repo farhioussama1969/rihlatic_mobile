@@ -11,6 +11,7 @@ abstract class Routes {
   static const HOTEL_DETAILS = _Paths.HOTEL_DETAILS;
   static const ROOM_DETAILS = _Paths.ROOM_DETAILS;
   static const HOME_PAGE = _Paths.HOME_PAGE;
+  static const HOTEL_PAGE = _Paths.HOTEL_PAGE;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const HOTEL_DETAILS = '/hotel-details';
   static const ROOM_DETAILS = '/room-details';
   static const HOME_PAGE = '/home-page';
+  static const HOTEL_PAGE = '/hotel-page';
 }

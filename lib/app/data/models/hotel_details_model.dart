@@ -10,12 +10,10 @@ class HotelDetailsModel {
   List<String>? facilities;
   String? featureImage;
   List<String>? images;
-  List<Room>? rooms;
   ReviewsModel? reviews;
   LocalisationModel? localisation;
   String? supplements;
   String? reduction;
-  List<RoomData>? roomsData;
 
   HotelDetailsModel({
     this.supplier,
@@ -24,12 +22,10 @@ class HotelDetailsModel {
     this.facilities,
     this.featureImage,
     this.images,
-    this.rooms,
     this.reviews,
     this.localisation,
     this.supplements,
     this.reduction,
-    this.roomsData,
   });
 
   HotelDetailsModel.fromJson(Map<String, dynamic> json) {
@@ -41,9 +37,6 @@ class HotelDetailsModel {
         (json['facilities'] as List?)?.map((e) => e as String).toList();
     featureImage = json['feature_image'];
     images = (json['images'] as List?)?.map((e) => e as String).toList();
-    rooms = (json['rooms'] as List?)
-        ?.map((e) => Room.fromJson(e as Map<String, dynamic>))
-        .toList();
     reviews =
         json['reviews'] != null ? ReviewsModel.fromJson(json['reviews']) : null;
     localisation = json['localisation'] != null
@@ -51,9 +44,6 @@ class HotelDetailsModel {
         : null;
     supplements = json['supplements'];
     reduction = json['reduction'];
-    roomsData = (json['roomsdata'] as List?)
-        ?.map((e) => RoomData.fromJson(e as Map<String, dynamic>))
-        .toList();
   }
 
   Map<String, dynamic> toJson() {
@@ -64,20 +54,10 @@ class HotelDetailsModel {
       'facilities': facilities,
       'feature_image': featureImage,
       'images': images,
-      'rooms': rooms?.map((e) => e.toJson()).toList(),
       'reviews': reviews?.toJson(),
       'localisation': localisation?.toJson(),
       'supplements': supplements,
       'reduction': reduction,
-      'roomsdata': roomsData?.map((e) => e.toJson()).toList(),
     };
   }
-}
-
-class RoomData {
-  String? name;
-}
-
-class Room {
-  String? name;
 }

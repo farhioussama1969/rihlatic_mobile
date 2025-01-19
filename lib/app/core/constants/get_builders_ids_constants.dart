@@ -14,4 +14,6 @@ class GetBuildersIdsConstants {
       "home_email_confirmation_window";
   static const String homeLoginWindow = "home_login_window";
   static const String homeBody = 'home_body';
+  static const String hotelPageBody = 'hotel_page_body';
+  static const String hotelGeustCount = 'guestUpdate';
 }

@@ -4,7 +4,7 @@ import 'package:rihlatic/app/data/models/api_response.dart';
 import 'package:rihlatic/app/data/models/hotel_model.dart';
 
 class HotelProvider {
-  Future<HotelModel?> home({
+  Future<List<HotelModel>?> hotel({
     required Function onLoading,
     required Function onFinal,
   }) async {
@@ -12,8 +12,8 @@ class HotelProvider {
       endPoint: EndPointsConstants.hotels,
       requestType: HttpRequestTypes.get,
       queryParameters: {
-        'checkin': '2025-12-05',
-        'checkout': '2025-12-10',
+        'checkin': '2025-02-01',
+        'checkout': '2025-02-05',
         'city[mygo][id]': 'TABR',
         'city[cng][id]': '109',
         'room[0][adult]': '1',
@@ -25,8 +25,11 @@ class HotelProvider {
       onLoading: () => onLoading(),
       onFinal: () => onFinal(),
     );
-    if (response?.body['Hotels'] != null) {
-      return HotelModel.fromJson(response?.body);
+    if (response?.body['result']['Hotels'] != null) {
+      List<dynamic> hotelsJson = response?.body['Hotels'];
+      return hotelsJson
+          .map((hotelJson) => HotelModel.fromJson(hotelJson))
+          .toList();
     }
     return null;
   }
