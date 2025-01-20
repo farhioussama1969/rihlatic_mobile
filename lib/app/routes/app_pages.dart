@@ -10,6 +10,10 @@ import '../modules/hotel_details/bindings/hotel_details_binding.dart';
 import '../modules/hotel_details/views/hotel_details_view.dart';
 import '../modules/new_update/bindings/new_update_binding.dart';
 import '../modules/new_update/views/new_update_view.dart';
+import '../modules/package_booking_page/bindings/package_booking_page_binding.dart';
+import '../modules/package_booking_page/views/package_booking_page_view.dart';
+import '../modules/package_details_page/bindings/package_details_page_binding.dart';
+import '../modules/package_details_page/views/package_details_page_view.dart';
 import '../modules/packages_page/bindings/packages_page_binding.dart';
 import '../modules/packages_page/views/packages_page_view.dart';
 import '../modules/room_details/bindings/room_details_binding.dart';
@@ -22,7 +26,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.PACKAGES_PAGE;
+  static const INITIAL = Routes.HOME_PAGE;
 
   static final routes = [
     GetPage(
@@ -64,6 +68,16 @@ class AppPages {
       name: _Paths.PACKAGES_PAGE,
       page: () => const PackagesPageView(),
       binding: PackagesPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.PACKAGE_DETAILS_PAGE,
+      page: () => const PackageDetailsPageView(),
+      binding: PackageDetailsPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.PACKAGE_BOOKING_PAGE,
+      page: () => const PackageBookingPageView(),
+      binding: PackageBookingPageBinding(),
     ),
   ];
 }

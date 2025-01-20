@@ -12,6 +12,8 @@ abstract class Routes {
   static const ROOM_DETAILS = _Paths.ROOM_DETAILS;
   static const HOME_PAGE = _Paths.HOME_PAGE;
   static const PACKAGES_PAGE = _Paths.PACKAGES_PAGE;
+  static const PACKAGE_DETAILS_PAGE = _Paths.PACKAGE_DETAILS_PAGE;
+  static const PACKAGE_BOOKING_PAGE = _Paths.PACKAGE_BOOKING_PAGE;
 }
 
 abstract class _Paths {
@@ -25,4 +27,6 @@ abstract class _Paths {
   static const ROOM_DETAILS = '/room-details';
   static const HOME_PAGE = '/home-page';
   static const PACKAGES_PAGE = '/packages-page';
+  static const PACKAGE_DETAILS_PAGE = '/package-details-page';
+  static const PACKAGE_BOOKING_PAGE = '/package-booking-page';
 }

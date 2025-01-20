@@ -72,6 +72,10 @@ static String get establishment{return "establishment".tr;}
 static String get from{return "from".tr;}
 static String get to{return "to".tr;}
 static String get dzd{return "DZD".tr;}
+static String get aboutTheTour{return "About the tour".tr;}
+static String get starting{return "Starting".tr;}
+static String get showLess{return "Show less".tr;}
+static String get book{return "Book".tr;}
 static String get passwordConfirmation{return "password confirmation".tr;}
 static String get createNewAccount{return "create new account".tr;}
 static String get createNewAccountDescription{return "create new account description".tr;}

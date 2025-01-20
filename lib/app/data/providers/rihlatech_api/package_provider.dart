@@ -33,4 +33,26 @@ class PackageProvider {
     }
     return null;
   }
+
+  Future<OrganizedTripModel?> getPackageDetails(
+      {required Function onLoading,
+      required Function onFinal,
+      required int? packageId}) async {
+    final response = await HttpClientService.sendRequest(
+      endPoint: '${EndPointsConstants.packages}/$packageId',
+      requestType: HttpRequestTypes.get,
+      queryParameters: {
+        'include':
+            'departures,media,departures.flight,departures.media,departures.departureSchedules,departures.pricing,agencies,destinations.airport',
+      },
+      showErrorToast: true,
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+
+    if (response?.body['package'] != null) {
+      return OrganizedTripModel.fromJson(response!.body['package']);
+    }
+    return null;
+  }
 }

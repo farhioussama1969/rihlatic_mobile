@@ -184,8 +184,7 @@ class PackageFiltreComponent extends StatelessWidget {
           SizedBox(height: 16.h),
           PrimaryButtonComponent(
             onTap: () {
-              controller
-                  .applyFilters(); // Apply filters when the button is pressed
+              controller.applyFilters();
             },
             text: 'Flitre',
           ),

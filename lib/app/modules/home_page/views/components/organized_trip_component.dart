@@ -1,12 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/data/models/organized_trip_model.dart';
+import 'package:rihlatic/app/routes/app_pages.dart';
 
 class OrganizedTripComponent extends StatelessWidget {
   final String title;
@@ -29,10 +32,14 @@ class OrganizedTripComponent extends StatelessWidget {
                     .copyWith(color: MainColors.textColor(context)),
               ),
               Spacer(),
-              Text(
-                StringsAssetsConstants.seeMore,
-                style: TextStyles.smallLabelTextStyle(context)
-                    .copyWith(color: MainColors.primaryColor),
+              GestureDetector(
+                onTap: () => Get.toNamed(
+                    Routes.PACKAGES_PAGE), // Navigate to the details page
+                child: Text(
+                  StringsAssetsConstants.seeMore,
+                  style: TextStyles.smallLabelTextStyle(context)
+                      .copyWith(color: MainColors.primaryColor),
+                ),
               ),
             ],
           ),
@@ -58,7 +65,7 @@ class OrganizedTripComponent extends StatelessWidget {
                     BoxShadow(
                       color: MainColors.textColor(context)!.withOpacity(0.2),
                       blurRadius: 5,
-                      offset: Offset(2, 4), // Shadow position
+                      offset: Offset(2, 4),
                     ),
                   ],
                 ),
@@ -74,7 +81,7 @@ class OrganizedTripComponent extends StatelessWidget {
                         width: 242.w,
                         height: 190.h,
                         child: NetworkImageComponent(
-                          imageLink: itemsList[index].featuredImage ?? '',
+                          imageLink: itemsList[index].urlFeaturedImage ?? '',
                         ),
                       ),
                     ),
