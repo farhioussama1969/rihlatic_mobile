@@ -82,6 +82,16 @@
   "Book": "Book",
   "Book your trip": "Book your trip",
   "Select your trip date": "Select your trip date",
+  "Select your room": "Select your room",
+  "Adult": "Adult",
+  "Child": "Child",
+  "Infant": "Infant",
+  "Age of Child 1": "Age of Child 1 (2-12 years)",
+  "Enter age here": "Enter age here...",
+  "Note": "Note",
+  "Rooms": "Rooms",
+  "Add room": "Add room",
+  "Enter additional notes": "Enter additional notes...",
 
 
   "password confirmation": "Password Confirmation",

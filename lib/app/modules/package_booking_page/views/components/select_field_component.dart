@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
+import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:select_field/select_field.dart';
 
 final dateRanges = [
@@ -26,10 +26,7 @@ class SelectFieldComponent extends StatelessWidget {
         children: [
           Text(
             StringsAssetsConstants.selectYourTripDate,
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              color: MainColors.textColor(context),
-            ),
+            style: TextStyles.mediumBodyTextStyle(context),
           ),
           const SizedBox(height: 8),
           SelectField<String>(
