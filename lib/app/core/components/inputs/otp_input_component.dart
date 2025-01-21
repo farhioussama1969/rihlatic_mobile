@@ -5,8 +5,7 @@ import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 
 class OtpInputComponent extends StatelessWidget {
-  const OtpInputComponent({Key? key, this.controller, required this.length})
-      : super(key: key);
+  const OtpInputComponent({super.key, this.controller, required this.length});
 
   final TextEditingController? controller;
   final int length;

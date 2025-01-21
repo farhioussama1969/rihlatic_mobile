@@ -12,6 +12,12 @@ class HotelDetailsCommentsComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+              color: MainColors.textColor(context)!.withOpacity(0.15))),
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -24,7 +30,7 @@ class HotelDetailsCommentsComponent extends StatelessWidget {
                   child: SizedBox(
                     width: 39.5.r,
                     height: 39.5.r,
-                    child: NetworkImageComponent(
+                    child: const NetworkImageComponent(
                         imageLink:
                             "https://images.pexels.com/photos/8993561/pexels-photo-8993561.jpeg?auto=compress&cs=tinysrgb&w=800"),
                   ),
@@ -69,7 +75,7 @@ class HotelDetailsCommentsComponent extends StatelessWidget {
               children: [
                 for (var i = 0; i < images.length && i < 4; i++)
                   Padding(
-                    padding: EdgeInsets.only(right: 8.0),
+                    padding: const EdgeInsets.only(right: 8.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(8.0),
                       child: SizedBox(
@@ -89,7 +95,7 @@ class HotelDetailsCommentsComponent extends StatelessWidget {
                                     child: Center(
                                       child: Text(
                                         '+${images.length - 4}',
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           color: MainColors.whiteColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold,
@@ -111,12 +117,6 @@ class HotelDetailsCommentsComponent extends StatelessWidget {
           ],
         ),
       ),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-              color: MainColors.textColor(context)!.withOpacity(0.15))),
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:rihlatic/app/core/components/animations/animator_component.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 
@@ -10,7 +9,7 @@ import '../animations/loading_component.dart';
 
 class PrimaryButtonComponent extends StatelessWidget {
   const PrimaryButtonComponent(
-      {Key? key,
+      {super.key,
       required this.onTap,
       required this.text,
       this.backgroundColor,
@@ -29,8 +28,7 @@ class PrimaryButtonComponent extends StatelessWidget {
       this.textStyle,
       this.widget,
       this.animationDuration,
-      this.disableAnimation})
-      : super(key: key);
+      this.disableAnimation});
 
   @required
   final Function onTap;

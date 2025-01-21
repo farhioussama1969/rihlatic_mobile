@@ -32,7 +32,7 @@ class HomePageView extends GetView<HomePageController> {
           id: GetBuildersIdsConstants.homeBody,
           builder: (logic) {
             return logic.isHomeLoading
-                ? Center(child: LoadingComponent())
+                ? const Center(child: LoadingComponent())
                 : SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -68,7 +68,7 @@ class DepartureModel {
     if (json['hotel_stay'] != null) {
       hotelStay = <HotelStayModel>[];
       json['hotel_stay'].forEach((v) {
-        hotelStay!.add(new HotelStayModel.fromJson(v));
+        hotelStay!.add(HotelStayModel.fromJson(v));
       });
     }
     priceIni = json['price_ini'];
@@ -85,33 +85,33 @@ class DepartureModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['departure_date'] = this.departureDate;
-    data['return_date'] = this.returnDate;
-    data['number_seats'] = this.numberSeats;
-    data['means_transport'] = this.meansTransport;
-    data['itinerary'] = this.itinerary;
-    data['visa'] = this.visa;
-    data['vol'] = this.vol;
-    data['hotel'] = this.hotel;
-    data['transfer'] = this.transfer;
-    data['excursion'] = this.excursion;
-    data['cruise'] = this.cruise;
-    if (this.hotelStay != null) {
-      data['hotel_stay'] = this.hotelStay!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['departure_date'] = departureDate;
+    data['return_date'] = returnDate;
+    data['number_seats'] = numberSeats;
+    data['means_transport'] = meansTransport;
+    data['itinerary'] = itinerary;
+    data['visa'] = visa;
+    data['vol'] = vol;
+    data['hotel'] = hotel;
+    data['transfer'] = transfer;
+    data['excursion'] = excursion;
+    data['cruise'] = cruise;
+    if (hotelStay != null) {
+      data['hotel_stay'] = hotelStay!.map((v) => v.toJson()).toList();
     }
-    data['price_ini'] = this.priceIni;
-    data['promotion'] = this.promotion;
-    data['code_promo'] = this.codePromo;
-    data['fee_promo'] = this.feePromo;
-    data['includes'] = this.includes;
-    data['excludes'] = this.excludes;
-    data['booked_seats'] = this.bookedSeats;
-    data['remainder_seats'] = this.remainderSeats;
-    data['status'] = this.status;
-    data['total_days'] = this.totalDays;
-    data['rooming_list'] = this.roomingList;
+    data['price_ini'] = priceIni;
+    data['promotion'] = promotion;
+    data['code_promo'] = codePromo;
+    data['fee_promo'] = feePromo;
+    data['includes'] = includes;
+    data['excludes'] = excludes;
+    data['booked_seats'] = bookedSeats;
+    data['remainder_seats'] = remainderSeats;
+    data['status'] = status;
+    data['total_days'] = totalDays;
+    data['rooming_list'] = roomingList;
     return data;
   }
 }

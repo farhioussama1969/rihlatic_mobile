@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,7 +24,7 @@ class PackageCardComponent extends StatelessWidget {
           height: 320.h * itemsList.length,
           child: GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 1,
               crossAxisSpacing: 15,
               mainAxisSpacing: 15,
@@ -111,13 +110,22 @@ class PackageCardComponent extends StatelessWidget {
                               Row(
                                 children: [
                                   Container(
+                                    decoration: BoxDecoration(
+                                      color: MainColors.primaryColor,
+                                      borderRadius: BorderRadiusDirectional.all(
+                                          Radius.circular(19.r)),
+                                    ),
+                                    padding: const EdgeInsets.only(
+                                      left: 4.0,
+                                      right: 4.0,
+                                      top: 2,
+                                      bottom: 2,
+                                    ),
                                     child: Row(
                                       children: [
                                         Text(
-                                          itemsList[index]
-                                                      .departuresCount
-                                                      .toString() +
-                                                  ' depart' ??
+                                          '${itemsList[index]
+                                                      .departuresCount} depart' ??
                                               '0 depart',
                                           style: TextStyles.mediumBodyTextStyle(
                                                   context)
@@ -147,10 +155,16 @@ class PackageCardComponent extends StatelessWidget {
                                         ),
                                       ],
                                     ),
+                                  ),
+                                  SizedBox(width: 4.w),
+                                  Container(
                                     decoration: BoxDecoration(
-                                      color: MainColors.primaryColor,
+                                      color: MainColors.primaryColor
+                                          .withOpacity(0.1),
                                       borderRadius: BorderRadiusDirectional.all(
                                           Radius.circular(19.r)),
+                                      border: Border.all(
+                                          color: MainColors.primaryColor),
                                     ),
                                     padding: const EdgeInsets.only(
                                       left: 4.0,
@@ -158,18 +172,14 @@ class PackageCardComponent extends StatelessWidget {
                                       top: 2,
                                       bottom: 2,
                                     ),
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  Container(
                                     child: Row(
                                       children: [
                                         Text(
-                                          itemsList[index]
+                                          '${itemsList[index]
                                                       .departures!
                                                       .map((e) => e.totalDays
                                                           .toString())
-                                                      .first +
-                                                  'days' ??
+                                                      .first}days' ??
                                               '0 days',
                                           style: TextStyles.mediumBodyTextStyle(
                                                   context)
@@ -199,13 +209,17 @@ class PackageCardComponent extends StatelessWidget {
                                         ),
                                       ],
                                     ),
+                                  ),
+                                  SizedBox(width: 4.w),
+                                  Container(
                                     decoration: BoxDecoration(
-                                      color: MainColors.primaryColor
-                                          .withOpacity(0.1),
+                                      color:
+                                          MainColors.blackColor.withOpacity(0),
                                       borderRadius: BorderRadiusDirectional.all(
                                           Radius.circular(19.r)),
                                       border: Border.all(
-                                          color: MainColors.primaryColor),
+                                          color: MainColors.blackColor
+                                              .withOpacity(0.6)),
                                     ),
                                     padding: const EdgeInsets.only(
                                       left: 4.0,
@@ -213,9 +227,6 @@ class PackageCardComponent extends StatelessWidget {
                                       top: 2,
                                       bottom: 2,
                                     ),
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  Container(
                                     child: Row(
                                       children: [
                                         Text(
@@ -256,21 +267,6 @@ class PackageCardComponent extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    decoration: BoxDecoration(
-                                      color:
-                                          MainColors.blackColor.withOpacity(0),
-                                      borderRadius: BorderRadiusDirectional.all(
-                                          Radius.circular(19.r)),
-                                      border: Border.all(
-                                          color: MainColors.blackColor
-                                              .withOpacity(0.6)),
-                                    ),
-                                    padding: const EdgeInsets.only(
-                                      left: 4.0,
-                                      right: 4.0,
-                                      top: 2,
-                                      bottom: 2,
-                                    ),
                                   ),
                                 ],
                               ),
@@ -308,16 +304,12 @@ class PackageCardComponent extends StatelessWidget {
                                   ),
                                   SizedBox(width: 8.w),
                                   Text(
-                                    itemsList[index]
+                                    '${itemsList[index]
                                             .departures!
                                             .map((e) => e.priceIni ?? '')
                                             .toList()
                                             .reversed
-                                            .join(' ' +
-                                                StringsAssetsConstants.to +
-                                                ' ') +
-                                        ' ' +
-                                        StringsAssetsConstants.dzd,
+                                            .join(' ${StringsAssetsConstants.to} ')} ${StringsAssetsConstants.dzd}',
                                     style:
                                         TextStyles.smallLabelTextStyle(context)
                                             .copyWith(

@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:dio/dio.dart' as dio;
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:rihlatic/app/core/components/pop_ups/toast_component.dart';
 import 'package:rihlatic/app/core/constants/end_points_constants.dart';
@@ -51,7 +50,7 @@ class HttpClientService {
         response = await patch(endPoint, formData: data, header: header);
       }
 
-      log('endpoint::::${endPoint} status code::::${response?.statusCode} sent data::: ${data} query::::${queryParameters} response::: ${response?.message}  body:::: ${response?.body}');
+      log('endpoint::::$endPoint status code::::${response?.statusCode} sent data::: $data query::::$queryParameters response::: ${response?.message}  body:::: ${response?.body}');
       if ((response?.statusCode == 200)) {
         if (onSuccess != null) onSuccess(response!);
         if (showSuccessMessage == true) {
@@ -83,8 +82,9 @@ class HttpClientService {
                 text: StringsAssetsConstants.internetErrorMessage);
           }
         }
-        if (onError != null)
+        if (onError != null) {
           onError(convertResponseErrorsToString(response!), response);
+        }
       }
     } catch (error) {
       if (showErrorToast != false) {
@@ -94,6 +94,7 @@ class HttpClientService {
     } finally {
       if (onFinal != null) onFinal();
     }
+    return null;
   }
 
   static Future<dio.BaseOptions> getBaseOptions(
@@ -130,7 +131,7 @@ class HttpClientService {
       );
       return _buildOut(response);
     } catch (_error) {
-      dio.DioError error = _error as dio.DioError;
+      dio.DioException error = _error as dio.DioException;
       if (error.response == null) {
         return _errorNoResponse(error);
       } else {
@@ -159,7 +160,7 @@ class HttpClientService {
       );
       return _buildOut(response);
     } catch (_error) {
-      dio.DioError error = _error as dio.DioError;
+      dio.DioException error = _error as dio.DioException;
       if (error.response == null) {
         return _errorNoResponse(error);
       } else {
@@ -186,7 +187,7 @@ class HttpClientService {
       );
       return _buildOut(response);
     } catch (_error) {
-      dio.DioError error = _error as dio.DioError;
+      dio.DioException error = _error as dio.DioException;
       if (error.response == null) {
         return _errorNoResponse(error);
       } else {
@@ -213,7 +214,7 @@ class HttpClientService {
       );
       return _buildOut(response);
     } catch (_error) {
-      dio.DioError error = _error as dio.DioError;
+      dio.DioException error = _error as dio.DioException;
       if (error.response == null) {
         return _errorNoResponse(error);
       } else {
@@ -240,7 +241,7 @@ class HttpClientService {
       );
       return _buildOut(response);
     } catch (_error) {
-      dio.DioError error = _error as dio.DioError;
+      dio.DioException error = _error as dio.DioException;
       if (error.response == null) {
         return _errorNoResponse(error);
       } else {
@@ -272,7 +273,7 @@ class HttpClientService {
     return apiResponse;
   }
 
-  static ApiResponse _errorNoResponse(dio.DioError error) {
+  static ApiResponse _errorNoResponse(dio.DioException error) {
     if (error.error is SocketException) {
       return ApiResponse(
           statusCode: 502, requestStatus: RequestStatus.internetError);

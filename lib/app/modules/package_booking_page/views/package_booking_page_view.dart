@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +24,7 @@ class PackageBookingPageView extends GetView<PackageBookingPageController> {
           width: 1.sw,
           child: Column(
             children: [
-              PackageCardComponent(),
+              const PackageCardComponent(),
               Text(
                 StringsAssetsConstants.bookYourTrip,
                 style: TextStyles.mediumLabelTextStyle(context).copyWith(
@@ -33,7 +32,7 @@ class PackageBookingPageView extends GetView<PackageBookingPageController> {
                 ),
               ),
               SizedBox(height: 20.h),
-              SelectFieldComponent(),
+              const SelectFieldComponent(),
             ],
           )),
     );

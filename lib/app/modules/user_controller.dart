@@ -4,7 +4,6 @@ import 'dart:io';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
-import 'package:rihlatic/app/core/components/pop_ups/bottom_sheet_component.dart';
 import 'package:rihlatic/app/core/constants/firebase_messaging_tobics_constants.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/constants/storage_keys_constants.dart';

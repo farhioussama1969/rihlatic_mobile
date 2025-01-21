@@ -13,6 +13,12 @@ class PackageDetailsExploringComponent extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: Container(
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+                color: MainColors.textColor(context)!.withOpacity(0.15))),
+        width: double.infinity,
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -95,12 +101,6 @@ class PackageDetailsExploringComponent extends StatelessWidget {
             ),
           ],
         ),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-                color: MainColors.textColor(context)!.withOpacity(0.15))),
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
       ),
     );
   }

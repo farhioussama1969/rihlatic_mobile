@@ -29,7 +29,7 @@ class PackagesPageView extends GetView<PackagesPageController> {
           id: GetBuildersIdsConstants.PackagePageBody,
           builder: (logic) {
             return logic.isPackagePageLoading
-                ? Center(child: LoadingComponent())
+                ? const Center(child: LoadingComponent())
                 : Column(
                     children: [
                       const PackageFiltreComponent(),
@@ -47,7 +47,7 @@ class PackagesPageView extends GetView<PackagesPageController> {
                                 color: MainColors.textColor(context)!,
                               ),
                             ),
-                            Divider(),
+                            const Divider(),
                           ],
                         ),
                       ),

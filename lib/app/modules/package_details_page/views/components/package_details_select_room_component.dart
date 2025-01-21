@@ -58,6 +58,12 @@ class PackageDetailsSelectRoomComponent extends StatelessWidget {
           child: Row(
             children: [
               Container(
+                decoration: BoxDecoration(
+                    color: MainColors.blackColor.withOpacity(0.08),
+                    borderRadius:
+                        BorderRadiusDirectional.all(Radius.circular(19.r))),
+                padding:
+                    const EdgeInsets.only(left: 20.0, right: 10.0, top: 7, bottom: 7),
                 child: Row(
                   children: [
                     Text(
@@ -88,15 +94,15 @@ class PackageDetailsSelectRoomComponent extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              SizedBox(width: 15.w),
+              Container(
                 decoration: BoxDecoration(
                     color: MainColors.blackColor.withOpacity(0.08),
                     borderRadius:
                         BorderRadiusDirectional.all(Radius.circular(19.r))),
                 padding:
-                    EdgeInsets.only(left: 20.0, right: 10.0, top: 7, bottom: 7),
-              ),
-              SizedBox(width: 15.w),
-              Container(
+                    const EdgeInsets.only(left: 20.0, right: 10.0, top: 7, bottom: 7),
                 child: Row(
                   children: [
                     Text(
@@ -127,15 +133,15 @@ class PackageDetailsSelectRoomComponent extends StatelessWidget {
                     ),
                   ],
                 ),
+              ),
+              SizedBox(width: 15.w),
+              Container(
                 decoration: BoxDecoration(
                     color: MainColors.blackColor.withOpacity(0.08),
                     borderRadius:
                         BorderRadiusDirectional.all(Radius.circular(19.r))),
                 padding:
-                    EdgeInsets.only(left: 20.0, right: 10.0, top: 7, bottom: 7),
-              ),
-              SizedBox(width: 15.w),
-              Container(
+                    const EdgeInsets.only(left: 20.0, right: 10.0, top: 7, bottom: 7),
                 child: Row(
                   children: [
                     Text(
@@ -166,12 +172,6 @@ class PackageDetailsSelectRoomComponent extends StatelessWidget {
                     ),
                   ],
                 ),
-                decoration: BoxDecoration(
-                    color: MainColors.blackColor.withOpacity(0.08),
-                    borderRadius:
-                        BorderRadiusDirectional.all(Radius.circular(19.r))),
-                padding:
-                    EdgeInsets.only(left: 20.0, right: 10.0, top: 7, bottom: 7),
               ),
             ],
           ),

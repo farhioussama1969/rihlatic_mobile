@@ -13,6 +13,13 @@ class PopulairAmenitiesComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+              color: MainColors.textColor(context)!.withOpacity(0.15))),
+      height: 76.5.h,
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -25,7 +32,7 @@ class PopulairAmenitiesComponent extends StatelessWidget {
                     color: MainColors.textColor(context)!,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'See map >',
                   style:
@@ -33,7 +40,7 @@ class PopulairAmenitiesComponent extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 Row(
@@ -94,13 +101,6 @@ class PopulairAmenitiesComponent extends StatelessWidget {
           ],
         ),
       ),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-              color: MainColors.textColor(context)!.withOpacity(0.15))),
-      height: 76.5.h,
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
     );
   }
 }

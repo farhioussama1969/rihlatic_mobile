@@ -39,18 +39,18 @@ class PreferencesModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['evisa_margin_type'] = this.evisaMarginType;
-    data['evisa_profit_margin'] = this.evisaProfitMargin;
-    data['flight_margin_type'] = this.flightMarginType;
-    data['flight_profit_margin'] = this.flightProfitMargin;
-    data['package_margin_type'] = this.packageMarginType;
-    data['package_profit_margin'] = this.packageProfitMargin;
-    data['hotel_margin_type'] = this.hotelMarginType;
-    data['hotel_profit_margin'] = this.hotelProfitMargin;
-    data['amadeus_flight_margin_type'] = this.amadeusFlightMarginType;
-    data['amadeus_flight_profit_margin'] = this.amadeusFlightProfitMargin;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['evisa_margin_type'] = evisaMarginType;
+    data['evisa_profit_margin'] = evisaProfitMargin;
+    data['flight_margin_type'] = flightMarginType;
+    data['flight_profit_margin'] = flightProfitMargin;
+    data['package_margin_type'] = packageMarginType;
+    data['package_profit_margin'] = packageProfitMargin;
+    data['hotel_margin_type'] = hotelMarginType;
+    data['hotel_profit_margin'] = hotelProfitMargin;
+    data['amadeus_flight_margin_type'] = amadeusFlightMarginType;
+    data['amadeus_flight_profit_margin'] = amadeusFlightProfitMargin;
     return data;
   }
 }

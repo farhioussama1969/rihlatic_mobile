@@ -67,17 +67,17 @@ class PackageDetailsTitleComponent extends StatelessWidget {
           child: Row(
             children: [
               Container(
-                child: Text(
-                  '4.5',
-                  style: TextStyles.smallLabelTextStyle(context)
-                      .copyWith(color: MainColors.whiteColor, fontSize: 14.r),
-                ),
                 decoration: BoxDecoration(
                     color: MainColors.secondColor,
                     borderRadius: BorderRadiusDirectional.only(
                         topEnd: Radius.circular(8.r),
                         bottomStart: Radius.circular(8.r))),
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                child: Text(
+                  '4.5',
+                  style: TextStyles.smallLabelTextStyle(context)
+                      .copyWith(color: MainColors.whiteColor, fontSize: 14.r),
+                ),
               ),
               SizedBox(width: 8.w),
               Text(

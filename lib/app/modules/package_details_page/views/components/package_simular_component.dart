@@ -13,6 +13,21 @@ class PackageSimularComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8.0),
+      decoration: BoxDecoration(
+        color: MainColors.whiteColor,
+        borderRadius: BorderRadius.circular(21.5),
+        border:
+            Border.all(color: MainColors.textColor(context)!.withOpacity(0.0)),
+        boxShadow: [
+          BoxShadow(
+            color: MainColors.textColor(context)!.withOpacity(0.2),
+            blurRadius: 5,
+            offset: const Offset(2, 4),
+          ),
+        ],
+      ),
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       child: Row(
         children: [
           Expanded(
@@ -21,7 +36,7 @@ class PackageSimularComponent extends StatelessWidget {
               height: 130.h,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(21.5.r),
-                child: NetworkImageComponent(
+                child: const NetworkImageComponent(
                     imageLink:
                         "https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg"),
               ),
@@ -52,7 +67,7 @@ class PackageSimularComponent extends StatelessWidget {
                           textAlign: TextAlign.left,
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       SvgPicture.asset(
                         IconsAssetsConstants.metroIcon,
                         color: MainColors.textColor(context)!.withOpacity(0.6),
@@ -65,6 +80,12 @@ class PackageSimularComponent extends StatelessWidget {
                   Row(
                     children: [
                       Container(
+                        decoration: BoxDecoration(
+                            color: MainColors.secondColor,
+                            borderRadius: BorderRadiusDirectional.only(
+                                topEnd: Radius.circular(8.r),
+                                bottomStart: Radius.circular(8.r))),
+                        padding: const EdgeInsets.symmetric(horizontal: 4.0),
                         child: Text(
                           '4.5',
                           style:
@@ -72,12 +93,6 @@ class PackageSimularComponent extends StatelessWidget {
                             color: MainColors.whiteColor,
                           ),
                         ),
-                        decoration: BoxDecoration(
-                            color: MainColors.secondColor,
-                            borderRadius: BorderRadiusDirectional.only(
-                                topEnd: Radius.circular(8.r),
-                                bottomStart: Radius.circular(8.r))),
-                        padding: EdgeInsets.symmetric(horizontal: 4.0),
                       ),
                       SizedBox(width: 8.w),
                       Text(
@@ -182,21 +197,6 @@ class PackageSimularComponent extends StatelessWidget {
           ),
         ],
       ),
-      decoration: BoxDecoration(
-        color: MainColors.whiteColor,
-        borderRadius: BorderRadius.circular(21.5),
-        border:
-            Border.all(color: MainColors.textColor(context)!.withOpacity(0.0)),
-        boxShadow: [
-          BoxShadow(
-            color: MainColors.textColor(context)!.withOpacity(0.2),
-            blurRadius: 5,
-            offset: Offset(2, 4),
-          ),
-        ],
-      ),
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
     );
   }
 }

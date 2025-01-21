@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -14,11 +13,13 @@ class HotelRoomPropertiesComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PricingContainer();
+    return const PricingContainer();
   }
 }
 
 class PricingContainer extends StatefulWidget {
+  const PricingContainer({super.key});
+
   @override
   _PricingContainerState createState() => _PricingContainerState();
 }
@@ -40,6 +41,13 @@ class _PricingContainerState extends State<PricingContainer> {
 
   Widget buildSingleContainer() {
     return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+              color: MainColors.textColor(context)!.withOpacity(0.15))),
+      height: 190.5.h,
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -49,7 +57,7 @@ class _PricingContainerState extends State<PricingContainer> {
                 child: SizedBox(
                   width: 119.5.w,
                   height: 157.5.h,
-                  child: NetworkImageComponent(
+                  child: const NetworkImageComponent(
                     imageLink:
                         'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
                   ),
@@ -220,18 +228,17 @@ class _PricingContainerState extends State<PricingContainer> {
                   )),
             ],
           )),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-              color: MainColors.textColor(context)!.withOpacity(0.15))),
-      height: 190.5.h,
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
     );
   }
 
   Widget buildTwoContainers() {
     return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: MainColors.primaryColor)),
+      height: 652.5.h,
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
         children: [
           Padding(
@@ -244,7 +251,7 @@ class _PricingContainerState extends State<PricingContainer> {
                   child: SizedBox(
                     width: 119.5.w,
                     height: 157.5.h,
-                    child: NetworkImageComponent(
+                    child: const NetworkImageComponent(
                       imageLink:
                           'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
                     ),
@@ -359,7 +366,7 @@ class _PricingContainerState extends State<PricingContainer> {
                           width: 239.w,
                           child: Row(
                             children: [
-                              Expanded(
+                              const Expanded(
                                 child: SizedBox(),
                               ),
                               Column(
@@ -489,8 +496,8 @@ class _PricingContainerState extends State<PricingContainer> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Text(''),
-                Spacer(),
+                const Text(''),
+                const Spacer(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -621,8 +628,8 @@ class _PricingContainerState extends State<PricingContainer> {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Text(''),
-                Spacer(),
+                const Text(''),
+                const Spacer(),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
@@ -671,12 +678,6 @@ class _PricingContainerState extends State<PricingContainer> {
           ),
         ],
       ),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: MainColors.primaryColor)),
-      height: 652.5.h,
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
     );
   }
 }

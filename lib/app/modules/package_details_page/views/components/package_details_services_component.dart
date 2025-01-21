@@ -93,7 +93,7 @@ class PackageDetailsServicesComponent extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -159,8 +159,8 @@ class PackageDetailsServicesComponent extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
-              SizedBox()
+              const Spacer(),
+              const SizedBox()
             ],
           ),
         ],

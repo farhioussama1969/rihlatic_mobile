@@ -2,22 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:rihlatic/app/core/components/animations/animator_component.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 
 class CheckedElementComponent extends StatelessWidget {
   const CheckedElementComponent(
-      {Key? key,
+      {super.key,
       required this.title,
       required this.isChecked,
       this.isExpanded,
       this.onTap,
       this.hideCheckedIcon,
       this.padding,
-      this.color})
-      : super(key: key);
+      this.color});
 
   final String title;
   final bool isChecked;
@@ -102,6 +100,5 @@ class CheckedElementComponent extends StatelessWidget {
             blendMode: BlendMode.srcOver,
             color: MainColors.backgroundColor(context)?.withOpacity(0.1))
         .move(begin: const Offset(-16, 0), curve: Curves.easeOutQuad);
-    ;
   }
 }

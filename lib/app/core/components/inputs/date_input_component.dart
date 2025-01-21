@@ -47,8 +47,7 @@ class DateInputComponent extends StatelessWidget {
       this.isLabelOutside,
       this.label,
       this.validate,
-      Key? key})
-      : super(key: key);
+      super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +59,7 @@ class DateInputComponent extends StatelessWidget {
             child: Column(
               children: [
                 (isLabelOutside != null && isLabelOutside == true)
-                    ? Container(
+                    ? SizedBox(
                         width: double.infinity,
                         child: Row(
                           children: [
@@ -111,7 +110,7 @@ class DateInputComponent extends StatelessWidget {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: MainColors.transparentColor,
                         width: 1,
                       ),
@@ -126,14 +125,14 @@ class DateInputComponent extends StatelessWidget {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: MainColors.primaryColor,
                         width: 1,
                       ),
                     ),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(borderRadius ?? 12.r),
-                      borderSide: BorderSide(
+                      borderSide: const BorderSide(
                         color: MainColors.transparentColor,
                         width: 1,
                       ),

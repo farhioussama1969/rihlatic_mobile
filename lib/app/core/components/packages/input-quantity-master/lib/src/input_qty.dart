@@ -108,7 +108,7 @@ class InputQty extends StatefulWidget {
   /// `InputQty.double`
   /// in not specify, the output will return as `num` type
   const InputQty({
-    Key? key,
+    super.key,
     this.initVal = 1,
     this.maxVal = double.maxFinite,
     this.minVal = 0,
@@ -135,15 +135,14 @@ class InputQty extends StatefulWidget {
         'Use messageBuilder from QtyDecorationProps to specify message widget'
         'This feature was deprecated after v2.0.0')
     bool showMessageLimit = false,
-  })  : _outputType = _OutputType.num,
-        super(key: key);
+  })  : _outputType = _OutputType.num;
 
   /// Widget to handle quantity input
   ///
   /// output value from `onQtyChanged` will convert into `double`
   ///
   const InputQty.double({
-    Key? key,
+    super.key,
     this.initVal = 1.0,
     this.maxVal = double.maxFinite,
     this.minVal = 0.0,
@@ -170,14 +169,13 @@ class InputQty extends StatefulWidget {
     @Deprecated('Use inside QtyDecorationProps instead')
     Color btnColor1 = Colors.green,
     @Deprecated('Removed') Color btnColor2 = Colors.grey,
-  })  : _outputType = _OutputType.double,
-        super(key: key);
+  })  : _outputType = _OutputType.double;
 
   /// Widget to handle quantity input
   ///
   /// output value from `onQtyChanged` will convert into `int`
   const InputQty.int({
-    Key? key,
+    super.key,
     this.initVal = 1,
     this.maxVal = double.maxFinite,
     this.minVal = 0,
@@ -204,8 +202,7 @@ class InputQty extends StatefulWidget {
     @Deprecated('Use inside QtyDecorationProps instead')
     Color btnColor1 = Colors.green,
     @Deprecated('Removed') Color btnColor2 = Colors.grey,
-  })  : _outputType = _OutputType.integer,
-        super(key: key);
+  })  : _outputType = _OutputType.integer;
 
   @override
   State<InputQty> createState() => _InputQtyState();

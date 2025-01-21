@@ -7,7 +7,7 @@ import 'package:rihlatic/app/core/styles/text_styles.dart';
 
 class TagComponent extends StatelessWidget {
   const TagComponent(
-      {Key? key,
+      {super.key,
       required this.title,
       this.iconPath,
       this.gradientBackgroundColor,
@@ -23,8 +23,7 @@ class TagComponent extends StatelessWidget {
       this.borderRadius,
       this.flexibleHeight,
       this.titleWidget,
-      this.width})
-      : super(key: key);
+      this.width});
 
   final String? title;
   final String? iconPath;

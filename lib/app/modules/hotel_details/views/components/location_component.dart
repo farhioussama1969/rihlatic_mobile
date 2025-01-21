@@ -13,6 +13,13 @@ class LocationComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(
+              color: MainColors.textColor(context)!.withOpacity(0.15))),
+      height: 104.5.h,
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 20.w),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -25,7 +32,7 @@ class LocationComponent extends StatelessWidget {
                     color: MainColors.textColor(context)!,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'See map >',
                   style:
@@ -33,7 +40,7 @@ class LocationComponent extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 SvgPicture.asset(
@@ -51,7 +58,7 @@ class LocationComponent extends StatelessWidget {
                 ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 SvgPicture.asset(
@@ -72,13 +79,6 @@ class LocationComponent extends StatelessWidget {
           ],
         ),
       ),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-              color: MainColors.textColor(context)!.withOpacity(0.15))),
-      height: 104.5.h,
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
     );
   }
 }

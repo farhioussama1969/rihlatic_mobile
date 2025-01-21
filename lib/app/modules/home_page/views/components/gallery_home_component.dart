@@ -1,12 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../core/components/images/network_image_component.dart';
-import 'package:flutter_gallery_3d/gallery3d.dart';
 
 class GalleryHomeComponent extends StatefulWidget {
   const GalleryHomeComponent({super.key});
@@ -34,7 +32,7 @@ class _HotelDetailsGalleryComponentState extends State<GalleryHomeComponent> {
                 height: 400.h,
                 viewportFraction: 1,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 4),
+                autoPlayInterval: const Duration(seconds: 4),
                 onPageChanged: (index, controller) {
                   setState(() {
                     currentPageIndex = index;
@@ -46,8 +44,8 @@ class _HotelDetailsGalleryComponentState extends State<GalleryHomeComponent> {
                   borderRadius: BorderRadius.circular(20.r),
                   child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(color: Colors.amber),
-                      child: NetworkImageComponent(
+                      decoration: const BoxDecoration(color: Colors.amber),
+                      child: const NetworkImageComponent(
                         imageLink:
                             'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
                       )),

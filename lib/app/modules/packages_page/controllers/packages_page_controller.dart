@@ -77,15 +77,7 @@ class PackagesPageController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   void applyFilters() {
     if (PackageData == null) return;

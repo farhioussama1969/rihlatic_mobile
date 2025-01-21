@@ -41,7 +41,7 @@ class ThemeStyles {
     ],
     colorScheme: ColorScheme.fromSwatch()
         .copyWith(secondary: MainColors.primaryColor)
-        .copyWith(background: LightColors.backgroundColor),
+        .copyWith(surface: LightColors.backgroundColor),
   );
 
   static ThemeData darkTheme = ThemeData.dark().copyWith(
@@ -83,6 +83,6 @@ class ThemeStyles {
     ],
     colorScheme: ColorScheme.fromSwatch()
         .copyWith(secondary: MainColors.primaryColor)
-        .copyWith(background: DarkColors.backgroundColor),
+        .copyWith(surface: DarkColors.backgroundColor),
   );
 }

@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:rihlatic/app/core/utils/theme_util.dart';
 import 'package:rihlatic/app/modules/config_controller.dart';
 import 'package:rihlatic/app/modules/user_controller.dart';
-import 'package:rihlatic/app/routes/app_pages.dart';
 
 class SplashController extends GetxController {
   @override
@@ -15,13 +12,5 @@ class SplashController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 }

@@ -19,7 +19,6 @@ import 'package:rihlatic/app/modules/package_details_page/views/components/packa
 import 'package:rihlatic/app/modules/package_details_page/views/components/package_details_title_component.dart';
 import 'package:rihlatic/app/modules/package_details_page/views/components/package_room_properties_component.dart';
 import 'package:rihlatic/app/modules/package_details_page/views/components/package_simular_component.dart';
-import 'package:rihlatic/app/modules/package_details_page/views/components/populair_amenities_component.dart';
 import 'package:rihlatic/app/routes/app_pages.dart';
 
 import '../controllers/package_details_page_controller.dart';
@@ -80,31 +79,31 @@ class PackageDetailsPageView extends GetView<PackageDetailsPageController> {
                 SizedBox(height: 10.h),
                 PackageDetailsTitleComponent(
                   title: package.name ?? '',
-                  price: '$formattedPrice',
+                  price: formattedPrice,
                 ),
                 SizedBox(height: 20.h),
                 PackageDetailsDescriptionComponent(
                   description: package.description ?? '',
                 ),
                 SizedBox(height: 20.h),
-                PackageDetailsExploringComponent(),
+                const PackageDetailsExploringComponent(),
                 SizedBox(height: 10.h),
-                LocationComponent(),
+                const LocationComponent(),
                 SizedBox(height: 20.h),
-                PackageDetailsSelectRoomComponent(),
+                const PackageDetailsSelectRoomComponent(),
                 SizedBox(height: 20.h),
-                PackageRoomPropertiesComponent(),
+                const PackageRoomPropertiesComponent(),
                 SizedBox(height: 10.w),
-                PackageDetailsReviewsComponent(),
+                const PackageDetailsReviewsComponent(),
                 SizedBox(height: 20.h),
-                PackageDetailsCommentsComponent(images: []),
+                const PackageDetailsCommentsComponent(images: []),
                 SizedBox(height: 20.h),
-                PackageDetailsServicesComponent(),
+                const PackageDetailsServicesComponent(),
                 SizedBox(height: 20.h),
-                PackageDetailsPolicyComponent(),
+                const PackageDetailsPolicyComponent(),
                 SizedBox(height: 20.h),
                 const PackageSimularComponent(),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 const PackageSimularComponent(),
                 SizedBox(height: 20.h),
                 Padding(

@@ -89,7 +89,7 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
                                         color: MainColors.blackColor
                                             .withOpacity(0.6),
                                       )),
-                                  Spacer(),
+                                  const Spacer(),
                                   Text('4.5',
                                       style:
                                           TextStyles.smallBodyTextStyle(context)
@@ -103,10 +103,10 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
                                 height: 5.h,
                               ),
                               LinearPercentIndicator(
-                                padding: EdgeInsets.all(0),
+                                padding: const EdgeInsets.all(0),
                                 width: 180,
                                 alignment: MainAxisAlignment.start,
-                                barRadius: Radius.circular(30),
+                                barRadius: const Radius.circular(30),
                                 lineHeight: 4.0,
                                 percent: 0.5,
                                 backgroundColor:
@@ -133,7 +133,7 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
                                         color: MainColors.blackColor
                                             .withOpacity(0.6),
                                       )),
-                                  Spacer(),
+                                  const Spacer(),
                                   Text('4.5',
                                       style:
                                           TextStyles.smallBodyTextStyle(context)
@@ -147,9 +147,9 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
                                 height: 5.h,
                               ),
                               LinearPercentIndicator(
-                                padding: EdgeInsets.all(0),
+                                padding: const EdgeInsets.all(0),
                                 alignment: MainAxisAlignment.start,
-                                barRadius: Radius.circular(30),
+                                barRadius: const Radius.circular(30),
                                 lineHeight: 4.0,
                                 percent: 0.5,
                                 backgroundColor:
@@ -180,7 +180,7 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
                                         color: MainColors.blackColor
                                             .withOpacity(0.6),
                                       )),
-                                  Spacer(),
+                                  const Spacer(),
                                   Text('4.5',
                                       style:
                                           TextStyles.smallBodyTextStyle(context)
@@ -194,10 +194,10 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
                                 height: 5.h,
                               ),
                               LinearPercentIndicator(
-                                padding: EdgeInsets.all(0),
+                                padding: const EdgeInsets.all(0),
                                 width: 180,
                                 alignment: MainAxisAlignment.start,
-                                barRadius: Radius.circular(30),
+                                barRadius: const Radius.circular(30),
                                 lineHeight: 4.0,
                                 percent: 0.5,
                                 backgroundColor:
@@ -224,7 +224,7 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
                                         color: MainColors.blackColor
                                             .withOpacity(0.6),
                                       )),
-                                  Spacer(),
+                                  const Spacer(),
                                   Text('4.5',
                                       style:
                                           TextStyles.smallBodyTextStyle(context)
@@ -238,10 +238,10 @@ class HotelDetailsReviewsComponent extends StatelessWidget {
                                 height: 5.h,
                               ),
                               LinearPercentIndicator(
-                                padding: EdgeInsets.all(0),
+                                padding: const EdgeInsets.all(0),
                                 width: 180,
                                 alignment: MainAxisAlignment.start,
-                                barRadius: Radius.circular(30),
+                                barRadius: const Radius.circular(30),
                                 lineHeight: 4.0,
                                 percent: 0.5,
                                 backgroundColor:

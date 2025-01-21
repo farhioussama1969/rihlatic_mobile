@@ -1,4 +1,3 @@
-import 'package:get/get.dart';
 import 'package:rihlatic/app/core/constants/end_points_constants.dart';
 import 'package:rihlatic/app/core/constants/storage_keys_constants.dart';
 import 'package:rihlatic/app/core/services/device_info_service.dart';

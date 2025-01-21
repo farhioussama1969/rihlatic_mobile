@@ -57,24 +57,24 @@ class CountryModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['full_name'] = this.fullName;
-    data['capital'] = this.capital;
-    data['citizenship'] = this.citizenship;
-    data['country_code'] = this.countryCode;
-    data['currency'] = this.currency;
-    data['currency_code'] = this.currencyCode;
-    data['currency_sub_unit'] = this.currencySubUnit;
-    data['currency_symbol'] = this.currencySymbol;
-    data['iso_3166_2'] = this.iso31662;
-    data['iso_3166_3'] = this.iso31663;
-    data['region_code'] = this.regionCode;
-    data['sub_region_code'] = this.subRegionCode;
-    data['eea'] = this.eea;
-    data['calling_code'] = this.callingCode;
-    data['flag'] = this.flag;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['full_name'] = fullName;
+    data['capital'] = capital;
+    data['citizenship'] = citizenship;
+    data['country_code'] = countryCode;
+    data['currency'] = currency;
+    data['currency_code'] = currencyCode;
+    data['currency_sub_unit'] = currencySubUnit;
+    data['currency_symbol'] = currencySymbol;
+    data['iso_3166_2'] = iso31662;
+    data['iso_3166_3'] = iso31663;
+    data['region_code'] = regionCode;
+    data['sub_region_code'] = subRegionCode;
+    data['eea'] = eea;
+    data['calling_code'] = callingCode;
+    data['flag'] = flag;
     return data;
   }
 }
