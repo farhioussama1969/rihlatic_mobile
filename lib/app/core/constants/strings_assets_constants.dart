@@ -76,6 +76,7 @@ static String get aboutTheTour{return "About the tour".tr;}
 static String get starting{return "Starting".tr;}
 static String get showLess{return "Show less".tr;}
 static String get book{return "Book".tr;}
+static String get bookYourTrip{return "Book your trip".tr;}
 static String get passwordConfirmation{return "password confirmation".tr;}
 static String get createNewAccount{return "create new account".tr;}
 static String get createNewAccountDescription{return "create new account description".tr;}

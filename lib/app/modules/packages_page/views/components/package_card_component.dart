@@ -22,22 +22,24 @@ class PackageCardComponent extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 320.h,
+          height: 320.h * itemsList.length,
           child: GridView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+              crossAxisCount: 1,
               crossAxisSpacing: 15,
               mainAxisSpacing: 15,
-              childAspectRatio: 0.75,
+              childAspectRatio: 1.5,
             ),
-            physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
             itemCount: itemsList.length,
             itemBuilder: (context, index) {
               return GestureDetector(
-                onTap: () => Get.toNamed(Routes.PACKAGE_DETAILS_PAGE,
-                    arguments: itemsList[index].id),
+                onTap: () => Get.toNamed(
+                  Routes.PACKAGE_DETAILS_PAGE,
+                  arguments: itemsList[index].id,
+                ),
                 child: Container(
                   decoration: BoxDecoration(
                     color: MainColors.whiteColor,
@@ -46,14 +48,14 @@ class PackageCardComponent extends StatelessWidget {
                       BoxShadow(
                         color: MainColors.textColor(context)!.withOpacity(0.2),
                         blurRadius: 5,
-                        offset: Offset(2, 4),
+                        offset: const Offset(2, 4),
                       ),
                     ],
                   ),
                   child: Column(
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(16),
                           topRight: Radius.circular(16),
                         ),
@@ -80,8 +82,8 @@ class PackageCardComponent extends StatelessWidget {
                                     IconsAssetsConstants.locationIcon,
                                     color:
                                         MainColors.blackColor.withOpacity(0.5),
-                                    width: 13.r,
-                                    height: 13.r,
+                                    width: 18.r,
+                                    height: 18.r,
                                   ),
                                   if (itemsList[index].destinations != null &&
                                       itemsList[index].destinations!.isNotEmpty)
@@ -91,12 +93,13 @@ class PackageCardComponent extends StatelessWidget {
                                           .map((e) => e.name ?? '')
                                           .toList()
                                           .join(', '),
-                                      style:
-                                          TextStyles.smallBodyTextStyle(context)
-                                              .copyWith(
-                                                  color: MainColors.textColor(
-                                                      context)!,
-                                                  height: 1),
+                                      style: TextStyles.mediumLabelTextStyle(
+                                              context)
+                                          .copyWith(
+                                        color: MainColors.textColor(context)!
+                                            .withOpacity(0.6),
+                                        height: 1,
+                                      ),
                                       maxLines: 2,
                                       textAlign: TextAlign.left,
                                     ),
@@ -116,11 +119,10 @@ class PackageCardComponent extends StatelessWidget {
                                                       .toString() +
                                                   ' depart' ??
                                               '0 depart',
-                                          style: TextStyles.smallBodyTextStyle(
+                                          style: TextStyles.mediumBodyTextStyle(
                                                   context)
                                               .copyWith(
                                             color: MainColors.whiteColor,
-                                            fontSize: 10,
                                           ),
                                         ),
                                         SizedBox(
@@ -128,11 +130,11 @@ class PackageCardComponent extends StatelessWidget {
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(1000),
-                                              border: Border.all(
-                                                  color:
-                                                      MainColors.whiteColor)),
+                                            borderRadius:
+                                                BorderRadius.circular(1000),
+                                            border: Border.all(
+                                                color: MainColors.whiteColor),
+                                          ),
                                           width: 13.r,
                                           height: 13.r,
                                           child: Padding(
@@ -146,15 +148,16 @@ class PackageCardComponent extends StatelessWidget {
                                       ],
                                     ),
                                     decoration: BoxDecoration(
-                                        color: MainColors.primaryColor,
-                                        borderRadius:
-                                            BorderRadiusDirectional.all(
-                                                Radius.circular(19.r))),
-                                    padding: EdgeInsets.only(
-                                        left: 4.0,
-                                        right: 4.0,
-                                        top: 2,
-                                        bottom: 2),
+                                      color: MainColors.primaryColor,
+                                      borderRadius: BorderRadiusDirectional.all(
+                                          Radius.circular(19.r)),
+                                    ),
+                                    padding: const EdgeInsets.only(
+                                      left: 4.0,
+                                      right: 4.0,
+                                      top: 2,
+                                      bottom: 2,
+                                    ),
                                   ),
                                   SizedBox(width: 4.w),
                                   Container(
@@ -168,11 +171,10 @@ class PackageCardComponent extends StatelessWidget {
                                                       .first +
                                                   'days' ??
                                               '0 days',
-                                          style: TextStyles.smallBodyTextStyle(
+                                          style: TextStyles.mediumBodyTextStyle(
                                                   context)
                                               .copyWith(
                                             color: MainColors.primaryColor,
-                                            fontSize: 10,
                                           ),
                                         ),
                                         SizedBox(
@@ -180,11 +182,11 @@ class PackageCardComponent extends StatelessWidget {
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(1000),
-                                              border: Border.all(
-                                                  color:
-                                                      MainColors.primaryColor)),
+                                            borderRadius:
+                                                BorderRadius.circular(1000),
+                                            border: Border.all(
+                                                color: MainColors.primaryColor),
+                                          ),
                                           width: 13.r,
                                           height: 13.r,
                                           child: Padding(
@@ -198,18 +200,19 @@ class PackageCardComponent extends StatelessWidget {
                                       ],
                                     ),
                                     decoration: BoxDecoration(
-                                        color: MainColors.primaryColor
-                                            .withOpacity(0.1),
-                                        borderRadius:
-                                            BorderRadiusDirectional.all(
-                                                Radius.circular(19.r)),
-                                        border: Border.all(
-                                            color: MainColors.primaryColor)),
-                                    padding: EdgeInsets.only(
-                                        left: 4.0,
-                                        right: 4.0,
-                                        top: 2,
-                                        bottom: 2),
+                                      color: MainColors.primaryColor
+                                          .withOpacity(0.1),
+                                      borderRadius: BorderRadiusDirectional.all(
+                                          Radius.circular(19.r)),
+                                      border: Border.all(
+                                          color: MainColors.primaryColor),
+                                    ),
+                                    padding: const EdgeInsets.only(
+                                      left: 4.0,
+                                      right: 4.0,
+                                      top: 2,
+                                      bottom: 2,
+                                    ),
                                   ),
                                   SizedBox(width: 4.w),
                                   Container(
@@ -222,12 +225,11 @@ class PackageCardComponent extends StatelessWidget {
                                                       .toString())
                                                   .first ??
                                               '0',
-                                          style: TextStyles.smallBodyTextStyle(
+                                          style: TextStyles.mediumBodyTextStyle(
                                                   context)
                                               .copyWith(
                                             color: MainColors.blackColor
                                                 .withOpacity(0.6),
-                                            fontSize: 10,
                                           ),
                                         ),
                                         SizedBox(
@@ -235,11 +237,12 @@ class PackageCardComponent extends StatelessWidget {
                                         ),
                                         Container(
                                           decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(1000),
-                                              border: Border.all(
-                                                  color: MainColors.blackColor
-                                                      .withOpacity(0.6))),
+                                            borderRadius:
+                                                BorderRadius.circular(1000),
+                                            border: Border.all(
+                                                color: MainColors.blackColor
+                                                    .withOpacity(0.6)),
+                                          ),
                                           width: 13.r,
                                           height: 13.r,
                                           child: Padding(
@@ -254,19 +257,20 @@ class PackageCardComponent extends StatelessWidget {
                                       ],
                                     ),
                                     decoration: BoxDecoration(
-                                        color: MainColors.blackColor
-                                            .withOpacity(0),
-                                        borderRadius:
-                                            BorderRadiusDirectional.all(
-                                                Radius.circular(19.r)),
-                                        border: Border.all(
-                                            color: MainColors.blackColor
-                                                .withOpacity(0.6))),
-                                    padding: EdgeInsets.only(
-                                        left: 4.0,
-                                        right: 4.0,
-                                        top: 2,
-                                        bottom: 2),
+                                      color:
+                                          MainColors.blackColor.withOpacity(0),
+                                      borderRadius: BorderRadiusDirectional.all(
+                                          Radius.circular(19.r)),
+                                      border: Border.all(
+                                          color: MainColors.blackColor
+                                              .withOpacity(0.6)),
+                                    ),
+                                    padding: const EdgeInsets.only(
+                                      left: 4.0,
+                                      right: 4.0,
+                                      top: 2,
+                                      bottom: 2,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -277,12 +281,12 @@ class PackageCardComponent extends StatelessWidget {
                                 children: [
                                   Text(
                                     itemsList[index].name ?? '',
-                                    style: TextStyles.smallLabelTextStyle(
-                                            context)
-                                        .copyWith(
-                                            color:
-                                                MainColors.textColor(context)!,
-                                            height: 1),
+                                    style:
+                                        TextStyles.mediumLabelTextStyle(context)
+                                            .copyWith(
+                                      color: MainColors.textColor(context)!,
+                                      height: 1,
+                                    ),
                                     maxLines: 2,
                                     textAlign: TextAlign.left,
                                   ),
@@ -296,7 +300,7 @@ class PackageCardComponent extends StatelessWidget {
                                   Text(
                                     StringsAssetsConstants.from,
                                     style:
-                                        TextStyles.smallBodyTextStyle(context)
+                                        TextStyles.mediumBodyTextStyle(context)
                                             .copyWith(
                                       color: MainColors.textColor(context)!
                                           .withOpacity(0.6),
@@ -326,7 +330,7 @@ class PackageCardComponent extends StatelessWidget {
                             ],
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
