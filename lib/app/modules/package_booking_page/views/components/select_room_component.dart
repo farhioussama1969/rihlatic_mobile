@@ -5,9 +5,8 @@ import 'package:rihlatic/app/core/components/inputs/text_input_component.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
+import 'package:rihlatic/app/modules/package_booking_page/views/components/add_quantity_component.dart';
 import 'package:select_field/select_field.dart';
-
-import '../../../packages_page/views/components/add_quantity_component.dart';
 
 final roomOption = [
   'Single',
@@ -26,29 +25,64 @@ class SelectRoomComponent extends StatefulWidget {
 class _SelectRoomComponentState extends State<SelectRoomComponent> {
   final List<Map<String, dynamic>> rooms = [];
 
+  Map<String, dynamic> _getRoomConfig(String roomType) {
+    if (roomType == 'Single') {
+      return {
+        'roomType': roomType,
+        'adults': 1,
+        'children': 0,
+        'infants': 0,
+        'childAge': '',
+        'notes': '',
+      };
+    } else if (roomType == 'Twin') {
+      return {
+        'roomType': roomType,
+        'adults': 2,
+        'children': 0,
+        'infants': 0,
+        'childAge': '',
+        'notes': '',
+      };
+    } else if (roomType == 'Twin + child') {
+      return {
+        'roomType': roomType,
+        'adults': 2,
+        'children': 1,
+        'infants': 0,
+        'childAge': '',
+        'notes': '',
+      };
+    } else if (roomType == 'Twin + 2 child') {
+      return {
+        'roomType': roomType,
+        'adults': 2,
+        'children': 2,
+        'infants': 0,
+        'childAge': '',
+        'notes': '',
+      };
+    } else {
+      return {
+        'roomType': roomType,
+        'adults': 1,
+        'children': 0,
+        'infants': 0,
+        'childAge': '',
+        'notes': '',
+      };
+    }
+  }
+
   @override
   void initState() {
     super.initState();
-    rooms.add({
-      'roomType': roomOption[0],
-      'adults': 1,
-      'children': 1,
-      'infants': 1,
-      'childAge': '',
-      'notes': '',
-    });
+    rooms.add(_getRoomConfig(roomOption[0]));
   }
 
   void _addRoom() {
     setState(() {
-      rooms.add({
-        'roomType': roomOption[0],
-        'adults': 1,
-        'children': 1,
-        'infants': 1,
-        'childAge': '',
-        'notes': '',
-      });
+      rooms.add(_getRoomConfig(roomOption[0]));
     });
   }
 
@@ -90,7 +124,11 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                     onTextChanged: (value) => debugPrint(value),
                     onOptionSelected: (option) {
                       setState(() {
-                        room['roomType'] = option.value;
+                        final newConfig = _getRoomConfig(option.value);
+                        room['roomType'] = newConfig['roomType'];
+                        room['adults'] = newConfig['adults'];
+                        room['children'] = newConfig['children'];
+                        room['infants'] = newConfig['infants'];
                       });
                     },
                     inputStyle: const TextStyle(
@@ -170,12 +208,15 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                         ),
                         Expanded(
                           child: AddQuantityComponent(
+                            key: ValueKey(room['roomType']),
                             productQuantity: room['adults'],
                             changeSelectedProductQuantity: (value) {
                               setState(() {
                                 room['adults'] = value;
                               });
                             },
+                            minval: 1,
+                            initval: room['adults'],
                           ),
                         ),
                       ],
@@ -198,12 +239,15 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                         ),
                         Expanded(
                           child: AddQuantityComponent(
+                            key: ValueKey(room['roomType']),
                             productQuantity: room['children'],
                             changeSelectedProductQuantity: (value) {
                               setState(() {
                                 room['children'] = value;
                               });
                             },
+                            minval: 0,
+                            initval: room['children'],
                           ),
                         ),
                       ],
@@ -226,12 +270,15 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                         ),
                         Expanded(
                           child: AddQuantityComponent(
+                            key: ValueKey(room['roomType']),
                             productQuantity: room['infants'],
                             changeSelectedProductQuantity: (value) {
                               setState(() {
                                 room['infants'] = value;
                               });
                             },
+                            minval: 0,
+                            initval: room['infants'],
                           ),
                         ),
                       ],

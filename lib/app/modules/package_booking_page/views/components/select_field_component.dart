@@ -4,20 +4,14 @@ import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:select_field/select_field.dart';
 
-final dateRanges = [
-  '28-Jan-2025/04-Feb-2025',
-  '05-Feb-2025/11-Feb-2025',
-  '12-Feb-2025/18-Feb-2025',
-];
-
 class SelectFieldComponent extends StatelessWidget {
-  const SelectFieldComponent({super.key});
+  final List<String> dates;
+  const SelectFieldComponent({super.key, required this.dates});
 
   @override
   Widget build(BuildContext context) {
-    final options = dateRanges
-        .map((dateRange) => Option(label: dateRange, value: dateRange))
-        .toList();
+    final options =
+        dates.map((dates) => Option(label: dates, value: dates)).toList();
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -32,8 +26,8 @@ class SelectFieldComponent extends StatelessWidget {
           SelectField<String>(
             options: options,
             initialOption: Option<String>(
-              label: dateRanges[0],
-              value: dateRanges[0],
+              label: dates[0],
+              value: dates[0],
             ),
             menuPosition: MenuPosition.below,
             onTextChanged: (value) => debugPrint(value),
@@ -63,7 +57,7 @@ class SelectFieldComponent extends StatelessWidget {
             ),
             menuDecoration: MenuDecoration(
               margin: const EdgeInsets.only(top: 8),
-              height: 200,
+              height: 100,
               alignment: MenuAlignment.center,
               backgroundDecoration: BoxDecoration(
                 color: MainColors.inputColor(context),

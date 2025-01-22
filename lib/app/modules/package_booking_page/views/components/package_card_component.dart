@@ -29,7 +29,7 @@ class PackageCardComponent extends StatelessWidget {
             itemBuilder: (context, index) {
               return Container(
                 decoration: BoxDecoration(
-                  color: MainColors.whiteColor,
+                  color: MainColors.backgroundColor(context),
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
@@ -67,7 +67,8 @@ class PackageCardComponent extends StatelessWidget {
                               children: [
                                 SvgPicture.asset(
                                   IconsAssetsConstants.locationIcon,
-                                  color: MainColors.blackColor.withOpacity(0.5),
+                                  color: MainColors.textColor(context)!
+                                      .withOpacity(0.5),
                                   width: 18.r,
                                   height: 18.r,
                                 ),
@@ -207,7 +208,7 @@ class PackageCardComponent extends StatelessWidget {
                                         style: TextStyles.mediumBodyTextStyle(
                                                 context)
                                             .copyWith(
-                                          color: MainColors.blackColor
+                                          color: MainColors.textColor(context)!
                                               .withOpacity(0.6),
                                         ),
                                       ),

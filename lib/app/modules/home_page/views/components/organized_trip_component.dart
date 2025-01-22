@@ -51,14 +51,14 @@ class OrganizedTripComponent extends StatelessWidget {
           child: ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             scrollDirection: Axis.horizontal,
-            physics:
-                const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
             itemCount: itemsList.length,
             itemBuilder: (context, index) {
               return Container(
                 margin: const EdgeInsets.only(right: 15),
                 decoration: BoxDecoration(
-                  color: MainColors.whiteColor,
+                  color: MainColors.backgroundColor(context),
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
@@ -99,15 +99,13 @@ class OrganizedTripComponent extends StatelessWidget {
                                 children: [
                                   SvgPicture.asset(
                                     IconsAssetsConstants.locationIcon,
-                                    color:
-                                        MainColors.blackColor.withOpacity(0.5),
+                                    color: MainColors.textColor(context)!
+                                        .withOpacity(0.5),
                                     width: 13.r,
                                     height: 13.r,
                                   ),
                                   if (itemsList[index].destinations != null &&
-                                      itemsList[index]
-                                          .destinations!
-                                          .isNotEmpty)
+                                      itemsList[index].destinations!.isNotEmpty)
                                     Text(
                                       itemsList[index]
                                           .destinations!
@@ -251,8 +249,8 @@ class OrganizedTripComponent extends StatelessWidget {
                                           style: TextStyles.smallBodyTextStyle(
                                                   context)
                                               .copyWith(
-                                            color: MainColors.blackColor
-                                                .withOpacity(0.6),
+                                            color:
+                                                MainColors.textColor(context),
                                           ),
                                         ),
                                         SizedBox(
@@ -316,8 +314,8 @@ class OrganizedTripComponent extends StatelessWidget {
                             child: Row(
                               children: [
                                 Container(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 4.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
                                   child: SvgPicture.asset(
                                     IconsAssetsConstants.starIcon,
                                     color: MainColors.primaryColor,
@@ -329,7 +327,8 @@ class OrganizedTripComponent extends StatelessWidget {
                                 if (itemsList[index].departures?.isNotEmpty ==
                                     true)
                                   Text(
-                                    '5 ' '${itemsList[index].departures?.map((e) => e.hotelStay?.isNotEmpty == true ? (e.hotelStay?.first.name ?? '') : '').toList().join(', ')}',
+                                    '5 '
+                                    '${itemsList[index].departures?.map((e) => e.hotelStay?.isNotEmpty == true ? (e.hotelStay?.first.name ?? '') : '').toList().join(', ')}',
                                     style:
                                         TextStyles.smallBodyTextStyle(context)
                                             .copyWith(
@@ -358,11 +357,7 @@ class OrganizedTripComponent extends StatelessWidget {
                                 ),
                                 SizedBox(width: 8.w),
                                 Text(
-                                  '${itemsList[index]
-                                          .departures!
-                                          .map((e) => e.priceIni ?? '')
-                                          .toList()
-                                          .join(' ${StringsAssetsConstants.to} ')} ${StringsAssetsConstants.dzd}',
+                                  '${itemsList[index].departures!.map((e) => e.priceIni ?? '').toList().join(' ${StringsAssetsConstants.to} ')} ${StringsAssetsConstants.dzd}',
                                   style: TextStyles.smallLabelTextStyle(context)
                                       .copyWith(
                                     color: MainColors.textColor(context)!

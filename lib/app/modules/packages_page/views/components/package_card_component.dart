@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -41,7 +40,7 @@ class PackageCardComponent extends StatelessWidget {
                 ),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: MainColors.whiteColor,
+                    color: MainColors.backgroundColor(context),
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
@@ -79,8 +78,8 @@ class PackageCardComponent extends StatelessWidget {
                                 children: [
                                   SvgPicture.asset(
                                     IconsAssetsConstants.locationIcon,
-                                    color:
-                                        MainColors.blackColor.withOpacity(0.5),
+                                    color: MainColors.textColor(context)!
+                                        .withOpacity(0.5),
                                     width: 18.r,
                                     height: 18.r,
                                   ),
@@ -124,8 +123,7 @@ class PackageCardComponent extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         Text(
-                                          '${itemsList[index]
-                                                      .departuresCount} depart' ??
+                                          '${itemsList[index].departuresCount} depart' ??
                                               '0 depart',
                                           style: TextStyles.mediumBodyTextStyle(
                                                   context)
@@ -175,11 +173,7 @@ class PackageCardComponent extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         Text(
-                                          '${itemsList[index]
-                                                      .departures!
-                                                      .map((e) => e.totalDays
-                                                          .toString())
-                                                      .first}days' ??
+                                          '${itemsList[index].departures!.map((e) => e.totalDays.toString()).first}days' ??
                                               '0 days',
                                           style: TextStyles.mediumBodyTextStyle(
                                                   context)
@@ -239,8 +233,9 @@ class PackageCardComponent extends StatelessWidget {
                                           style: TextStyles.mediumBodyTextStyle(
                                                   context)
                                               .copyWith(
-                                            color: MainColors.blackColor
-                                                .withOpacity(0.6),
+                                            color:
+                                                MainColors.textColor(context)!
+                                                    .withOpacity(0.6),
                                           ),
                                         ),
                                         SizedBox(
@@ -304,12 +299,7 @@ class PackageCardComponent extends StatelessWidget {
                                   ),
                                   SizedBox(width: 8.w),
                                   Text(
-                                    '${itemsList[index]
-                                            .departures!
-                                            .map((e) => e.priceIni ?? '')
-                                            .toList()
-                                            .reversed
-                                            .join(' ${StringsAssetsConstants.to} ')} ${StringsAssetsConstants.dzd}',
+                                    '${itemsList[index].departures!.map((e) => e.priceIni ?? '').toList().reversed.join(' ${StringsAssetsConstants.to} ')} ${StringsAssetsConstants.dzd}',
                                     style:
                                         TextStyles.smallLabelTextStyle(context)
                                             .copyWith(

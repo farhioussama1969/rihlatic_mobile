@@ -127,7 +127,7 @@ class PackageFiltreComponent extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 20.w),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: MainColors.whiteColor,
+        color: MainColors.backgroundColor(context),
         borderRadius: BorderRadius.circular(15.5),
         border:
             Border.all(color: MainColors.textColor(context)!.withOpacity(0.15)),
