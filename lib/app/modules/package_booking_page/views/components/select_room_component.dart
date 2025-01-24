@@ -86,11 +86,19 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
     });
   }
 
+  void _removeRoom(int index) {
+    setState(() {
+      rooms.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ...rooms.map((room) {
+        ...rooms.asMap().entries.map((entry) {
+          final index = entry.key;
+          final room = entry.value;
           return Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
@@ -106,9 +114,22 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    StringsAssetsConstants.selectYourRoom,
-                    style: TextStyles.mediumBodyTextStyle(context),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        StringsAssetsConstants.selectYourRoom,
+                        style: TextStyles.mediumBodyTextStyle(context),
+                      ),
+                      if (index > 0)
+                        IconButton(
+                          icon: Icon(
+                            Icons.delete,
+                            color: MainColors.errorColor(context),
+                          ),
+                          onPressed: () => _removeRoom(index),
+                        ),
+                    ],
                   ),
                   const SizedBox(height: 8),
                   SelectField<String>(

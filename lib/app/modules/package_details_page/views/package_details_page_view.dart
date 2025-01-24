@@ -108,11 +108,13 @@ class PackageDetailsPageView extends GetView<PackageDetailsPageController> {
                 SizedBox(height: 20.h),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: PrimaryButtonComponent(
-                    onTap: () {
-                      Get.toNamed(Routes.PACKAGE_BOOKING_PAGE);
-                    },
-                    text: StringsAssetsConstants.book,
+                  child: GestureDetector(
+                    child: PrimaryButtonComponent(
+                      onTap: () {
+                        Get.toNamed(Routes.PACKAGE_BOOKING_PAGE);
+                      },
+                      text: StringsAssetsConstants.book,
+                    ),
                   ),
                 ),
                 SizedBox(height: 30.h),

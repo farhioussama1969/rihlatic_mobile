@@ -86,6 +86,7 @@ static String get enterAgeHere{return "Enter age here".tr;}
 static String get note{return "Note".tr;}
 static String get rooms{return "Rooms".tr;}
 static String get addRoom{return "Add room".tr;}
+static String get removeRoom{return "Remove room".tr;}
 static String get enterAdditionalNotes{return "Enter additional notes".tr;}
 static String get passwordConfirmation{return "password confirmation".tr;}
 static String get createNewAccount{return "create new account".tr;}

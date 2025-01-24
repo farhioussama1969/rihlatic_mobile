@@ -55,4 +55,30 @@ class PackageProvider {
     }
     return null;
   }
+
+  Future<bool?> book({
+    required int departureId,
+    // required List<RoomModel> rooms,
+    required String token,
+    required Function onLoading,
+    required Function onFinal,
+  }) async {
+    ApiResponse? response = await HttpClientService.sendRequest(
+      endPoint: EndPointsConstants.bookPackage,
+      requestType: HttpRequestTypes.post,
+      showErrorToast: true,
+      data: {
+        "departureId": departureId,
+        // "rooms": rooms,
+        "token": token,
+      },
+      onLoading: () => onLoading(),
+      onFinal: () => onFinal(),
+    );
+
+    if (response?.body != null) {
+      return response?.body;
+    }
+    return null;
+  }
 }
