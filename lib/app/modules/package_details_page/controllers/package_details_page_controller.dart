@@ -30,7 +30,4 @@ class PackageDetailsPageController extends GetxController {
       }
     });
   }
-
-
-
 }

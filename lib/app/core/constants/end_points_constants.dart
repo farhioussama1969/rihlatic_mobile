@@ -13,7 +13,9 @@ class EndPointsConstants {
   static const String checkUserStatus = '/front/user/check_user_status';
   static const String home = '/home';
   static const String packages = '/front/packages';
+  static const String omra = '/front/omra';
   static const String bookPackage = '/front/package/bookings';
+  static const String bookOmra = '/front/omra/bookings';
   static const String resendOtp = '/front/email/resend_code';
 
   //config provider

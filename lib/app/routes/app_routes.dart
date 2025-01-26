@@ -14,6 +14,8 @@ abstract class Routes {
   static const PACKAGES_PAGE = _Paths.PACKAGES_PAGE;
   static const PACKAGE_DETAILS_PAGE = _Paths.PACKAGE_DETAILS_PAGE;
   static const PACKAGE_BOOKING_PAGE = _Paths.PACKAGE_BOOKING_PAGE;
+  static const OMRA_PAGE = _Paths.OMRA_PAGE;
+  static const OMRA_DETAILS_PAGE = _Paths.OMRA_DETAILS_PAGE;
 }
 
 abstract class _Paths {
@@ -29,4 +31,6 @@ abstract class _Paths {
   static const PACKAGES_PAGE = '/packages-page';
   static const PACKAGE_DETAILS_PAGE = '/package-details-page';
   static const PACKAGE_BOOKING_PAGE = '/package-booking-page';
+  static const OMRA_PAGE = '/omra-page';
+  static const OMRA_DETAILS_PAGE = '/omra-details-page';
 }
