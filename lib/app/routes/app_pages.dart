@@ -10,6 +10,8 @@ import '../modules/hotel_details/bindings/hotel_details_binding.dart';
 import '../modules/hotel_details/views/hotel_details_view.dart';
 import '../modules/new_update/bindings/new_update_binding.dart';
 import '../modules/new_update/views/new_update_view.dart';
+import '../modules/omra_booking_page/bindings/omra_booking_page_binding.dart';
+import '../modules/omra_booking_page/views/omra_booking_page_view.dart';
 import '../modules/omra_details_page/bindings/omra_details_page_binding.dart';
 import '../modules/omra_details_page/views/omra_details_page_view.dart';
 import '../modules/omra_page/bindings/omra_page_binding.dart';
@@ -92,6 +94,11 @@ class AppPages {
       name: _Paths.OMRA_DETAILS_PAGE,
       page: () => const OmraDetailsPageView(),
       binding: OmraDetailsPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.OMRA_BOOKING_PAGE,
+      page: () => const OmraBookingPageView(),
+      binding: OmraBookingPageBinding(),
     ),
   ];
 }

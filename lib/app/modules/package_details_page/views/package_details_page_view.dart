@@ -111,7 +111,8 @@ class PackageDetailsPageView extends GetView<PackageDetailsPageController> {
                   child: GestureDetector(
                     child: PrimaryButtonComponent(
                       onTap: () {
-                        Get.toNamed(Routes.PACKAGE_BOOKING_PAGE);
+                        Get.toNamed(Routes.PACKAGE_BOOKING_PAGE,
+                            arguments: package.id);
                       },
                       text: StringsAssetsConstants.book,
                     ),

@@ -2,7 +2,6 @@ import 'package:rihlatic/app/core/constants/end_points_constants.dart';
 import 'package:rihlatic/app/core/services/http_client_service.dart';
 import 'package:rihlatic/app/data/models/api_response.dart';
 import 'package:rihlatic/app/data/models/omra_model.dart';
-import 'package:rihlatic/app/data/models/organized_trip_model.dart';
 
 class Omraprovider {
   Future<List<OmraModel>?> omra({

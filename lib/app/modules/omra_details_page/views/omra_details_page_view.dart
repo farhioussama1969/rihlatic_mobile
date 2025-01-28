@@ -110,7 +110,8 @@ class OmraDetailsPageView extends GetView<OmraDetailsPageController> {
                   child: GestureDetector(
                     child: PrimaryButtonComponent(
                       onTap: () {
-                        Get.toNamed(Routes.PACKAGE_BOOKING_PAGE);
+                        Get.toNamed(Routes.OMRA_BOOKING_PAGE,
+                            arguments: omra.id);
                       },
                       text: StringsAssetsConstants.book,
                     ),

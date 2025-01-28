@@ -16,6 +16,7 @@ abstract class Routes {
   static const PACKAGE_BOOKING_PAGE = _Paths.PACKAGE_BOOKING_PAGE;
   static const OMRA_PAGE = _Paths.OMRA_PAGE;
   static const OMRA_DETAILS_PAGE = _Paths.OMRA_DETAILS_PAGE;
+  static const OMRA_BOOKING_PAGE = _Paths.OMRA_BOOKING_PAGE;
 }
 
 abstract class _Paths {
@@ -33,4 +34,5 @@ abstract class _Paths {
   static const PACKAGE_BOOKING_PAGE = '/package-booking-page';
   static const OMRA_PAGE = '/omra-page';
   static const OMRA_DETAILS_PAGE = '/omra-details-page';
+  static const OMRA_BOOKING_PAGE = '/omra-booking-page';
 }

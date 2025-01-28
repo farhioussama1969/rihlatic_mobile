@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:radio_group_v2/utils/radio_group_decoration.dart';
+import 'package:radio_group_v2/widgets/view_models/radio_group_controller.dart';
+import 'package:radio_group_v2/widgets/views/radio_group.dart';
 import 'package:rihlatic/app/core/components/buttons/primary_button_component.dart';
 import 'package:rihlatic/app/core/components/inputs/text_input_component.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
@@ -8,11 +11,22 @@ import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/modules/package_booking_page/views/components/add_quantity_component.dart';
 import 'package:select_field/select_field.dart';
 
-final roomOption = [
+final bedOption = [
+  'With bed',
+  'With room',
+];
+
+final roomOptionWithBed = [
+  'Quadruple',
+  'Quintiple',
+];
+
+final roomOptionWithRoom = [
   'Single',
-  'Twin',
-  'Twin + child',
-  'Twin + 2 child',
+  'Double',
+  'Triple',
+  'Quadruple',
+  'Quintiple',
 ];
 
 class SelectRoomComponent extends StatefulWidget {
@@ -24,6 +38,9 @@ class SelectRoomComponent extends StatefulWidget {
 
 class _SelectRoomComponentState extends State<SelectRoomComponent> {
   final List<Map<String, dynamic>> rooms = [];
+  final RadioGroupController _radioController = RadioGroupController();
+  String _selectedBedOption = bedOption[0];
+  List<String> _currentRoomOptions = roomOptionWithBed;
 
   Map<String, dynamic> _getRoomConfig(String roomType) {
     if (roomType == 'Single') {
@@ -35,7 +52,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
         'childAge': '',
         'notes': '',
       };
-    } else if (roomType == 'Twin') {
+    } else if (roomType == 'Double') {
       return {
         'roomType': roomType,
         'adults': 2,
@@ -44,20 +61,29 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
         'childAge': '',
         'notes': '',
       };
-    } else if (roomType == 'Twin + child') {
+    } else if (roomType == 'Triple') {
       return {
         'roomType': roomType,
-        'adults': 2,
-        'children': 1,
+        'adults': 3,
+        'children': 0,
         'infants': 0,
         'childAge': '',
         'notes': '',
       };
-    } else if (roomType == 'Twin + 2 child') {
+    } else if (roomType == 'Quadruple') {
       return {
         'roomType': roomType,
-        'adults': 2,
-        'children': 2,
+        'adults': 4,
+        'children': 0,
+        'infants': 0,
+        'childAge': '',
+        'notes': '',
+      };
+    } else if (roomType == 'Quintiple') {
+      return {
+        'roomType': roomType,
+        'adults': 5,
+        'children': 0,
         'infants': 0,
         'childAge': '',
         'notes': '',
@@ -77,18 +103,35 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
   @override
   void initState() {
     super.initState();
-    rooms.add(_getRoomConfig(roomOption[0]));
+    rooms.add(_getRoomConfig(_currentRoomOptions[0]));
   }
 
   void _addRoom() {
     setState(() {
-      rooms.add(_getRoomConfig(roomOption[0]));
+      rooms.add(_getRoomConfig(_currentRoomOptions[0]));
     });
   }
 
   void _removeRoom(int index) {
     setState(() {
       rooms.removeAt(index);
+    });
+  }
+
+  void _updateRoomOptions(String selectedBedOption) {
+    setState(() {
+      _selectedBedOption = selectedBedOption;
+      _currentRoomOptions = selectedBedOption == 'With bed'
+          ? roomOptionWithBed
+          : roomOptionWithRoom;
+
+      for (var room in rooms) {
+        room['roomType'] = _currentRoomOptions[0];
+        final newConfig = _getRoomConfig(_currentRoomOptions[0]);
+        room['adults'] = newConfig['adults'];
+        room['children'] = newConfig['children'];
+        room['infants'] = newConfig['infants'];
+      }
     });
   }
 
@@ -131,9 +174,19 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                         ),
                     ],
                   ),
+                  RadioGroup(
+                    controller: _radioController,
+                    values: bedOption,
+                    orientation: RadioGroupOrientation.horizontal,
+                    decoration: const RadioGroupDecoration(
+                        activeColor: MainColors.primaryColor),
+                    onChanged: (selectedValue) {
+                      _updateRoomOptions(selectedValue);
+                    },
+                  ),
                   const SizedBox(height: 8),
                   SelectField<String>(
-                    options: roomOption
+                    options: _currentRoomOptions
                         .map((roomOption) =>
                             Option(label: roomOption, value: roomOption))
                         .toList(),
