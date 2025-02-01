@@ -21,55 +21,55 @@ class HomeModel {
     if (json['discoverAlgeria'] != null) {
       discoverAlgeria = <DestinationModel>[];
       json['discoverAlgeria'].forEach((v) {
-        discoverAlgeria!.add(new DestinationModel.fromJson(v));
+        discoverAlgeria!.add(DestinationModel.fromJson(v));
       });
     }
     if (json['favoriteDestinations'] != null) {
       favoriteDestinations = <DestinationModel>[];
       json['favoriteDestinations'].forEach((v) {
-        favoriteDestinations!.add(new DestinationModel.fromJson(v));
+        favoriteDestinations!.add(DestinationModel.fromJson(v));
       });
     }
     if (json['organzidTrip'] != null) {
       organzidTrip = <OrganizedTripModel>[];
       json['organzidTrip'].forEach((v) {
-        organzidTrip!.add(new OrganizedTripModel.fromJson(v));
+        organzidTrip!.add(OrganizedTripModel.fromJson(v));
       });
     }
     if (json['popularFromAlgiers'] != null) {
       popularFromAlgiers = <DestinationModel>[];
       json['popularFromAlgiers'].forEach((v) {
-        popularFromAlgiers!.add(new DestinationModel.fromJson(v));
+        popularFromAlgiers!.add(DestinationModel.fromJson(v));
       });
     }
     if (json['popularFlights'] != null) {
       popularFlights = <FlightModel>[];
       json['popularFlights'].forEach((v) {
-        popularFlights!.add(new FlightModel.fromJson(v));
+        popularFlights!.add(FlightModel.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.discoverAlgeria != null) {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (discoverAlgeria != null) {
       data['discoverAlgeria'] =
-          this.discoverAlgeria!.map((v) => v.toJson()).toList();
+          discoverAlgeria!.map((v) => v.toJson()).toList();
     }
-    if (this.favoriteDestinations != null) {
+    if (favoriteDestinations != null) {
       data['favoriteDestinations'] =
-          this.favoriteDestinations!.map((v) => v.toJson()).toList();
+          favoriteDestinations!.map((v) => v.toJson()).toList();
     }
-    if (this.organzidTrip != null) {
-      data['organzidTrip'] = this.organzidTrip!.map((v) => v.toJson()).toList();
+    if (organzidTrip != null) {
+      data['organzidTrip'] = organzidTrip!.map((v) => v.toJson()).toList();
     }
-    if (this.popularFromAlgiers != null) {
+    if (popularFromAlgiers != null) {
       data['popularFromAlgiers'] =
-          this.popularFromAlgiers!.map((v) => v.toJson()).toList();
+          popularFromAlgiers!.map((v) => v.toJson()).toList();
     }
-    if (this.popularFlights != null) {
+    if (popularFlights != null) {
       data['popularFlights'] =
-          this.popularFlights!.map((v) => v.toJson()).toList();
+          popularFlights!.map((v) => v.toJson()).toList();
     }
     return data;
   }

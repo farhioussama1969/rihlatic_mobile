@@ -134,7 +134,7 @@ class TextInputComponent extends StatelessWidget {
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(borderRadius ?? 15.r),
                   borderSide: border ??
-                      BorderSide(
+                      const BorderSide(
                         color: MainColors.transparentColor,
                         width: 1,
                       ),
@@ -150,7 +150,7 @@ class TextInputComponent extends StatelessWidget {
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(borderRadius ?? 15.r),
-                  borderSide: BorderSide(
+                  borderSide: const BorderSide(
                     color: MainColors.primaryColor,
                     width: 1,
                   ),
@@ -158,7 +158,7 @@ class TextInputComponent extends StatelessWidget {
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(borderRadius ?? 15.r),
                   borderSide: border ??
-                      BorderSide(
+                      const BorderSide(
                         color: MainColors.transparentColor,
                         width: 1,
                       ),
@@ -190,7 +190,7 @@ class TextInputComponent extends StatelessWidget {
                     ? FocusScope.of(context).unfocus()
                     : FocusScope.of(context).requestFocus(nextNode);
               },
-              onChanged: onChange ?? null,
+              onChanged: onChange,
             ),
           ),
         ],

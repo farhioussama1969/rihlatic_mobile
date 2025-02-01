@@ -28,7 +28,7 @@ class DiscoverAlgeriaComponent extends StatelessWidget {
                 style: TextStyles.mediumLabelTextStyle(context)
                     .copyWith(color: MainColors.textColor(context)),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 StringsAssetsConstants.seeMore,
                 style: TextStyles.smallLabelTextStyle(context)
@@ -46,7 +46,7 @@ class DiscoverAlgeriaComponent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             scrollDirection: Axis.horizontal,
             physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             itemCount: itemsList.length,
             itemBuilder: (context, index) {
               return Container(
@@ -89,9 +89,7 @@ class DiscoverAlgeriaComponent extends StatelessWidget {
                             height: 4.h,
                           ),
                           Text(
-                            (itemsList[index].departuresCount ?? 0).toString() +
-                                ' ' +
-                                StringsAssetsConstants.establishment,
+                            '${itemsList[index].departuresCount ?? 0} ${StringsAssetsConstants.establishment}',
                             style:
                                 TextStyles.smallBodyTextStyle(context).copyWith(
                               color: MainColors.whiteColor,

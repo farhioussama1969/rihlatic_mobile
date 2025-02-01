@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:get/get.dart';
 import 'package:rihlatic/app/core/constants/storage_keys_constants.dart';
 import 'package:rihlatic/app/core/services/local_storage_service.dart';

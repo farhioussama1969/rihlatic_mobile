@@ -6,14 +6,13 @@ import 'package:rihlatic/app/core/styles/main_colors.dart';
 
 class SwitchComponent extends StatelessWidget {
   const SwitchComponent(
-      {Key? key,
+      {super.key,
       required this.enable,
       required this.onChange,
       this.activeIconPath,
       this.inactiveIconPath,
       this.height,
-      this.width})
-      : super(key: key);
+      this.width});
 
   final bool enable;
   final Function(bool value) onChange;

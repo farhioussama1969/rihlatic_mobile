@@ -1,17 +1,8 @@
-import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_config/flutter_config.dart';
 import 'package:get/get.dart';
-import 'package:rihlatic/app/core/constants/firebase_messaging_tobics_constants.dart';
-import 'package:rihlatic/app/core/constants/storage_keys_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
-import 'package:rihlatic/app/core/services/local_storage_service.dart';
 import 'package:rihlatic/app/core/styles/theme_styles.dart';
 import 'package:rihlatic/app/core/utils/theme_util.dart';
 import 'package:rihlatic/app/core/utils/translation_util.dart';
@@ -20,7 +11,6 @@ import 'package:rihlatic/app/core/utils/translations/translations_assets_reader.
 import 'package:rihlatic/app/modules/config_controller.dart';
 import 'package:rihlatic/app/modules/user_controller.dart';
 
-import 'app/core/services/local_notification_service.dart';
 import 'app/routes/app_pages.dart';
 
 // late final FirebaseMessaging _messaging;

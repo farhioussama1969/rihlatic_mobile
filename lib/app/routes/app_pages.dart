@@ -10,6 +10,18 @@ import '../modules/hotel_details/bindings/hotel_details_binding.dart';
 import '../modules/hotel_details/views/hotel_details_view.dart';
 import '../modules/new_update/bindings/new_update_binding.dart';
 import '../modules/new_update/views/new_update_view.dart';
+import '../modules/omra_booking_page/bindings/omra_booking_page_binding.dart';
+import '../modules/omra_booking_page/views/omra_booking_page_view.dart';
+import '../modules/omra_details_page/bindings/omra_details_page_binding.dart';
+import '../modules/omra_details_page/views/omra_details_page_view.dart';
+import '../modules/omra_page/bindings/omra_page_binding.dart';
+import '../modules/omra_page/views/omra_page_view.dart';
+import '../modules/package_booking_page/bindings/package_booking_page_binding.dart';
+import '../modules/package_booking_page/views/package_booking_page_view.dart';
+import '../modules/package_details_page/bindings/package_details_page_binding.dart';
+import '../modules/package_details_page/views/package_details_page_view.dart';
+import '../modules/packages_page/bindings/packages_page_binding.dart';
+import '../modules/packages_page/views/packages_page_view.dart';
 import '../modules/room_details/bindings/room_details_binding.dart';
 import '../modules/room_details/views/room_details_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -20,7 +32,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME_PAGE;
+  static const INITIAL = Routes.OMRA_PAGE;
 
   static final routes = [
     GetPage(
@@ -57,6 +69,36 @@ class AppPages {
       name: _Paths.HOME_PAGE,
       page: () => const HomePageView(),
       binding: HomePageBinding(),
+    ),
+    GetPage(
+      name: _Paths.PACKAGES_PAGE,
+      page: () => const PackagesPageView(),
+      binding: PackagesPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.PACKAGE_DETAILS_PAGE,
+      page: () => const PackageDetailsPageView(),
+      binding: PackageDetailsPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.PACKAGE_BOOKING_PAGE,
+      page: () => const PackageBookingPageView(),
+      binding: PackageBookingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.OMRA_PAGE,
+      page: () => const OmraPageView(),
+      binding: OmraPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.OMRA_DETAILS_PAGE,
+      page: () => const OmraDetailsPageView(),
+      binding: OmraDetailsPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.OMRA_BOOKING_PAGE,
+      page: () => const OmraBookingPageView(),
+      binding: OmraBookingPageBinding(),
     ),
   ];
 }

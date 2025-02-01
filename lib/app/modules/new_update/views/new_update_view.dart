@@ -19,7 +19,7 @@ import 'package:rihlatic/app/modules/user_controller.dart';
 import '../controllers/new_update_controller.dart';
 
 class NewUpdateView extends GetView<NewUpdateController> {
-  const NewUpdateView({Key? key}) : super(key: key);
+  const NewUpdateView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -72,6 +72,22 @@ static String get establishment{return "establishment".tr;}
 static String get from{return "from".tr;}
 static String get to{return "to".tr;}
 static String get dzd{return "DZD".tr;}
+static String get aboutTheTour{return "About the tour".tr;}
+static String get starting{return "Starting".tr;}
+static String get showLess{return "Show less".tr;}
+static String get book{return "Book".tr;}
+static String get bookYourTrip{return "Book your trip".tr;}
+static String get selectYourTripDate{return "Select your trip date".tr;}
+static String get adult{return "Adult".tr;}
+static String get child{return "Child".tr;}
+static String get infant{return "Infant".tr;}
+static String get ageOfChild1{return "Age of Child 1".tr;}
+static String get enterAgeHere{return "Enter age here".tr;}
+static String get note{return "Note".tr;}
+static String get rooms{return "Rooms".tr;}
+static String get addRoom{return "Add room".tr;}
+static String get removeRoom{return "Remove room".tr;}
+static String get enterAdditionalNotes{return "Enter additional notes".tr;}
 static String get passwordConfirmation{return "password confirmation".tr;}
 static String get createNewAccount{return "create new account".tr;}
 static String get createNewAccountDescription{return "create new account description".tr;}

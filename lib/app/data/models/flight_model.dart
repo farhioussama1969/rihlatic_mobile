@@ -8,20 +8,20 @@ class FlightModel {
 
   FlightModel.fromJson(Map<String, dynamic> json) {
     departure_airport = json['departure_airport'] != null
-        ? new AirportModel.fromJson(json['departure_airport'])
+        ? AirportModel.fromJson(json['departure_airport'])
         : null;
     arrival_airport = json['arrival_airport'] != null
-        ? new AirportModel.fromJson(json['arrival_airport'])
+        ? AirportModel.fromJson(json['arrival_airport'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.departure_airport != null) {
-      data['departure_airport'] = this.departure_airport!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (departure_airport != null) {
+      data['departure_airport'] = departure_airport!.toJson();
     }
-    if (this.arrival_airport != null) {
-      data['arrival_airport'] = this.arrival_airport!.toJson();
+    if (arrival_airport != null) {
+      data['arrival_airport'] = arrival_airport!.toJson();
     }
     return data;
   }

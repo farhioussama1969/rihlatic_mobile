@@ -96,7 +96,7 @@ class AgencyModel {
     resMobile = json['res_mobile'];
     resEmail = json['res_email'];
     preferences = json['preferences'] != null
-        ? new PreferencesModel.fromJson(json['preferences'])
+        ? PreferencesModel.fromJson(json['preferences'])
         : null;
     signedContract = json['signed_contract'];
     agreementFile = json['agreement_file'];
@@ -106,41 +106,41 @@ class AgencyModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['address'] = this.address;
-    data['city'] = this.city;
-    data['postcode'] = this.postcode;
-    data['phone'] = this.phone;
-    data['mobile'] = this.mobile;
-    data['email'] = this.email;
-    data['fax'] = this.fax;
-    data['tax_reg'] = this.taxReg;
-    data['commerce_reg'] = this.commerceReg;
-    data['status'] = this.status;
-    data['logo'] = this.logo;
-    data['facebook'] = this.facebook;
-    data['twitter'] = this.twitter;
-    data['instagram'] = this.instagram;
-    data['linkedin'] = this.linkedin;
-    data['old_balance'] = this.oldBalance;
-    data['balance'] = this.balance;
-    data['negative_balance'] = this.negativeBalance;
-    data['min_negative_balance'] = this.minNegativeBalance;
-    data['evisa_price_increase'] = this.evisaPriceIncrease;
-    data['last_name_res'] = this.lastNameRes;
-    data['first_name_res'] = this.firstNameRes;
-    data['res_mobile'] = this.resMobile;
-    data['res_email'] = this.resEmail;
-    if (this.preferences != null) {
-      data['preferences'] = this.preferences!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['address'] = address;
+    data['city'] = city;
+    data['postcode'] = postcode;
+    data['phone'] = phone;
+    data['mobile'] = mobile;
+    data['email'] = email;
+    data['fax'] = fax;
+    data['tax_reg'] = taxReg;
+    data['commerce_reg'] = commerceReg;
+    data['status'] = status;
+    data['logo'] = logo;
+    data['facebook'] = facebook;
+    data['twitter'] = twitter;
+    data['instagram'] = instagram;
+    data['linkedin'] = linkedin;
+    data['old_balance'] = oldBalance;
+    data['balance'] = balance;
+    data['negative_balance'] = negativeBalance;
+    data['min_negative_balance'] = minNegativeBalance;
+    data['evisa_price_increase'] = evisaPriceIncrease;
+    data['last_name_res'] = lastNameRes;
+    data['first_name_res'] = firstNameRes;
+    data['res_mobile'] = resMobile;
+    data['res_email'] = resEmail;
+    if (preferences != null) {
+      data['preferences'] = preferences!.toJson();
     }
-    data['signed_contract'] = this.signedContract;
-    data['agreement_file'] = this.agreementFile;
-    data['key'] = this.key;
-    data['label'] = this.label;
-    data['value'] = this.value;
+    data['signed_contract'] = signedContract;
+    data['agreement_file'] = agreementFile;
+    data['key'] = key;
+    data['label'] = label;
+    data['value'] = value;
     return data;
   }
 }

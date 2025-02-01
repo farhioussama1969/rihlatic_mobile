@@ -12,10 +12,10 @@ class AppVersionModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['required'] = this.required;
-    data['optional'] = this.optional;
-    data['app_url'] = this.appUrl;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['required'] = required;
+    data['optional'] = optional;
+    data['app_url'] = appUrl;
     return data;
   }
 }

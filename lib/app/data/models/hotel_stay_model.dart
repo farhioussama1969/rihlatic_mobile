@@ -12,10 +12,10 @@ class HotelStayModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['type_meals'] = this.typeMeals;
-    data['rate'] = this.rate;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['type_meals'] = typeMeals;
+    data['rate'] = rate;
     return data;
   }
 }

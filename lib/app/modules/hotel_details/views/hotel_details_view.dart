@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_comments_component.dart';
-import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_exploring_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_policy_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_services_component.dart';
 import 'package:rihlatic/app/modules/hotel_details/views/components/hotel_details_description_component.dart';
@@ -111,7 +110,7 @@ class HotelDetailsView extends GetView<HotelDetailsController> {
                 height: 20.h,
               ),
               const HotelSimularComponent(),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               const HotelSimularComponent(),

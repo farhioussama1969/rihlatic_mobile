@@ -4,8 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 
 class LoadingComponent extends StatelessWidget {
-  const LoadingComponent({Key? key, this.iOSSize, this.androidSize, this.color})
-      : super(key: key);
+  const LoadingComponent({super.key, this.iOSSize, this.androidSize, this.color});
 
   final double? iOSSize;
   final double? androidSize;

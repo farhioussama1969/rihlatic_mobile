@@ -80,38 +80,38 @@ class UserModel {
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
     agency = json['agency'] != null
-        ? new AgencyModel.fromJson(json['agency'])
+        ? AgencyModel.fromJson(json['agency'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['first_name'] = this.firstName;
-    data['last_name'] = this.lastName;
-    data['username'] = this.username;
-    data['email'] = this.email;
-    data['phone'] = this.phone;
-    data['avatar'] = this.avatar;
-    data['address'] = this.address;
-    data['country_id'] = this.countryId;
-    data['role_id'] = this.roleId;
-    data['status'] = this.status;
-    data['birthday'] = this.birthday;
-    data['nationality'] = this.nationality;
-    data['passport_nbr'] = this.passportNbr;
-    data['passport_expire_at'] = this.passportExpireAt;
-    data['sexe'] = this.sexe;
-    data['lang'] = this.lang;
-    data['last_login'] = this.lastLogin;
-    data['two_factor_country_code'] = this.twoFactorCountryCode;
-    data['two_factor_phone'] = this.twoFactorPhone;
-    data['two_factor_options'] = this.twoFactorOptions;
-    data['email_verified_at'] = this.emailVerifiedAt;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    if (this.agency != null) {
-      data['agency'] = this.agency!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['first_name'] = firstName;
+    data['last_name'] = lastName;
+    data['username'] = username;
+    data['email'] = email;
+    data['phone'] = phone;
+    data['avatar'] = avatar;
+    data['address'] = address;
+    data['country_id'] = countryId;
+    data['role_id'] = roleId;
+    data['status'] = status;
+    data['birthday'] = birthday;
+    data['nationality'] = nationality;
+    data['passport_nbr'] = passportNbr;
+    data['passport_expire_at'] = passportExpireAt;
+    data['sexe'] = sexe;
+    data['lang'] = lang;
+    data['last_login'] = lastLogin;
+    data['two_factor_country_code'] = twoFactorCountryCode;
+    data['two_factor_phone'] = twoFactorPhone;
+    data['two_factor_options'] = twoFactorOptions;
+    data['email_verified_at'] = emailVerifiedAt;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    if (agency != null) {
+      data['agency'] = agency!.toJson();
     }
     return data;
   }

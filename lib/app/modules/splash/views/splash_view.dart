@@ -4,24 +4,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:rihlatic/app/core/components/animations/animated_possition_component.dart';
 import 'package:rihlatic/app/core/components/animations/loading_component.dart';
-import 'package:rihlatic/app/core/components/pop_ups/bottom_sheet_component.dart';
-import 'package:rihlatic/app/core/constants/fonts_family_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
-import 'package:rihlatic/app/core/constants/images_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/logos_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
-import 'package:rihlatic/app/core/utils/theme_util.dart';
 import 'package:rihlatic/app/modules/config_controller.dart';
 
 import '../controllers/splash_controller.dart';
 
 class SplashView extends GetView<SplashController> {
-  const SplashView({Key? key}) : super(key: key);
+  const SplashView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +23,7 @@ class SplashView extends GetView<SplashController> {
       body: Container(
         height: 1.sh,
         width: 1.sw,
-        decoration: BoxDecoration(gradient: MainColors.primaryGradientColor),
+        decoration: const BoxDecoration(gradient: MainColors.primaryGradientColor),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

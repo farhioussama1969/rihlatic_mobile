@@ -23,7 +23,7 @@ class DestinationModel {
     name = json['name'];
     description = json['description'];
     country = json['country'] != null
-        ? new CountryModel.fromJson(json['country'])
+        ? CountryModel.fromJson(json['country'])
         : null;
     image = json['image'];
     departuresCount = json['departures_count'];
@@ -31,16 +31,16 @@ class DestinationModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['description'] = this.description;
-    if (this.country != null) {
-      data['country'] = this.country!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['description'] = description;
+    if (country != null) {
+      data['country'] = country!.toJson();
     }
-    data['image'] = this.image;
-    data['departures_count'] = this.departuresCount;
-    data['total_packages'] = this.totalPackages;
+    data['image'] = image;
+    data['departures_count'] = departuresCount;
+    data['total_packages'] = totalPackages;
     return data;
   }
 }

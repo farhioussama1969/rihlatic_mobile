@@ -12,7 +12,7 @@ class GetStartedBackgroundComponent extends StatelessWidget {
     return Container(
       height: 1.sh,
       width: 1.sw,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: MainColors.primaryGradientColor,
       ),
       child: Stack(

@@ -5,7 +5,7 @@ import 'package:rihlatic/app/core/styles/main_colors.dart';
 
 class IconButtonComponent extends StatelessWidget {
   const IconButtonComponent({
-    Key? key,
+    super.key,
     required this.iconLink,
     this.iconColor,
     this.backgroundColor,
@@ -18,7 +18,7 @@ class IconButtonComponent extends StatelessWidget {
     this.gradientBackgroundColor,
     this.child,
     this.border,
-  }) : super(key: key);
+  });
 
   final String iconLink;
   final Color? iconColor;

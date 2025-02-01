@@ -27,7 +27,7 @@ class PopularFlightsComponent extends StatelessWidget {
                 style: TextStyles.mediumLabelTextStyle(context)
                     .copyWith(color: MainColors.textColor(context)),
               ),
-              Spacer(),
+              const Spacer(),
               Text(
                 'See More',
                 style: TextStyles.smallLabelTextStyle(context)
@@ -45,11 +45,11 @@ class PopularFlightsComponent extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             scrollDirection: Axis.horizontal,
             physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+                const BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             itemCount: itemsList.length,
             itemBuilder: (context, index) {
               return Container(
-                margin: EdgeInsets.only(right: 15),
+                margin: const EdgeInsets.only(right: 15),
                 decoration: BoxDecoration(
                   color: MainColors.whiteColor,
                   borderRadius: BorderRadius.circular(16),
@@ -57,7 +57,7 @@ class PopularFlightsComponent extends StatelessWidget {
                     BoxShadow(
                       color: MainColors.textColor(context)!.withOpacity(0.2),
                       blurRadius: 5,
-                      offset: Offset(2, 4), // Shadow position
+                      offset: const Offset(2, 4), // Shadow position
                     ),
                   ],
                 ),
@@ -73,7 +73,7 @@ class PopularFlightsComponent extends StatelessWidget {
                       child: SizedBox(
                         width: 242.w,
                         height: 190.h,
-                        child: NetworkImageComponent(
+                        child: const NetworkImageComponent(
                           imageLink:
                               'https://en.wikipedia.org/wiki/London#/media/File:London_Skyline_(125508655).jpeg',
                         ),

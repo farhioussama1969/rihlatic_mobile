@@ -86,7 +86,7 @@ class RoomDetailsView extends GetView<RoomDetailsController> {
                         ),
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Column(
                       children: [
                         const RoomDetailsSmallCardComponent(
