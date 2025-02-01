@@ -27,18 +27,20 @@ class OmraDetailsTitleComponent extends StatelessWidget {
                       color: MainColors.textColor(context)!.withOpacity(0.6),
                     ),
                     maxLines: 2,
-                    textAlign: TextAlign.left,
+                    textAlign: TextAlign.start,
                   ),
                   SizedBox(
                     width: 5.w,
                   ),
-                  Text(
-                    '$price ${StringsAssetsConstants.dzd}',
-                    style: TextStyles.mediumLabelTextStyle(context).copyWith(
-                      color: MainColors.primaryColor,
+                  Expanded(
+                    child: Text(
+                      '$price ${StringsAssetsConstants.dzd}',
+                      style: TextStyles.mediumLabelTextStyle(context).copyWith(
+                        color: MainColors.primaryColor,
+                      ),
+                      maxLines: 2,
+                      textAlign: TextAlign.left,
                     ),
-                    maxLines: 2,
-                    textAlign: TextAlign.left,
                   ),
                 ],
               ),

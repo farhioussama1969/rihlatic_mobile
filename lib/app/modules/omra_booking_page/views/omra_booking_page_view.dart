@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:rihlatic/app/core/components/animations/loading_component.dart';
+import 'package:rihlatic/app/core/components/buttons/primary_button_component.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
@@ -83,6 +84,14 @@ class OmraBookingPageView extends GetView<OmraBookingPageController> {
                     ),
                     SizedBox(height: 20.h),
                     const SelectRoomComponent(),
+                    SizedBox(height: 20.h),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: PrimaryButtonComponent(
+                        onTap: () => {},
+                        text: StringsAssetsConstants.book,
+                      ),
+                    ),
                     SizedBox(
                       height: 30.h,
                     ),

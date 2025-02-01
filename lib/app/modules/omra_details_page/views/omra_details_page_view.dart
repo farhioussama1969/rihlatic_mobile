@@ -50,7 +50,7 @@ class OmraDetailsPageView extends GetView<OmraDetailsPageController> {
           final omra = logic.OmraData;
 
           final formattedPrice =
-              '${omra?.departures!.map((e) => e.priceIni ?? '').toList().reversed.join(' ${StringsAssetsConstants.to} ')}';
+              '${omra?.departures!.map((e) => e.priceIni ?? '').toList().reversed.join(' ${','} ')}';
 
           if (omra == null) {
             return Center(
