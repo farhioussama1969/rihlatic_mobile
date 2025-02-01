@@ -33,6 +33,9 @@ abstract class _Paths {
   static const PACKAGES_PAGE = '/packages-page';
   static const PACKAGE_DETAILS_PAGE = '/package-details-page';
   static const PACKAGE_BOOKING_PAGE = '/package-booking-page';
+  static const PACKAGES_PAGE = '/packages-page';
+  static const PACKAGE_DETAILS_PAGE = '/package-details-page';
+  static const PACKAGE_BOOKING_PAGE = '/package-booking-page';
   static const OMRA_DETAILS_PAGE = '/omra-details-page';
   static const OMRA_BOOKING_PAGE = '/omra-booking-page';
 }
