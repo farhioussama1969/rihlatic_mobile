@@ -1,20 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:rihlatic/app/core/constants/animations_assets_constants.dart';
-import 'package:rihlatic/app/core/constants/logos_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 
 class NetworkImageComponent extends StatelessWidget {
   const NetworkImageComponent(
-      {Key? key,
+      {super.key,
       required this.imageLink,
       this.fit,
       this.errorWidget,
-      this.thumb})
-      : super(key: key);
+      this.thumb});
 
   final String imageLink;
   final String? thumb;

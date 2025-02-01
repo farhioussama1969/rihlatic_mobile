@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
@@ -34,7 +33,7 @@ class _HotelDetailsGalleryComponentState
                 height: 400.h,
                 viewportFraction: 1,
                 autoPlay: true,
-                autoPlayInterval: Duration(seconds: 4),
+                autoPlayInterval: const Duration(seconds: 4),
                 onPageChanged: (index, controller) {
                   setState(() {
                     currentPageIndex = index;
@@ -46,8 +45,8 @@ class _HotelDetailsGalleryComponentState
                   borderRadius: BorderRadius.circular(20.r),
                   child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(color: Colors.amber),
-                      child: NetworkImageComponent(
+                      decoration: const BoxDecoration(color: Colors.amber),
+                      child: const NetworkImageComponent(
                         imageLink:
                             'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
                       )),

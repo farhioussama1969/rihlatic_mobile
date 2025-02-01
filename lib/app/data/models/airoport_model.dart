@@ -30,7 +30,7 @@ class AirportModel {
     city = json['city'];
     state = json['state'];
     country = json['country'] != null
-        ? new CountryModel.fromJson(json['country'])
+        ? CountryModel.fromJson(json['country'])
         : null;
     iata = json['iata'];
     icao = json['icao'];
@@ -40,19 +40,19 @@ class AirportModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['city'] = this.city;
-    data['state'] = this.state;
-    if (this.country != null) {
-      data['country'] = this.country!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['city'] = city;
+    data['state'] = state;
+    if (country != null) {
+      data['country'] = country!.toJson();
     }
-    data['iata'] = this.iata;
-    data['icao'] = this.icao;
-    data['lat'] = this.lat;
-    data['lon'] = this.lon;
-    data['tz'] = this.tz;
+    data['iata'] = iata;
+    data['icao'] = icao;
+    data['lat'] = lat;
+    data['lon'] = lon;
+    data['tz'] = tz;
     return data;
   }
 }

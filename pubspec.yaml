@@ -7,7 +7,7 @@ environment:
 
 dependencies: 
   cupertino_icons: ^1.0.8
-  get: 4.6.6
+  get: ^4.6.5
   flutter_screenutil: ^5.9.3
   package_info_plus: ^8.0.0
   device_info_plus: ^10.1.0
@@ -48,6 +48,7 @@ dependencies:
   pin_code_fields: ^8.0.1
   flutter:
     sdk: flutter
+  select_field: ^2.0.0
 
 dev_dependencies: 
   flutter_lints: ^4.0.0

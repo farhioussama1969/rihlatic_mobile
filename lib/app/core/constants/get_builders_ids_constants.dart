@@ -14,4 +14,6 @@ class GetBuildersIdsConstants {
       "home_email_confirmation_window";
   static const String homeLoginWindow = "home_login_window";
   static const String homeBody = 'home_body';
+  static const String PackagePageBody = 'package_body';
+  static const String PackagePageDetailsBody = 'package_details_body';
 }

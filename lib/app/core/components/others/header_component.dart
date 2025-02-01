@@ -63,7 +63,7 @@ class HeaderComponent extends StatelessWidget implements PreferredSizeWidget {
                           '$title',
                           style: TextStyles.mediumLabelTextStyle(context),
                         )
-                      : SizedBox()),
+                      : const SizedBox()),
             ),
             if (actionWidget != null) actionWidget!,
             if (actionWidget == null)

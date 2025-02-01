@@ -5,9 +5,10 @@ import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 
 class ValidatorUtil {
   static String? nullableValidation(var x, {String? customMessage}) {
-    if (x == null)
+    if (x == null) {
       return customMessage ??
           StringsAssetsConstants.validatorDefaultErrorMessage;
+    }
     return null;
   }
 

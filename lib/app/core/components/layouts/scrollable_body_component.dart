@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ScrollableBodyComponent extends StatelessWidget {
-  const ScrollableBodyComponent({Key? key, this.padding, required this.children}) : super(key: key);
+  const ScrollableBodyComponent({super.key, this.padding, required this.children});
 
   final EdgeInsets? padding;
   final List<Widget> children;

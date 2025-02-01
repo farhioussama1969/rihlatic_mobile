@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
 import 'package:rihlatic/app/core/constants/icons_assets_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/data/models/organized_trip_model.dart';
+import 'package:rihlatic/app/routes/app_pages.dart';
 
 class OrganizedTripComponent extends StatelessWidget {
   final String title;
@@ -28,11 +30,15 @@ class OrganizedTripComponent extends StatelessWidget {
                 style: TextStyles.mediumLabelTextStyle(context)
                     .copyWith(color: MainColors.textColor(context)),
               ),
-              Spacer(),
-              Text(
-                StringsAssetsConstants.seeMore,
-                style: TextStyles.smallLabelTextStyle(context)
-                    .copyWith(color: MainColors.primaryColor),
+              const Spacer(),
+              GestureDetector(
+                onTap: () => Get.toNamed(
+                    Routes.PACKAGES_PAGE), // Navigate to the details page
+                child: Text(
+                  StringsAssetsConstants.seeMore,
+                  style: TextStyles.smallLabelTextStyle(context)
+                      .copyWith(color: MainColors.primaryColor),
+                ),
               ),
             ],
           ),
@@ -45,20 +51,20 @@ class OrganizedTripComponent extends StatelessWidget {
           child: ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             scrollDirection: Axis.horizontal,
-            physics:
-                BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
             itemCount: itemsList.length,
             itemBuilder: (context, index) {
               return Container(
-                margin: EdgeInsets.only(right: 15),
+                margin: const EdgeInsets.only(right: 15),
                 decoration: BoxDecoration(
-                  color: MainColors.whiteColor,
+                  color: MainColors.backgroundColor(context),
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
                       color: MainColors.textColor(context)!.withOpacity(0.2),
                       blurRadius: 5,
-                      offset: Offset(2, 4), // Shadow position
+                      offset: const Offset(2, 4),
                     ),
                   ],
                 ),
@@ -66,7 +72,7 @@ class OrganizedTripComponent extends StatelessWidget {
                 child: Column(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(16),
                         topRight: Radius.circular(16),
                       ),
@@ -74,7 +80,7 @@ class OrganizedTripComponent extends StatelessWidget {
                         width: 242.w,
                         height: 190.h,
                         child: NetworkImageComponent(
-                          imageLink: itemsList[index].featuredImage ?? '',
+                          imageLink: itemsList[index].urlFeaturedImage ?? '',
                         ),
                       ),
                     ),
@@ -93,15 +99,13 @@ class OrganizedTripComponent extends StatelessWidget {
                                 children: [
                                   SvgPicture.asset(
                                     IconsAssetsConstants.locationIcon,
-                                    color:
-                                        MainColors.blackColor.withOpacity(0.5),
+                                    color: MainColors.textColor(context)!
+                                        .withOpacity(0.5),
                                     width: 13.r,
                                     height: 13.r,
                                   ),
                                   if (itemsList[index].destinations != null &&
-                                      itemsList[index]!
-                                          .destinations!
-                                          .isNotEmpty)
+                                      itemsList[index].destinations!.isNotEmpty)
                                     Text(
                                       itemsList[index]
                                           .destinations!
@@ -131,6 +135,16 @@ class OrganizedTripComponent extends StatelessWidget {
                               child: Row(
                                 children: [
                                   Container(
+                                    decoration: BoxDecoration(
+                                        color: MainColors.primaryColor,
+                                        borderRadius:
+                                            BorderRadiusDirectional.all(
+                                                Radius.circular(19.r))),
+                                    padding: const EdgeInsets.only(
+                                        left: 4.0,
+                                        right: 4.0,
+                                        top: 2,
+                                        bottom: 2),
                                     child: Row(
                                       children: [
                                         Text(
@@ -163,19 +177,22 @@ class OrganizedTripComponent extends StatelessWidget {
                                         ),
                                       ],
                                     ),
+                                  ),
+                                  SizedBox(width: 4.w),
+                                  Container(
                                     decoration: BoxDecoration(
-                                        color: MainColors.primaryColor,
+                                        color: MainColors.primaryColor
+                                            .withOpacity(0.1),
                                         borderRadius:
                                             BorderRadiusDirectional.all(
-                                                Radius.circular(19.r))),
-                                    padding: EdgeInsets.only(
+                                                Radius.circular(19.r)),
+                                        border: Border.all(
+                                            color: MainColors.primaryColor)),
+                                    padding: const EdgeInsets.only(
                                         left: 4.0,
                                         right: 4.0,
                                         top: 2,
                                         bottom: 2),
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  Container(
                                     child: Row(
                                       children: [
                                         Text(
@@ -208,22 +225,23 @@ class OrganizedTripComponent extends StatelessWidget {
                                         ),
                                       ],
                                     ),
+                                  ),
+                                  SizedBox(width: 4.w),
+                                  Container(
                                     decoration: BoxDecoration(
-                                        color: MainColors.primaryColor
-                                            .withOpacity(0.1),
+                                        color: MainColors.blackColor
+                                            .withOpacity(0),
                                         borderRadius:
                                             BorderRadiusDirectional.all(
                                                 Radius.circular(19.r)),
                                         border: Border.all(
-                                            color: MainColors.primaryColor)),
-                                    padding: EdgeInsets.only(
+                                            color: MainColors.blackColor
+                                                .withOpacity(0.6))),
+                                    padding: const EdgeInsets.only(
                                         left: 4.0,
                                         right: 4.0,
                                         top: 2,
                                         bottom: 2),
-                                  ),
-                                  SizedBox(width: 4.w),
-                                  Container(
                                     child: Row(
                                       children: [
                                         Text(
@@ -231,8 +249,8 @@ class OrganizedTripComponent extends StatelessWidget {
                                           style: TextStyles.smallBodyTextStyle(
                                                   context)
                                               .copyWith(
-                                            color: MainColors.blackColor
-                                                .withOpacity(0.6),
+                                            color:
+                                                MainColors.textColor(context),
                                           ),
                                         ),
                                         SizedBox(
@@ -258,20 +276,6 @@ class OrganizedTripComponent extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    decoration: BoxDecoration(
-                                        color: MainColors.blackColor
-                                            .withOpacity(0),
-                                        borderRadius:
-                                            BorderRadiusDirectional.all(
-                                                Radius.circular(19.r)),
-                                        border: Border.all(
-                                            color: MainColors.blackColor
-                                                .withOpacity(0.6))),
-                                    padding: EdgeInsets.only(
-                                        left: 4.0,
-                                        right: 4.0,
-                                        top: 2,
-                                        bottom: 2),
                                   ),
                                 ],
                               ),
@@ -310,21 +314,21 @@ class OrganizedTripComponent extends StatelessWidget {
                             child: Row(
                               children: [
                                 Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
                                   child: SvgPicture.asset(
                                     IconsAssetsConstants.starIcon,
                                     color: MainColors.primaryColor,
                                     width: 13.r,
                                     height: 13.r,
                                   ),
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
                                 ),
                                 SizedBox(width: 2.w),
-                                if (itemsList[index]?.departures?.isNotEmpty ==
+                                if (itemsList[index].departures?.isNotEmpty ==
                                     true)
                                   Text(
-                                    '5 ' +
-                                        '${itemsList[index].departures?.map((e) => e.hotelStay?.isNotEmpty == true ? (e.hotelStay?.first.name ?? '') : '').toList().join(', ')}',
+                                    '5 '
+                                    '${itemsList[index].departures?.map((e) => e.hotelStay?.isNotEmpty == true ? (e.hotelStay?.first.name ?? '') : '').toList().join(', ')}',
                                     style:
                                         TextStyles.smallBodyTextStyle(context)
                                             .copyWith(
@@ -353,15 +357,7 @@ class OrganizedTripComponent extends StatelessWidget {
                                 ),
                                 SizedBox(width: 8.w),
                                 Text(
-                                  itemsList[index]
-                                          .departures!
-                                          .map((e) => e.priceIni ?? '')
-                                          .toList()
-                                          .join(' ' +
-                                              StringsAssetsConstants.to +
-                                              ' ') +
-                                      ' ' +
-                                      StringsAssetsConstants.dzd,
+                                  '${itemsList[index].departures!.map((e) => e.priceIni ?? '').toList().join(' ${StringsAssetsConstants.to} ')} ${StringsAssetsConstants.dzd}',
                                   style: TextStyles.smallLabelTextStyle(context)
                                       .copyWith(
                                     color: MainColors.textColor(context)!

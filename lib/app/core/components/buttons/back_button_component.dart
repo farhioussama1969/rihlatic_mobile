@@ -12,12 +12,12 @@ class BackButtonComponent extends StatelessWidget {
   final Color? iconColor;
 
   const BackButtonComponent({
-    Key? key,
+    super.key,
     this.onTap,
     this.isCloseButton,
     this.backgroundColor,
     this.iconColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class BackButtonComponent extends StatelessWidget {
               color: MainColors.blackColor.withOpacity(0.2),
               spreadRadius: 0,
               blurRadius: 10,
-              offset: Offset(0, 0), // changes position of shadow
+              offset: const Offset(0, 0), // changes position of shadow
             ),
           ]),
       child: TextButton(

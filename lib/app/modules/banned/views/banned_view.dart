@@ -10,7 +10,7 @@ import 'package:rihlatic/app/core/styles/text_styles.dart';
 import '../controllers/banned_controller.dart';
 
 class BannedView extends GetView<BannedController> {
-  const BannedView({Key? key}) : super(key: key);
+  const BannedView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

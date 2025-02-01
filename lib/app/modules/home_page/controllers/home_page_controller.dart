@@ -4,7 +4,6 @@ import 'package:rihlatic/app/core/components/pop_ups/toast_component.dart';
 import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/data/providers/rihlatech_api/auth_provider.dart';
-import 'package:rihlatic/app/core/constants/get_builders_ids_constants.dart';
 import 'package:rihlatic/app/data/models/home_model.dart';
 import 'package:rihlatic/app/data/providers/rihlatech_api/home_provider.dart';
 import 'package:rihlatic/app/modules/home_page/views/home_page_view.dart';
@@ -35,7 +34,7 @@ class HomePageController extends GetxController {
         .then((value) {
       if (value != null) {
         changeHomeData(value);
-        for (var ite in value!.discoverAlgeria!) {
+        for (var ite in value.discoverAlgeria!) {
           print('itttttttem ><  ${ite.name}');
         }
       }
@@ -48,15 +47,7 @@ class HomePageController extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 
   final GlobalKey<FormState> checkUserFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> registerFormKey = GlobalKey<FormState>();
