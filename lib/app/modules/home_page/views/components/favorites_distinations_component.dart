@@ -1,9 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:rihlatic/app/core/components/images/network_image_component.dart';
+import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
 import 'package:rihlatic/app/core/styles/text_styles.dart';
 import 'package:rihlatic/app/data/models/destination_model.dart';
+import 'package:rihlatic/app/modules/home_page/views/home_page_view.dart';
+import 'package:rihlatic/app/modules/user_controller.dart';
+import 'package:rihlatic/app/routes/app_pages.dart';
 
 class FavoritesDistinationsComponent extends StatelessWidget {
   final String title;
@@ -28,10 +34,17 @@ class FavoritesDistinationsComponent extends StatelessWidget {
                     .copyWith(color: MainColors.textColor(context)),
               ),
               const Spacer(),
-              Text(
-                'See More',
-                style: TextStyles.smallLabelTextStyle(context)
-                    .copyWith(color: MainColors.primaryColor),
+              GestureDetector(
+                onTap: () {
+                  if (Get.find<UserController>().user == null) {
+                    HomePageView().showCheckUserStatusWindow();
+                  }
+                }, // Navigate to the details page
+                child: Text(
+                  StringsAssetsConstants.seeMore,
+                  style: TextStyles.smallLabelTextStyle(context)
+                      .copyWith(color: MainColors.primaryColor),
+                ),
               ),
             ],
           ),

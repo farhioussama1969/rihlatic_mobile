@@ -103,6 +103,7 @@ class HomePageView extends GetView<HomePageController> {
                         SizedBox(
                           height: 20.h,
                         ),
+
                         if (logic.homeData?.popularFlights != null &&
                             logic.homeData!.popularFlights!.isNotEmpty)
                           PopularFlightsComponent(
