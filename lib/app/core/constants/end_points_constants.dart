@@ -3,7 +3,7 @@ class EndPointsConstants {
 
   //auth provider
   static const String register = '/front/user/register';
-  static const String login = '/front/user/login';
+  static const String login = '/front/login';
   static const String logout = '/front/logout';
   static const String me = '/front/me';
   static const String changePassword = '/front/me/details/auth';

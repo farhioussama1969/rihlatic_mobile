@@ -10,6 +10,7 @@ import 'package:rihlatic/app/core/constants/storage_keys_constants.dart';
 import 'package:rihlatic/app/core/services/app_version_info_service.dart';
 import 'package:rihlatic/app/core/services/local_storage_service.dart';
 import 'package:rihlatic/app/data/models/user_model.dart';
+import 'package:rihlatic/app/data/providers/rihlatech_api/auth_provider.dart';
 import 'package:rihlatic/app/modules/config_controller.dart';
 import 'package:rihlatic/app/routes/app_pages.dart';
 
@@ -56,13 +57,18 @@ class UserController extends GetxController {
           null) {
         log(await LocalStorageService.loadData(
             key: StorageKeysConstants.serverApiToken, type: DataTypes.string));
-        // await AuthProvider().getUserData().then((user) {
-        //   if (user != null) {
-        //     setUser(user);
-        //     if (user.status == 'Banned') return;
-        //     Get.offAllNamed(Routes.HOME);
-        //   }
-        // });
+        await AuthProvider()
+            .me(
+          onLoading: () {},
+          onFinal: () {},
+        )
+            .then((user) {
+          if (user != null) {
+            setUser(user);
+            if (user.status == 'Banned') return;
+            Get.offAllNamed(Routes.HOME_PAGE);
+          }
+        });
       } else {
         //Get.offAllNamed(Routes.GET_STARTED);
       }

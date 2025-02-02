@@ -47,8 +47,6 @@ class HomePageController extends GetxController {
     super.onInit();
   }
 
-
-
   final GlobalKey<FormState> checkUserFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> registerFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
@@ -190,6 +188,7 @@ class HomePageController extends GetxController {
       if (value != null) {
         await Get.find<UserController>().setUser(value);
         await Get.find<UserController>().initialize(skipUpdateChecker: true);
+        Get.back();
       }
     });
   }

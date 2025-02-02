@@ -17,6 +17,7 @@ import 'package:rihlatic/app/modules/home_page/views/components/organized_trip_c
 import 'package:rihlatic/app/modules/home_page/views/components/favorites_distinations_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/popular_flights_component.dart';
 import 'package:rihlatic/app/modules/home_page/views/components/register_window_component.dart';
+import 'package:rihlatic/app/modules/user_controller.dart';
 
 import '../controllers/home_page_controller.dart';
 
@@ -43,11 +44,20 @@ class HomePageView extends GetView<HomePageController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Hey Aymen',
-                                style: TextStyles.largeLabelTextStyle(context)
-                                    .copyWith(
-                                        color: MainColors.textColor(context)!),
+                              GestureDetector(
+                                onTap: () {
+                                  if (Get.find<UserController>().user == null) {
+                                    const HomePageView()
+                                        .showCheckUserStatusWindow();
+                                  }
+                                },
+                                child: Text(
+                                  'Hey Aymen',
+                                  style: TextStyles.largeLabelTextStyle(context)
+                                      .copyWith(
+                                          color:
+                                              MainColors.textColor(context)!),
+                                ),
                               ),
                               Text(
                                 'Welcome to Rihlatic',
@@ -198,11 +208,11 @@ class HomePageView extends GetView<HomePageController> {
           return LoginWindowComponent(
             passwordController: logic.loginPasswordController,
             passwordFocusNode: logic.loginPasswordFocusNode,
-            loading: logic.checkUserStatusLoading,
+            loading: logic.loginLoading,
             onPasswordVisibility: logic.changeLoginPasswordVisibility,
             isPasswordVisible: logic.loginPasswordVisible,
             formKey: logic.loginFormKey,
-            onContinue: logic.checkUserStatus,
+            onContinue: logic.login,
           );
         },
       ),
