@@ -22,6 +22,7 @@ class _OmraPaymentPageViewState extends State<OmraPaymentPageView> {
   late int departureId;
   late int adultsCount;
   late int childrenCount;
+  late int childWithBedrenCount;
   late int infantsCount;
 
   late List<TextEditingController> adultFirstNameControllers;
@@ -31,6 +32,14 @@ class _OmraPaymentPageViewState extends State<OmraPaymentPageView> {
   late List<TextEditingController> adultPassportNumberControllers;
   late List<TextEditingController> adultPassportExpiryControllers;
   late List<TextEditingController> adultBirthDateControllers;
+
+  late List<TextEditingController> childWithBedFirstNameControllers;
+  late List<TextEditingController> childWithBedLastNameControllers;
+  late List<TextEditingController> childWithBedEmailControllers;
+  late List<TextEditingController> childWithBedPhoneControllers;
+  late List<TextEditingController> childWithBedPassportNumberControllers;
+  late List<TextEditingController> childWithBedPassportExpiryControllers;
+  late List<TextEditingController> childWithBedBirthDateControllers;
 
   late List<TextEditingController> childFirstNameControllers;
   late List<TextEditingController> childLastNameControllers;
@@ -60,6 +69,7 @@ class _OmraPaymentPageViewState extends State<OmraPaymentPageView> {
     departureId = args['departureId'];
     adultsCount = args['adultsCount'] ?? 0;
     childrenCount = args['childrenCount'] ?? 0;
+    childWithBedrenCount = args['childrenCount'] ?? 0;
     infantsCount = args['infantsCount'] ?? 0;
 
     adultFirstNameControllers =
@@ -76,6 +86,21 @@ class _OmraPaymentPageViewState extends State<OmraPaymentPageView> {
         List.generate(adultsCount, (_) => TextEditingController());
     adultBirthDateControllers =
         List.generate(adultsCount, (_) => TextEditingController());
+
+    childWithBedFirstNameControllers =
+        List.generate(childWithBedrenCount, (_) => TextEditingController());
+    childWithBedLastNameControllers =
+        List.generate(childWithBedrenCount, (_) => TextEditingController());
+    childWithBedEmailControllers =
+        List.generate(childWithBedrenCount, (_) => TextEditingController());
+    childWithBedPhoneControllers =
+        List.generate(childWithBedrenCount, (_) => TextEditingController());
+    childWithBedPassportNumberControllers =
+        List.generate(childWithBedrenCount, (_) => TextEditingController());
+    childWithBedPassportExpiryControllers =
+        List.generate(childWithBedrenCount, (_) => TextEditingController());
+    childWithBedBirthDateControllers =
+        List.generate(childWithBedrenCount, (_) => TextEditingController());
 
     childFirstNameControllers =
         List.generate(childrenCount, (_) => TextEditingController());
@@ -153,6 +178,21 @@ class _OmraPaymentPageViewState extends State<OmraPaymentPageView> {
       };
     });
 
+    List<Map<String, dynamic>> childWithoutBedPassengers =
+        List.generate(childrenCount, (index) {
+      return {
+        "email": childEmailControllers[index].text,
+        "phone": childPhoneControllers[index].text,
+        "first_name": childFirstNameControllers[index].text,
+        "last_name": childLastNameControllers[index].text,
+        "sex": "female",
+        "passport_nbr": childPassportNumberControllers[index].text,
+        "passport_expire_at": childPassportExpiryControllers[index].text,
+        "passport_scan": null,
+        "birth_date": childBirthDateControllers[index].text,
+      };
+    });
+
     List<Map<String, dynamic>> childPassengers =
         List.generate(childrenCount, (index) {
       return {
@@ -188,7 +228,9 @@ class _OmraPaymentPageViewState extends State<OmraPaymentPageView> {
       "reservation_type": "with room",
       "passengers": {
         "adults": adultPassengers,
-        "children_without_bed": childPassengers,
+        "children_without_bed": childWithoutBedPassengers,
+        "children": childPassengers,
+        "infants": infantPassengers,
       },
     };
 
@@ -240,6 +282,35 @@ class _OmraPaymentPageViewState extends State<OmraPaymentPageView> {
                       passportExpiryController:
                           adultPassportExpiryControllers[index],
                       birthDateController: adultBirthDateControllers[index],
+                    ),
+                  ],
+                ),
+              );
+            }),
+            ...List.generate(childWithBedrenCount, (index) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${StringsAssetsConstants.childWithoutBed} ${index + 1}',
+                      style: TextStyles.mediumLabelTextStyle(context)
+                          .copyWith(color: MainColors.textColor(context)!),
+                    ),
+                    PassengerInfoComponent(
+                      firstNameController:
+                          childWithBedFirstNameControllers[index],
+                      lastNameController:
+                          childWithBedLastNameControllers[index],
+                      emailController: childWithBedEmailControllers[index],
+                      phoneController: childWithBedPhoneControllers[index],
+                      passportNumberController:
+                          childWithBedPassportNumberControllers[index],
+                      passportExpiryController:
+                          childWithBedPassportExpiryControllers[index],
+                      birthDateController:
+                          childWithBedBirthDateControllers[index],
                     ),
                   ],
                 ),

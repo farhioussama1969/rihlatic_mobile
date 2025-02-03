@@ -19,7 +19,8 @@ class OmraBookingPageView extends GetView<OmraBookingPageController> {
 
   @override
   Widget build(BuildContext context) {
-    final packageId = Get.arguments as int;
+    final packageId = 2;
+    // final packageId = Get.arguments as int;
     List<Map<String, dynamic>> rooms = [];
 
     return Scaffold(
@@ -121,8 +122,13 @@ class OmraBookingPageView extends GetView<OmraBookingPageController> {
 
                           final adultsCount = rooms.fold(
                               0, (sum, room) => sum + (room['adults'] as int));
+
+                          final childWithBedrenCount = rooms.fold(0,
+                              (sum, room) => sum + (room['children'] as int));
+
                           final childrenCount = rooms.fold(0,
                               (sum, room) => sum + (room['children'] as int));
+
                           final infantsCount = rooms.fold(
                               0, (sum, room) => sum + (room['infants'] as int));
 
@@ -133,6 +139,7 @@ class OmraBookingPageView extends GetView<OmraBookingPageController> {
                               'departureId': int.parse(selectedDepartureId!),
                               'adultsCount': adultsCount,
                               'childrenCount': childrenCount,
+                              'childWithBedrenCount': childWithBedrenCount,
                               'infantsCount': infantsCount,
                             },
                           );

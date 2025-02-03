@@ -80,6 +80,7 @@ static String get bookYourTrip{return "Book your trip".tr;}
 static String get selectYourTripDate{return "Select your trip date".tr;}
 static String get adult{return "Adult".tr;}
 static String get child{return "Child".tr;}
+static String get childWithoutBed{return "Child without bed".tr;}
 static String get infant{return "Infant".tr;}
 static String get ageOfChild1{return "Age of Child 1".tr;}
 static String get enterAgeHere{return "Enter age here".tr;}

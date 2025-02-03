@@ -12,7 +12,8 @@ class SwitchComponent extends StatelessWidget {
       this.activeIconPath,
       this.inactiveIconPath,
       this.height,
-      this.width});
+      this.width,
+      required value});
 
   final bool enable;
   final Function(bool value) onChange;

@@ -34,7 +34,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.OMRA_PAGE;
+  static const INITIAL = Routes.OMRA_BOOKING_PAGE;
 
   static final routes = [
     GetPage(

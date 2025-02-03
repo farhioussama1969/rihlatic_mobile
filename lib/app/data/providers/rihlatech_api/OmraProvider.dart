@@ -89,11 +89,46 @@ class Omraprovider {
         },
       };
 
-      // Only add children_without_bed if it's not null
       if (room.passengers?.childrenWithoutBed != null &&
           room.passengers!.childrenWithoutBed!.isNotEmpty) {
         roomData["passengers"]!["children_without_bed"] =
             room.passengers!.childrenWithoutBed!.map((child) {
+          return {
+            "email": child.email,
+            "phone": child.phone,
+            "first_name": child.firstName,
+            "last_name": child.lastName,
+            "sex": child.sex,
+            "passport_nbr": child.passportNbr,
+            "passport_expire_at": child.passportExpireAt,
+            "passport_scan": child.passportScan,
+            "birth_date": child.birthDate,
+          };
+        }).toList();
+      }
+
+      if (room.passengers?.children != null &&
+          room.passengers!.children!.isNotEmpty) {
+        roomData["passengers"]!["children"] =
+            room.passengers!.children!.map((child) {
+          return {
+            "email": child.email,
+            "phone": child.phone,
+            "first_name": child.firstName,
+            "last_name": child.lastName,
+            "sex": child.sex,
+            "passport_nbr": child.passportNbr,
+            "passport_expire_at": child.passportExpireAt,
+            "passport_scan": child.passportScan,
+            "birth_date": child.birthDate,
+          };
+        }).toList();
+      }
+
+      if (room.passengers?.infants != null &&
+          room.passengers!.infants!.isNotEmpty) {
+        roomData["passengers"]!["infants"] =
+            room.passengers!.infants!.map((child) {
           return {
             "email": child.email,
             "phone": child.phone,
