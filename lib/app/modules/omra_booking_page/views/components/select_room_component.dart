@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:radio_group_v2/utils/radio_group_decoration.dart';
 import 'package:radio_group_v2/widgets/view_models/radio_group_controller.dart';
 import 'package:radio_group_v2/widgets/views/radio_group.dart';
-import 'package:rihlatic/app/core/components/buttons/primary_button_component.dart';
 import 'package:rihlatic/app/core/components/inputs/text_input_component.dart';
 import 'package:rihlatic/app/core/constants/strings_assets_constants.dart';
 import 'package:rihlatic/app/core/styles/main_colors.dart';
@@ -30,7 +29,9 @@ final roomOptionWithRoom = [
 ];
 
 class SelectRoomComponent extends StatefulWidget {
-  const SelectRoomComponent({super.key});
+  final Function(List<Map<String, dynamic>>) onRoomsUpdated;
+
+  const SelectRoomComponent({super.key, required this.onRoomsUpdated});
 
   @override
   State<SelectRoomComponent> createState() => _SelectRoomComponentState();
@@ -104,18 +105,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
   void initState() {
     super.initState();
     rooms.add(_getRoomConfig(_currentRoomOptions[0]));
-  }
-
-  void _addRoom() {
-    setState(() {
-      rooms.add(_getRoomConfig(_currentRoomOptions[0]));
-    });
-  }
-
-  void _removeRoom(int index) {
-    setState(() {
-      rooms.removeAt(index);
-    });
+    widget.onRoomsUpdated(rooms);
   }
 
   void _updateRoomOptions(String selectedBedOption) {
@@ -132,6 +122,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
         room['children'] = newConfig['children'];
         room['infants'] = newConfig['infants'];
       }
+      widget.onRoomsUpdated(rooms);
     });
   }
 
@@ -164,21 +155,13 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                         StringsAssetsConstants.selectYourRoom,
                         style: TextStyles.mediumBodyTextStyle(context),
                       ),
-                      if (index > 0)
-                        IconButton(
-                          icon: Icon(
-                            Icons.delete,
-                            color: MainColors.errorColor(context),
-                          ),
-                          onPressed: () => _removeRoom(index),
-                        ),
                     ],
                   ),
                   RadioGroup(
                     controller: _radioController,
                     values: bedOption,
                     orientation: RadioGroupOrientation.horizontal,
-                    decoration: const RadioGroupDecoration(
+                    decoration: RadioGroupDecoration(
                         activeColor: MainColors.primaryColor),
                     onChanged: (selectedValue) {
                       _updateRoomOptions(selectedValue);
@@ -203,6 +186,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                         room['adults'] = newConfig['adults'];
                         room['children'] = newConfig['children'];
                         room['infants'] = newConfig['infants'];
+                        widget.onRoomsUpdated(rooms);
                       });
                     },
                     inputStyle: const TextStyle(
@@ -287,6 +271,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                             changeSelectedProductQuantity: (value) {
                               setState(() {
                                 room['adults'] = value;
+                                widget.onRoomsUpdated(rooms);
                               });
                             },
                             minval: 1,
@@ -318,6 +303,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                             changeSelectedProductQuantity: (value) {
                               setState(() {
                                 room['children'] = value;
+                                widget.onRoomsUpdated(rooms);
                               });
                             },
                             minval: 0,
@@ -349,6 +335,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                             changeSelectedProductQuantity: (value) {
                               setState(() {
                                 room['infants'] = value;
+                                widget.onRoomsUpdated(rooms);
                               });
                             },
                             minval: 0,
@@ -370,6 +357,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                     onChange: (value) {
                       setState(() {
                         room['childAge'] = value;
+                        widget.onRoomsUpdated(rooms);
                       });
                     },
                   ),
@@ -385,6 +373,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
                     onChange: (value) {
                       setState(() {
                         room['notes'] = value;
+                        widget.onRoomsUpdated(rooms);
                       });
                     },
                   ),
@@ -392,17 +381,7 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
               ),
             ),
           );
-        }),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
-          child: PrimaryButtonComponent(
-            onTap: _addRoom,
-            text: StringsAssetsConstants.addRoom,
-            backgroundColor: MainColors.inputColor(context)!,
-            borderColor: MainColors.primaryColor.withOpacity(0.3),
-            textColor: MainColors.primaryColor,
-          ),
-        ),
+        }).toList(),
       ],
     );
   }

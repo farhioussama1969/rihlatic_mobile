@@ -93,6 +93,21 @@
   "Add room": "Add room",
   "Remove room": "Remove room",
   "Enter additional notes": "Enter additional notes...",
+  "Passenger information": "Passenger information",
+  "First name": "First name",
+  "Enter first name": "Enter first name",
+  "Last name": "Last name",
+  "Enter last name": "Enter last name",
+  "Enter email": "Enter email",
+  "Phone": "Phone",
+  "Enter phone": "Enter phone",
+  "Passport number": "Passport number",
+  "Enter passport number": "Enter passport number",
+  "Passport expiry": "Passport expiry",
+  "Enter passport expiry": "Enter passport expiry",
+  "Birth date": "Birth date",
+  "Enter birth date": "Enter birth date",
+
 
 
   "password confirmation": "Password Confirmation",

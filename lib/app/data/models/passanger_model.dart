@@ -42,7 +42,7 @@ class Adults {
   String? sex;
   String? passportNbr;
   String? passportExpireAt;
-  Null? passportScan;
+  String? passportScan;
   String? birthDate;
 
   Adults(
@@ -84,14 +84,14 @@ class Adults {
 }
 
 class ChildrenWithoutBed {
-  Null? email;
-  Null? phone;
+  String? email;
+  String? phone;
   String? firstName;
   String? lastName;
   String? sex;
   String? passportNbr;
   String? passportExpireAt;
-  Null? passportScan;
+  String? passportScan;
   String? birthDate;
 
   ChildrenWithoutBed(

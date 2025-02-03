@@ -99,6 +99,7 @@ class Omraprovider {
         },
       };
     }).toList();
+
     final Map<String, dynamic> requestBody = {
       "omra_departure_id": departureId,
       "rooms": roomsData,
@@ -113,9 +114,10 @@ class Omraprovider {
       onFinal: () => onFinal(),
     );
 
-    if (response?.body != null) {
-      return response?.body;
+    if (response?.statusCode == 200) {
+      return true;
+    } else {
+      return false;
     }
-    return null;
   }
 }

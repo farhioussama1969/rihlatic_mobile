@@ -88,6 +88,20 @@ static String get rooms{return "Rooms".tr;}
 static String get addRoom{return "Add room".tr;}
 static String get removeRoom{return "Remove room".tr;}
 static String get enterAdditionalNotes{return "Enter additional notes".tr;}
+static String get passengerInformation{return "Passenger information".tr;}
+static String get firstName{return "First name".tr;}
+static String get enterFirstName{return "Enter first name".tr;}
+static String get lastName{return "Last name".tr;}
+static String get enterLastName{return "Enter last name".tr;}
+static String get enterEmail{return "Enter email".tr;}
+static String get phone{return "Phone".tr;}
+static String get enterPhone{return "Enter phone".tr;}
+static String get passportNumber{return "Passport number".tr;}
+static String get enterPassportNumber{return "Enter passport number".tr;}
+static String get passportExpiry{return "Passport expiry".tr;}
+static String get enterPassportExpiry{return "Enter passport expiry".tr;}
+static String get birthDate{return "Birth date".tr;}
+static String get enterBirthDate{return "Enter birth date".tr;}
 static String get passwordConfirmation{return "password confirmation".tr;}
 static String get createNewAccount{return "create new account".tr;}
 static String get createNewAccountDescription{return "create new account description".tr;}
