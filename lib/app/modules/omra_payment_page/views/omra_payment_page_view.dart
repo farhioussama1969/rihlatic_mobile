@@ -202,7 +202,7 @@ class _OmraPaymentPageViewState extends State<OmraPaymentPageView> {
     OmraRoomModel roomModel = OmraRoomModel.fromJson(roomData);
 
     controller.bookOmra(
-      departureId: 6,
+      departureId: departureId,
       rooms: [roomModel],
     );
   }

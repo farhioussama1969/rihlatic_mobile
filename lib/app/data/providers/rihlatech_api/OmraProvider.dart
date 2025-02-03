@@ -65,39 +65,50 @@ class Omraprovider {
     required Function onFinal,
   }) async {
     final List<Map<String, dynamic>> roomsData = rooms.map((room) {
-      return {
+      // Create the base structure for the room
+      final Map<String, dynamic> roomData = {
         "room_id": room.roomId,
         "reservation_type": room.reservationType,
         "passengers": {
-          "adults": room.passengers?.adults?.map((adult) {
-            return {
-              "email": adult.email,
-              "phone": adult.phone,
-              "first_name": adult.firstName,
-              "last_name": adult.lastName,
-              "sex": adult.sex,
-              "passport_nbr": adult.passportNbr,
-              "passport_expire_at": adult.passportExpireAt,
-              "passport_scan": adult.passportScan,
-              "birth_date": adult.birthDate,
-            };
-          }).toList(),
-          "children_without_bed":
-              room.passengers?.childrenWithoutBed?.map((child) {
-            return {
-              "email": child.email,
-              "phone": child.phone,
-              "first_name": child.firstName,
-              "last_name": child.lastName,
-              "sex": child.sex,
-              "passport_nbr": child.passportNbr,
-              "passport_expire_at": child.passportExpireAt,
-              "passport_scan": child.passportScan,
-              "birth_date": child.birthDate,
-            };
-          }).toList(),
+          "adults": room.passengers?.adults != null &&
+                  room.passengers!.adults!.isNotEmpty
+              ? room.passengers!.adults!.map((adult) {
+                  return {
+                    "email": adult.email,
+                    "phone": adult.phone,
+                    "first_name": adult.firstName,
+                    "last_name": adult.lastName,
+                    "sex": adult.sex,
+                    "passport_nbr": adult.passportNbr,
+                    "passport_expire_at": adult.passportExpireAt,
+                    "passport_scan": adult.passportScan,
+                    "birth_date": adult.birthDate,
+                  };
+                }).toList()
+              : null,
         },
       };
+
+      // Only add children_without_bed if it's not null
+      if (room.passengers?.childrenWithoutBed != null &&
+          room.passengers!.childrenWithoutBed!.isNotEmpty) {
+        roomData["passengers"]!["children_without_bed"] =
+            room.passengers!.childrenWithoutBed!.map((child) {
+          return {
+            "email": child.email,
+            "phone": child.phone,
+            "first_name": child.firstName,
+            "last_name": child.lastName,
+            "sex": child.sex,
+            "passport_nbr": child.passportNbr,
+            "passport_expire_at": child.passportExpireAt,
+            "passport_scan": child.passportScan,
+            "birth_date": child.birthDate,
+          };
+        }).toList();
+      }
+
+      return roomData;
     }).toList();
 
     final Map<String, dynamic> requestBody = {

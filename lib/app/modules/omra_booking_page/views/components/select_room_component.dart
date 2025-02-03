@@ -43,6 +43,14 @@ class _SelectRoomComponentState extends State<SelectRoomComponent> {
   String _selectedBedOption = bedOption[0];
   List<String> _currentRoomOptions = roomOptionWithBed;
 
+  final Map<String, int> roomTypeMaxOccupancy = {
+    'Single': 1,
+    'Double': 2,
+    'Triple': 3,
+    'Quadruple': 4,
+    'Quintiple': 5,
+  };
+
   Map<String, dynamic> _getRoomConfig(String roomType) {
     if (roomType == 'Single') {
       return {
