@@ -1,7 +1,12 @@
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:rihlatic/app/core/components/pop_ups/toast_component.dart';
 import 'package:rihlatic/app/core/constants/end_points_constants.dart';
 import 'package:rihlatic/app/core/services/http_client_service.dart';
 import 'package:rihlatic/app/data/models/api_response.dart';
 import 'package:rihlatic/app/data/models/omra_model.dart';
+import 'package:rihlatic/app/data/models/omra_room_model.dart';
+import 'package:rihlatic/app/data/models/room_model.dart';
 
 class Omraprovider {
   Future<List<OmraModel>?> omra({
@@ -55,27 +60,110 @@ class Omraprovider {
 
   Future<bool?> book({
     required int departureId,
-    // required List<RoomModel> rooms,
-    required String token,
+    required List<OmraRoomModel> rooms,
     required Function onLoading,
     required Function onFinal,
   }) async {
+    final List<Map<String, dynamic>> roomsData = rooms.map((room) {
+      // Create the base structure for the room
+      final Map<String, dynamic> roomData = {
+        "room_id": room.roomId,
+        "reservation_type": room.reservationType,
+        "passengers": {
+          "adults": room.passengers?.adults != null &&
+                  room.passengers!.adults!.isNotEmpty
+              ? room.passengers!.adults!.map((adult) {
+                  return {
+                    "email": adult.email,
+                    "phone": adult.phone,
+                    "first_name": adult.firstName,
+                    "last_name": adult.lastName,
+                    "sex": adult.sex,
+                    "passport_nbr": adult.passportNbr,
+                    "passport_expire_at": adult.passportExpireAt,
+                    "passport_scan": adult.passportScan,
+                    "birth_date": adult.birthDate,
+                  };
+                }).toList()
+              : null,
+        },
+      };
+
+      if (room.passengers?.childrenWithoutBed != null &&
+          room.passengers!.childrenWithoutBed!.isNotEmpty) {
+        roomData["passengers"]!["children_without_bed"] =
+            room.passengers!.childrenWithoutBed!.map((child) {
+          return {
+            "email": child.email,
+            "phone": child.phone,
+            "first_name": child.firstName,
+            "last_name": child.lastName,
+            "sex": child.sex,
+            "passport_nbr": child.passportNbr,
+            "passport_expire_at": child.passportExpireAt,
+            "passport_scan": child.passportScan,
+            "birth_date": child.birthDate,
+          };
+        }).toList();
+      }
+
+      if (room.passengers?.children != null &&
+          room.passengers!.children!.isNotEmpty) {
+        roomData["passengers"]!["children"] =
+            room.passengers!.children!.map((child) {
+          return {
+            "email": child.email,
+            "phone": child.phone,
+            "first_name": child.firstName,
+            "last_name": child.lastName,
+            "sex": child.sex,
+            "passport_nbr": child.passportNbr,
+            "passport_expire_at": child.passportExpireAt,
+            "passport_scan": child.passportScan,
+            "birth_date": child.birthDate,
+          };
+        }).toList();
+      }
+
+      if (room.passengers?.infants != null &&
+          room.passengers!.infants!.isNotEmpty) {
+        roomData["passengers"]!["infants"] =
+            room.passengers!.infants!.map((child) {
+          return {
+            "email": child.email,
+            "phone": child.phone,
+            "first_name": child.firstName,
+            "last_name": child.lastName,
+            "sex": child.sex,
+            "passport_nbr": child.passportNbr,
+            "passport_expire_at": child.passportExpireAt,
+            "passport_scan": child.passportScan,
+            "birth_date": child.birthDate,
+          };
+        }).toList();
+      }
+
+      return roomData;
+    }).toList();
+
+    final Map<String, dynamic> requestBody = {
+      "omra_departure_id": departureId,
+      "rooms": roomsData,
+    };
+
     ApiResponse? response = await HttpClientService.sendRequest(
       endPoint: EndPointsConstants.bookOmra,
       requestType: HttpRequestTypes.post,
       showErrorToast: true,
-      data: {
-        "departureId": departureId,
-        // "rooms": rooms,
-        "token": token,
-      },
+      data: requestBody,
       onLoading: () => onLoading(),
       onFinal: () => onFinal(),
     );
 
-    if (response?.body != null) {
-      return response?.body;
+    if (response?.statusCode == 200) {
+      return true;
+    } else {
+      return false;
     }
-    return null;
   }
 }

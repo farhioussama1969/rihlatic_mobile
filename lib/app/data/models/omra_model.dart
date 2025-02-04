@@ -15,7 +15,7 @@ class OmraModel {
   bool? sharedWithAll;
   List<DepartureModel>? departures;
   int? departuresCount;
-  List<GalleryItem>? gallery; // Add this field
+  List<GalleryItem>? gallery;
 
   OmraModel({
     this.id,
