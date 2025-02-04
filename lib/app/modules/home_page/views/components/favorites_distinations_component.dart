@@ -38,6 +38,8 @@ class FavoritesDistinationsComponent extends StatelessWidget {
                 onTap: () {
                   if (Get.find<UserController>().user == null) {
                     HomePageView().showCheckUserStatusWindow();
+                  } else {
+                    Get.toNamed(Routes.OMRA_PAGE);
                   }
                 }, // Navigate to the details page
                 child: Text(
