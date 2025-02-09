@@ -126,5 +126,8 @@
   "you didnt receive the code": "You didn't receive the code?",
     "resend": "Resend",
 
-  "code has been sent successfully": "Code has been sent successfully"
+  "code has been sent successfully": "Code has been sent successfully",
+
+  "welcome to rihlatic": "Welcome to Rihlatic",
+  "hello": "Hello"
 }

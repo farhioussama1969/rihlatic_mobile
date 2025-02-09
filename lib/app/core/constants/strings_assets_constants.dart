@@ -114,4 +114,6 @@ static String get signInDescription{return "sign in description".tr;}
 static String get youDidntReceiveTheCode{return "you didnt receive the code".tr;}
 static String get resend{return "resend".tr;}
 static String get codeHasBeenSentSuccessfully{return "code has been sent successfully".tr;}
+static String get welcomeToRihlatic{return "welcome to rihlatic".tr;}
+static String get hello{return "hello".tr;}
 }
