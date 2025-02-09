@@ -80,6 +80,7 @@ static String get bookYourTrip{return "Book your trip".tr;}
 static String get selectYourTripDate{return "Select your trip date".tr;}
 static String get adult{return "Adult".tr;}
 static String get child{return "Child".tr;}
+static String get childWithoutBed{return "Child without bed".tr;}
 static String get infant{return "Infant".tr;}
 static String get ageOfChild1{return "Age of Child 1".tr;}
 static String get enterAgeHere{return "Enter age here".tr;}
@@ -88,6 +89,20 @@ static String get rooms{return "Rooms".tr;}
 static String get addRoom{return "Add room".tr;}
 static String get removeRoom{return "Remove room".tr;}
 static String get enterAdditionalNotes{return "Enter additional notes".tr;}
+static String get passengerInformation{return "Passenger information".tr;}
+static String get firstName{return "First name".tr;}
+static String get enterFirstName{return "Enter first name".tr;}
+static String get lastName{return "Last name".tr;}
+static String get enterLastName{return "Enter last name".tr;}
+static String get enterEmail{return "Enter email".tr;}
+static String get phone{return "Phone".tr;}
+static String get enterPhone{return "Enter phone".tr;}
+static String get passportNumber{return "Passport number".tr;}
+static String get enterPassportNumber{return "Enter passport number".tr;}
+static String get passportExpiry{return "Passport expiry".tr;}
+static String get enterPassportExpiry{return "Enter passport expiry".tr;}
+static String get birthDate{return "Birth date".tr;}
+static String get enterBirthDate{return "Enter birth date".tr;}
 static String get passwordConfirmation{return "password confirmation".tr;}
 static String get createNewAccount{return "create new account".tr;}
 static String get createNewAccountDescription{return "create new account description".tr;}
@@ -99,4 +114,6 @@ static String get signInDescription{return "sign in description".tr;}
 static String get youDidntReceiveTheCode{return "you didnt receive the code".tr;}
 static String get resend{return "resend".tr;}
 static String get codeHasBeenSentSuccessfully{return "code has been sent successfully".tr;}
+static String get welcomeToRihlatic{return "welcome to rihlatic".tr;}
+static String get hello{return "hello".tr;}
 }

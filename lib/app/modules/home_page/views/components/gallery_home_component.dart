@@ -24,34 +24,38 @@ class _HotelDetailsGalleryComponentState extends State<GalleryHomeComponent> {
         Container(
           height: 265.h,
           width: double.infinity,
-          margin: EdgeInsets.symmetric(horizontal: 20.w),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20.r),
-            child: CarouselSlider(
-              options: CarouselOptions(
-                height: 400.h,
-                viewportFraction: 1,
-                autoPlay: true,
-                autoPlayInterval: const Duration(seconds: 4),
-                onPageChanged: (index, controller) {
-                  setState(() {
-                    currentPageIndex = index;
-                  });
-                },
-              ),
-              items: [1, 2, 3, 4, 5].map((i) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(20.r),
-                  child: Container(
-                      width: double.infinity,
-                      decoration: const BoxDecoration(color: Colors.amber),
+          //margin: EdgeInsets.symmetric(horizontal: 20.w),
+          child: CarouselSlider(
+            options: CarouselOptions(
+              height: 400.h,
+              viewportFraction: 1,
+              autoPlay: true,
+              autoPlayInterval: const Duration(seconds: 4),
+              onPageChanged: (index, controller) {
+                setState(() {
+                  currentPageIndex = index;
+                });
+              },
+            ),
+            items: [1, 2, 3, 4, 5].map((i) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(20.r),
+                child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 20.w),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: MainColors.inputColor(context),
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.r),
                       child: const NetworkImageComponent(
                         imageLink:
                             'https://www.cvent.com/sites/default/files/image/2021-10/hotel%20room%20with%20beachfront%20view.jpg',
-                      )),
-                );
-              }).toList(),
-            ),
+                      ),
+                    )),
+              );
+            }).toList(),
           ),
         ),
         PositionedDirectional(

@@ -3,7 +3,7 @@ class EndPointsConstants {
 
   //auth provider
   static const String register = '/front/user/register';
-  static const String login = '/front/user/login';
+  static const String login = '/front/login';
   static const String logout = '/front/logout';
   static const String me = '/front/me';
   static const String changePassword = '/front/me/details/auth';
@@ -15,7 +15,7 @@ class EndPointsConstants {
   static const String packages = '/front/packages';
   static const String omra = '/front/omra';
   static const String bookPackage = '/front/package/bookings';
-  static const String bookOmra = '/front/omra/bookings';
+  static const String bookOmra = '/front/omras/bookings';
   static const String resendOtp = '/front/email/resend_code';
 
   //config provider

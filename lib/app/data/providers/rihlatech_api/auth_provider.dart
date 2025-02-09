@@ -65,7 +65,7 @@ class AuthProvider {
   }) async {
     DeviceInfoModel? deviceInfo = await DeviceInfoService.getDeviceInfo();
     ApiResponse? response = await HttpClientService.sendRequest(
-      endPoint: EndPointsConstants.register,
+      endPoint: EndPointsConstants.login,
       requestType: HttpRequestTypes.post,
       showErrorToast: true,
       data: {

@@ -11,11 +11,13 @@ class AddQuantityComponent extends StatelessWidget {
     required this.changeSelectedProductQuantity,
     required this.minval,
     required this.initval,
+    required this.maxval, // Added maxval as a parameter
   });
 
   final int productQuantity;
   final int minval;
   final int initval;
+  final int maxval; // maxval to be passed
   final Function(int) changeSelectedProductQuantity;
 
   @override
@@ -42,7 +44,7 @@ class AddQuantityComponent extends StatelessWidget {
                   ),
                   initVal: initval,
                   minVal: minval,
-                  maxVal: 50,
+                  maxVal: maxval, // Dynamic maxval
                   steps: 1,
                   onQtyChanged: (val) {
                     debugPrint('Quantity changed: $val');
